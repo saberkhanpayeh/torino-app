@@ -10,7 +10,10 @@
       "@/components/module/*":["src/components/module/*"],
       "@/components/template/*":["src/components/template/*"],
       "@/components/icons/*":["src/components/icons/*"],
+      "@/components/element/*":["src/components/element/*"],
       "@/utils/*":["src/utils/*"],
+      "@/config/*":["src/config/*"],
+      "@/services/*":["src/services/*"]
     }
   }
 }

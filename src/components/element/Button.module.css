@@ -1,0 +1,11 @@
+.btn{
+    font-family: var(--font-vazirmatn-numbers);
+    font-size: 18px;
+    font-weight: 500;
+    color:#FFFFFF;
+    background-color:#28A745;
+    width: 491px;
+    height: 54px;
+    border:1px solid #00000040;
+    border-radius: 6px;
+}

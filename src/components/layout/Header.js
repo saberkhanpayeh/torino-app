@@ -1,17 +1,20 @@
+"use client";
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import Profile from '@/components/icons/Profile'
+import SiteLogo from '@/components/element/SiteLogo'
+import styles from "@/components/layout/Header.module.css"
+import { useRouter } from 'next/navigation';
 
 
 function Header() {
-  return (
-    <header>
-        <div>
-            <button>ورود | ثبت نام<Profile/></button>
-
-        </div>
-        <div>
+    const router=useRouter();
+    return(
+    <header className={styles.header}>
+        <div className={styles.container}>
+        <div className={styles.navbar}>
+            <Link href="/"><SiteLogo/></Link>
             <nav>
                 <ul>
                     <li><Link href="">صفحه اصلی</Link></li>
@@ -19,11 +22,16 @@ function Header() {
                     <li><Link href="">درباره ما</Link></li>
                     <li><Link href="">تماس باما</Link></li>
                 </ul>
-                <Link href="/"><Image src="/images/torino-logo.png" width={146} height={44}alt="torino-logo"/></Link>
             </nav>
         </div>
+        <div className={styles.loginBtn}>
+            <button onClick={()=>router.push("/login")}><Profile/><span>ورود |  ثبت نام</span></button>
+            <Link href="/login">login</Link>
+        </div>
+        </div>
+
     </header>
-  )
+  );
 }
 
 export default Header

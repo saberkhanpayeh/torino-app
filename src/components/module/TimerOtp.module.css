@@ -1,0 +1,13 @@
+.container{
+    margin-top: 16px;
+    margin-bottom: 27px;
+}
+.container span{
+    font-family: var(--font-yekan-bakh);
+font-weight: 300;
+font-size: 12px;
+color: #282828;
+}
+.container .number{
+    font-family: var(--font-vazirmatn-numbers);
+}

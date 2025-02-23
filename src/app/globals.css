@@ -50,7 +50,8 @@ html,
 body {
   max-width:1440px;
   margin: auto;
-  font-family:var(--font-vazirmatn-numbers);
+  font-family:var(--font-yekan-bakh);
+  font-weight: 400;
 
 }
 
@@ -66,4 +67,7 @@ button,input,textarea{
 }
 ul{
   list-style-type: none;
+}
+button{
+  cursor: pointer;
 }
