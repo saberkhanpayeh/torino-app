@@ -7,12 +7,14 @@ import Button from "@/components/element/Button";
 import TimerOtp from "./TimerOtp";
 import BackArrow from "@/components/icons/BackArrow";
 import { checkOtpCode, sendOtpCode } from "@/services/auth";
+import { getFromLocalStorage, saveToLocalStorage } from "@/utils/localstorage";
 
 function CheckOtpModal({ otpCode, setOtpCode, phone, setModalState }) {
   const [input, setInput] = useState();
   const [hasError, setHasError] = useState(false);
   const [timer, setTimer] = useState({ minutes: 0, second: 0, stop: false });
   const [resetTimer, setResetTimer] = useState(false);
+
   useEffect(() => {
     // setResetTimer(resetTimer=>!resetTimer);
     setTimer((timer) => ({ ...timer, stop: false }));
@@ -27,6 +29,8 @@ function CheckOtpModal({ otpCode, setOtpCode, phone, setModalState }) {
       const {response,error}=await checkOtpCode(data);
       if(response){
         console.log(response);
+        saveToLocalStorage(phone);
+
       }
       if(error){
         console.log(error?.response?.data.messaage);

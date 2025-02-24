@@ -5,11 +5,12 @@
 .container{
     width: calc(100% - 252px);
     margin: auto;
-    /* background-color: antiquewhite; */
+    background-color: antiquewhite;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 0;
+    position: relative;
 }
 .container .navbar{
     display: flex;
@@ -55,6 +56,89 @@
     font-size: 18px;
     line-height: 28.13px;
     color: #28A745;
+}
+
+.userInfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+.userInfo p{
+    font-family: var(--font-vazirmatn-numbers);
+    font-weight: 500;
+    font-size: 18px;
+    color: #28A745;
+    cursor: pointer;
+}
+.userInfo svg{
+    display: block;
+}
+.userMenue{
+position: absolute;
+left: -40px;
+top:69px;
+background-color: #fff;
+width: 246px;
+border-radius: 11px;
+display:  flex;
+flex-direction: column;
+outline: none;
+/* padding: 0 12px; */
+/* border: 1px solid black; */
+
+}
+.userMenue li{
+    width: 100%;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    /* background-color: blueviolet; */
+}
+.userMenue li:nth-last-child(1){
+    color:#D40000;
+    position: relative;
+}
+.userMenue li:nth-last-child(1)::after{
+    content: "";
+    position: absolute;
+    top:0;
+    left: 12px;
+    width: 90.24%; /* طول دلخواه */
+    height: 1px;
+    background: #0000001F;
+}
+.userMenue li span{
+    display: inline-block;
+    width: 24px;
+    height:24px;
+    background-color: #D9D9D9;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 12px;
+}
+
+.userMenue li p{
+    margin-right: 8px;
+}
+.userMenue li:nth-child(1){
+    font-family: var(--font-vazirmatn-numbers);
+    font-weight: 500;
+    font-size: 16px;
+    color: #10411B;
+}
+.userMenue li:nth-child(2),.userMenue li:nth-child(3){
+font-family: var(--font-yekan-bakh);
+font-weight: 300;
+font-size: 14px;
+}
+.userMenue li:nth-child(2) svg,.userMenue li:nth-child(3) svg{
+    margin-right: 12px;
+}
+.userMenue li:hover{
+    background-color:#F4F4F4;
 }
 /* .loginBtn button.clicked{
     opacity: 0;

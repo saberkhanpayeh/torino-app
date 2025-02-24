@@ -8,6 +8,7 @@ import Button from "@/components/element/Button";
 import Close from "@/components/icons/Close";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { saveToLocalStorage } from "@/utils/localstorage";
 function SendOtpModal({ setModalState, setPhone }) {
   //   useEffect(() => {
   //     otpExpireTimer();
@@ -24,12 +25,14 @@ function SendOtpModal({ setModalState, setPhone }) {
     if (response) {
       setPhone(data);
       setModalState("CheckOtpModal");
+      saveToLocalStorage(data);
     }
     if (error) {
       console.log(error?.response?.data.messaage);
     }
   };
   const closeHandler = () => {
+   // localStorage.clear();
     setModalState("");
     router.push("/");
   };
