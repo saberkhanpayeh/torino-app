@@ -26,5 +26,12 @@ const vazirmatnNumbers=localFont({
      ],
      variable:"--font-vazirmatn-numbers",
      display:"swap",
+});
+const iransans=localFont({
+    src:[
+        {path:"../../public/fonts/IRANSansWeb.woff2",weight:"400",style:"normal"},
+    ],
+    variable:"--font-iransans",
+    display:"swap",
 })
-export{yekanBakh,vazirmatn,vazirmatnNumbers};
+export{yekanBakh,vazirmatn,vazirmatnNumbers,iransans};

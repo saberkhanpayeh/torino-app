@@ -1,4 +1,4 @@
-import { vazirmatn, vazirmatnNumbers, yekanBakh } from "@/utils/fonts";
+import { iransans, vazirmatn, vazirmatnNumbers, yekanBakh } from "@/utils/fonts";
 import "./globals.css";
 import localFont from "next/font/local";
 import Header from "@/components/layout/Header";
@@ -22,7 +22,7 @@ export default function RootLayout({ children,auth }) {
     <html
       lang="fa"
       dir="rtl"
-      className={`${yekanBakh.variable} ${vazirmatn.variable} ${vazirmatnNumbers.variable}`}
+      className={`${yekanBakh.variable} ${vazirmatn.variable} ${vazirmatnNumbers.variable} ${iransans.variable}`}
     >
       <body>
         <Layout>{children}{auth??null}</Layout>
