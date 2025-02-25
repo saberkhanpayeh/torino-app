@@ -1,0 +1,16 @@
+.container{
+    padding-top: 350px;
+}
+.container h2{
+    margin-top: 17px;
+    font-family: var(--font-yekan-bakh);
+    font-weight: 500;
+    font-size: 28px;
+    color: #595959;
+    line-height: 43.5px;
+    text-align: center;
+
+}
+.container h2 span{
+    color: #28A745;
+}

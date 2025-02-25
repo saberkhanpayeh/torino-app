@@ -2,4 +2,5 @@
     background-color: pink;
     width: calc(100% - 252px);
     margin: 0 auto;
+    position: relative;
 }
