@@ -2,6 +2,7 @@ import { convertMiladiToJalali, getPeriodTour } from "@/utils/convertDate";
 import Image from "next/image";
 import React from "react";
 import styles from "@/components/module/Tours.module.css"
+import Link from "next/link";
 function Tours({ data }) {
   console.log(data);
   return (
@@ -33,7 +34,7 @@ const TourItem = ({ tour }) => {
           <p>{`${monthName} ماه . ${periodTour} روزه - پرواز - هتل 5س...`}</p>
         </div>
         <div className={styles.bottom}>
-          <button>رزرو</button>
+          <Link href={`/tours/${tour.id}`}>رزرو</Link>
           <p>
             <span>{price.toLocaleString()}</span>تومان
           </p>

@@ -11,6 +11,8 @@
       "@/components/template/*":["src/components/template/*"],
       "@/components/icons/*":["src/components/icons/*"],
       "@/components/element/*":["src/components/element/*"],
+      "@/components/partials/*":["src/components/partials/*"],
+      "@/components/partials/container/*":["src/components/partials/container/*"],
       "@/utils/*":["src/utils/*"],
       "@/config/*":["src/config/*"],
       "@/services/*":["src/services/*"]

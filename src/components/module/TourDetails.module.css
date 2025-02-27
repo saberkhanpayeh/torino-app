@@ -1,0 +1,124 @@
+.container{
+    margin-top: 36px;
+    margin-bottom: 99px;
+    width: 1188px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 29px 20px 20px 24px;
+    background-color: #fff;
+    /* background-color: aquamarine; */
+    border: 1px solid #00000033;
+    border-radius: 10px;
+}
+.top{
+    width: 100%;
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+}
+
+.top h2{
+    word-spacing: 6px;
+  font-family: var(--font-yekan-bakh);
+  font-weight: 600;
+  font-size: 32px;
+  color: #000000;
+  margin-bottom: 16px;
+}
+.top p{
+    font-family: var(--font-vazirmatn-numbers);
+    font-weight: 300;
+    font-size: 20px;
+    color: #282828;
+    margin-bottom: 24px;
+}
+.content{
+    width: 100%;
+    /* background-color: antiquewhite; */
+    align-self: flex-start;
+    margin-right: 24px;
+}
+.content ul{
+    display: flex;
+    align-items: center;
+    /* background-color: palevioletred; */
+    gap:24px;
+}
+.content ul li{
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+.container ul li{
+    font-family: var(--font-yekan-bakh);
+    font-weight: 300;
+    font-size: 20px;
+    color: #7D7D7D;
+
+}
+
+.btnContainer{
+    /* width: 100%; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 26px;
+    background-color: blueviolet;
+}
+.btnContainer p{
+    font-family: var(--font-vazirmatn-numbers);
+    font-weight: 400;
+    font-size: 14px;
+    margin:0;
+}
+.btnContainer span{
+    font-size: 28px;
+    font-weight: 500;
+    color: #009eca;
+    margin-left: 8px;
+}
+.footer{
+    width: 100%;
+    /* background-color: bisque; */
+    display: flex;
+    align-items: center;
+    margin-top: 29px;
+}
+.footer li{
+    padding: 0 41px 10px 43px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-left:1px solid #00000040;
+}
+.footer li:nth-last-child(1){
+    border-left: none;
+}
+.footer li div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 0 8px 8px;
+    gap: 8px;
+}
+.footer li span{
+    font-family: var(--font-vazirmatn-numbers);
+    font-weight: 400;
+    font-size: 18px;
+    color: #444444;
+    display: inline-block;
+    width: 100%;
+}
+.footer li p{
+    width: 100%;
+    font-family: var(--font-vazirmatn-numbers);
+    font-weight: 500;
+    font-size: 16px;
+    color: #000;
+    text-align: center;
+}

@@ -1,0 +1,9 @@
+.wrapper{
+    position: absolute;
+    background-color: #f3f3f3;
+    width: 1440px;
+    min-height: inherit;
+    left: -126px;
+    display: flex;
+    justify-content: center;
+}

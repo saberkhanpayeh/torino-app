@@ -3,4 +3,5 @@
     width: calc(100% - 252px);
     margin: 0 auto;
     position: relative;
+    min-height: 562px;
 }
