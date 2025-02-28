@@ -8,6 +8,7 @@ import TimerOtp from "./TimerOtp";
 import BackArrow from "@/components/icons/BackArrow";
 import { checkOtpCode, sendOtpCode } from "@/services/auth";
 import { getFromLocalStorage, saveToLocalStorage } from "@/utils/localstorage";
+import { setCookie } from "@/utils/cookie";
 
 function CheckOtpModal({ otpCode, setOtpCode, phone, setModalState }) {
   const [input, setInput] = useState();
@@ -28,8 +29,11 @@ function CheckOtpModal({ otpCode, setOtpCode, phone, setModalState }) {
       const data={...phone,code:enteredOtp};
       const {response,error}=await checkOtpCode(data);
       if(response){
-        console.log(response);
+        // console.log(response);
         saveToLocalStorage(phone);
+        // console.log(response?.data);
+        setCookie(response?.data);
+
 
       }
       if(error){

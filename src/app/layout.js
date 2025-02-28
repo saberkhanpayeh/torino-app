@@ -4,6 +4,8 @@ import localFont from "next/font/local";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Layout from "@/components/layout/Layout";
+import ReactQueryProvider from "@/components/partials/provider/ReactQueryProvider";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 //yekan bakh 400
 //yekan bakh 600
 //vazir FD-WOL 400
@@ -25,7 +27,10 @@ export default function RootLayout({ children,auth }) {
       className={`${yekanBakh.variable} ${vazirmatn.variable} ${vazirmatnNumbers.variable} ${iransans.variable}`}
     >
       <body>
+        <ReactQueryProvider>
         <Layout>{children}{auth??null}</Layout>
+        <ReactQueryDevtools/>
+        </ReactQueryProvider>
       </body>
     </html>
   );

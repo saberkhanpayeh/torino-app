@@ -1,0 +1,166 @@
+.container{
+    width: 872px;
+    background-color:#fff;
+
+}
+.accountInfo h3{
+    /* margin-bottom: 28px; */
+}
+.accountInfo .accountContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.accountInfo .accountContainer ul{
+    width: 100%;
+}
+.btnAccount{
+    margin-top: 28px;
+}
+.accountContainer .btnAccount a{
+    display: flex;
+    align-items: center;
+    margin-left: 41px;
+}
+.accountContainer .btnAccount svg,.btn svg{
+    margin-left: 8px;
+}
+.accountContainer .btnAccount span,.btn span{
+    font-family: var(--font-yekan-bakh);
+    font-weight: 300;
+    font-size: 14px;
+    color: #009ECA;
+}
+/* /////////////////////////////////////////////.personalInfo,.bankInfo */
+.personalInfo > div,.bankInfo > div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-bottom: 28px; */
+}
+.personalInfo .btn a,.bankInfo .btn a{
+    display: flex;
+    align-items: center;
+}
+
+/* .personalInfo ul li,.bankInfo ul li,.accountInfo ul li{
+    width: 50%;
+    display: flex;
+    background-color: blueviolet;
+
+} */
+
+/* .personalInfo h3,.bankInfo h3,.accountInfo h3{
+ font-family: var(--font-yekan-bakh);
+ font-weight: 400;
+ font-size: 16px;
+ color: #000;
+} */
+
+/* .personalInfo .itemName,.bankInfo .itemName,.accountInfo .itemName{
+    font-family: var(--font-yekan-bakh);
+    font-weight: 300;
+    font-size: 14px;
+    color: #000;
+    text-align: right;
+      flex-basis: 0;
+    flex-grow: 1;
+   } */
+  
+ /* .personalInfo  .itemValue,.bankInfo .itemValue,.accountInfo .itemValue{
+    flex-grow: 2.5 !important;
+    font-family: var(--font-yekan-bakh);
+    font-weight: 500;
+    font-size: 14px;
+    color:#282828;
+    text-align: right;
+    }  */
+    
+   /* ////////////////////////////////////////////////////////////////////////////// */
+
+.container > div{
+    /* background-color:bisque; */
+    padding: 12px 12px 34px 16px;
+    border:1px solid #00000033;
+    border-radius: 10px;
+    margin-bottom: 24px;
+}
+.container > div ul{
+
+    display: flex;
+    flex-wrap: wrap;
+    /* background-color: aquamarine; */
+    align-items: center;
+    justify-content: center;
+
+}
+
+.container > div ul li{
+    width: 50%;
+    display: flex;
+    margin-top: 28px;
+    /* background-color: blueviolet; */
+
+}
+.container > div h3{
+ font-family: var(--font-yekan-bakh);
+ font-weight: 400;
+ font-size: 16px;
+ color: #000;
+}
+.container ul li .itemName{
+    font-family: var(--font-yekan-bakh);
+    font-weight: 300;
+    font-size: 14px;
+    color: #000;
+    text-align: right;
+      flex-basis: 0;
+    flex-grow: 1;
+   }
+  
+ .container ul li .itemValue{
+    flex-grow: 2.5 !important;
+    font-family: var(--font-yekan-bakh);
+    font-weight: 500;
+    font-size: 14px;
+    color:#282828;
+    text-align: right;
+    } 
+    
+    /* ////. .accountInfo /////////////////////////////////////// */
+    .accountInfo ul li:nth-child(1) {
+        width: 55%;
+        }
+       .accountInfo ul li:nth-child(2){
+        width: 40%;
+       } 
+    .accountInfo ul li:nth-child(1) .itemValue{
+        flex-grow: 3 !important;
+        }
+       .accountInfo ul li:nth-child(2) .itemValue{
+        flex-grow: 2 !important;
+       } 
+    /* // .personalInfo ///////////////////////////////////// */
+    .personalInfo ul li:nth-child(2) .itemValue{
+    flex-grow: 4 !important;
+    }
+   .personalInfo ul li:nth-last-child(1) .itemValue{
+    flex-grow: 4 !important;
+   } 
+  /* .bankInfo///////////////////////////////////////////// */
+   .bankInfo .itemName{
+    flex-grow: 2 !important;
+   }
+   .bankInfo .itemValue{
+    flex-grow: 3 !important;
+    } 
+    .bankInfo ul li:nth-child(3) .itemValue{
+        flex-grow: 4.2 !important;
+    }
+    .bankInfo ul li:nth-child(2) .itemValue{
+    flex-grow: 6 !important;
+    }
+   .bankInfo ul li:nth-last-child(1) .itemValue{
+    flex-grow: 6 !important;
+   } 
+   /* ///////////////////////////////////////////////////////////// */
