@@ -1,15 +1,15 @@
 import React from "react";
 import UserSidebar from "../module/UserSidebar";
-import ProfileInfo from "../module/ProfileInfo";
-import styles from "@/components/template/ProfilePage.module.css"
+import EditProfile from "../module/EditProfile";
 import PageLayout from "../partials/container/PageLayout";
-function ProfilePage() {
+
+function EditProfilePage() {
   return (
     <PageLayout>
       <UserSidebar />
-      <ProfileInfo/>
+      <EditProfile />
     </PageLayout>
   );
 }
 
-export default ProfilePage;
+export default EditProfilePage;

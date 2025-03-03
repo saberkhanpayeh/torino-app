@@ -17,7 +17,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.54.2",
-    "react18-input-otp": "^1.1.4"
+    "react18-input-otp": "^1.1.4",
+    "zaman": "^2.1.1"
   },
   "devDependencies": {
     "eslint": "^8",

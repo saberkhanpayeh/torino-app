@@ -71,3 +71,34 @@ ul{
 button{
   cursor: pointer;
 }
+
+.zaman-calendar {
+  background-color: #f0f0f0 !important; /* پس‌زمینه تقویم */
+  border-radius: 10px !important;        /* گوشه‌های گرد */
+}
+
+.zaman-calendar .zaman-day {
+  color: #FF5733 !important; /* رنگ روزها */
+}
+
+.zaman-calendar .zaman-day:hover {
+  background-color: #ddd !important; /* پس‌زمینه روزها در زمان hover */
+}
+.zm-IconNextButton{
+  
+}
+.zm-IconPrevButton{
+  
+}
+.zm-Header{
+  
+}
+.zm-DaysButton{
+  
+}
+.zm-MonthPickerButton{
+  
+}
+.zm-YearPickerButton{
+  
+}

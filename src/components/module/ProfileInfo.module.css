@@ -1,6 +1,7 @@
 .container{
     width: 872px;
     background-color:#fff;
+    margin-bottom: 24px;
 
 }
 .accountInfo h3{
@@ -119,9 +120,9 @@
    }
   
  .container ul li .itemValue{
-    flex-grow: 2.5 !important;
-    font-family: var(--font-yekan-bakh);
-    font-weight: 500;
+    flex-grow: 2.5;
+    font-family: var(--font-vazirmatn-numbers);
+    font-weight: 400;
     font-size: 14px;
     color:#282828;
     text-align: right;
@@ -152,7 +153,7 @@
     flex-grow: 2 !important;
    }
    .bankInfo .itemValue{
-    flex-grow: 3 !important;
+    flex-grow: 4.2 !important;
     } 
     .bankInfo ul li:nth-child(3) .itemValue{
         flex-grow: 4.2 !important;

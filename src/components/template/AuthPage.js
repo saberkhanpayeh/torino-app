@@ -10,11 +10,17 @@ function AuthPage() {
   const [otpCode, setOtpCode] = useState("");
   const pathname = usePathname();
   useEffect(() => {
-    if (pathname === "/login") setModalState("SendOtpModal");
+    if (pathname === "/login") {
+      setModalState("SendOtpModal");
+    //   document.body.style.overflow = "hidden";
+    //   return () => {
+    //     document.body.style.overflow = "auto";
+    // };
+    }
   }, [pathname]);
   console.log(phone);
   return (
-    <div>
+    <>
       {modalState === "SendOtpModal" && (
         <SendOtpModal setModalState={setModalState} setPhone={setPhone} />
       )}
@@ -26,7 +32,7 @@ function AuthPage() {
           setModalState={setModalState}
         />
       )}
-    </div>
+    </>
   );
 }
 

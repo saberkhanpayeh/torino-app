@@ -1,0 +1,34 @@
+
+.inputWrapper {
+    position: relative;
+    /* background-color: #007bff; */
+  }
+  
+  .dateInput {
+    width: 100%;
+    padding-right: 30px !important ;
+    cursor: pointer;
+  }
+  .calendarIcon{
+    width: 14px;
+    height:14px;
+    position: absolute;
+    right: 8px;
+    top:50%;
+    transform: translateY(-50%);
+  }
+/*   
+  .dateInput:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.3);
+  } */
+  
+  /* .datepickerOverlay{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    opacity: 0;  مخفی کردن تاریخ‌گیر تا کلیک 
+    background-color: pink;
+  } */

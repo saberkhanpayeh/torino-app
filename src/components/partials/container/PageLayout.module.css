@@ -1,0 +1,7 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 37px;
+    /* background-color: burlywood; */
+}

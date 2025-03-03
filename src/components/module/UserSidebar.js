@@ -10,7 +10,7 @@ import IconGenerator from "../partials/container/IconGenerator";
 const routes = [
   { id: 1, title: "پروفایل", route: "profile" },
   { id: 2, title: "تور های من", route: "my-tours" },
-  { id: 3, title: "تراکنش ها", route: "truncates" },
+  { id: 3, title: "تراکنش ها", route: "transactions" },
 ];
 
 function UserSidebar() {
@@ -19,6 +19,11 @@ function UserSidebar() {
   const [selected, setSelected] = useState("");
 
   useEffect(() => {
+    // console.log(pathname);
+    if(pathname==="/edit-profile")
+      {setSelected("profile");
+        return;
+      }
     const newPathname = pathname.replace("/", "");
     setSelected(newPathname);
   }, [pathname]);
