@@ -9,12 +9,17 @@ import BackArrow from "@/components/icons/BackArrow";
 import { checkOtpCode, sendOtpCode } from "@/services/auth";
 import { getFromLocalStorage, saveToLocalStorage } from "@/utils/localstorage";
 import { setCookie } from "@/utils/cookie";
+import { useCheckOtp, useSendOtp } from "@/services/mutations";
+import { useRouter } from "next/navigation";
 
 function CheckOtpModal({ otpCode, setOtpCode, phone, setModalState }) {
+  const router=useRouter()
   const [input, setInput] = useState();
   const [hasError, setHasError] = useState(false);
   const [timer, setTimer] = useState({ minutes: 0, second: 0, stop: false });
   const [resetTimer, setResetTimer] = useState(false);
+  const { isPending: checkOtpPending, mutate: mutateCheck, } = useCheckOtp();
+  const { isPending: sendOtpPending, mutate: mutateSend } = useSendOtp();
 
   useEffect(() => {
     // setResetTimer(resetTimer=>!resetTimer);
@@ -23,35 +28,51 @@ function CheckOtpModal({ otpCode, setOtpCode, phone, setModalState }) {
   }, [resetTimer]);
   // console.log({ timer });
   // console.log(phone);
-  const otpHandler = async(enteredOtp) => {
+  const otpHandler = async (enteredOtp) => {
     setInput(enteredOtp);
     if (enteredOtp.length === 6) {
-      const data={...phone,code:enteredOtp};
-      const {response,error}=await checkOtpCode(data);
-      if(response){
-        // console.log(response);
-        saveToLocalStorage(phone);
-        // console.log(response?.data);
-        setCookie(response?.data);
-
-
-      }
-      if(error){
-        console.log(error?.response?.data.messaage);
-      }
+      const data = { ...phone, code: enteredOtp };
+      if (checkOtpPending) return;
+      mutateCheck(data, {
+        onSuccess: (data) => {
+          console.log(data);
+          setCookie("accessToken", data?.data?.accessToken, 30);
+          setCookie("refreshToken", data?.data?.refrehToken, 365);
+          saveToLocalStorage(phone);
+          setModalState("");
+          router.push("/profile");
+        },
+        onError: (error) => {
+          console.log(error?.message);
+        },
+      });
+      // if(response){
+      //   saveToLocalStorage(phone);
+      //   setCookie("accessToken",response?.data?.accessToken,30);
+      //   setCookie("refreshToken",response.data.refreshToken,365);
+      // }
     }
-
   };
-  const resendHandler = async(mobile) => {
+  const resendHandler = async (mobile) => {
+    setInput("");
     setResetTimer((resetTimer) => !resetTimer);
-    const { response, error } = await sendOtpCode(mobile);
-    if (error) {
-      console.log(error?.response?.data.messaage);
-    }
+    if(sendOtpPending)return;
+    mutateSend(mobile, {
+      onSuccess: (data) => {
+        //toast send code
+      },
+      onError:(error)=>{
+        //toast error
+        console.log(error?.messaage);
+      }
+    });
   };
   const backHandler = () => {
     setModalState("SendOtpModal");
   };
+  const loginHandler=()=>{
+
+  }
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -75,9 +96,9 @@ function CheckOtpModal({ otpCode, setOtpCode, phone, setModalState }) {
         />
         <TimerOtp timer={timer} />
         {!timer.stop ? (
-          <Button>ورود به تورینو</Button>
+         <Button onClick={loginHandler}>{checkOtpPending ?"...ورود":"ورود به تورینو"}</Button>
         ) : (
-          <Button onClick={()=>resendHandler(phone)}>ارسال مجدد کد</Button>
+          <Button onClick={() => resendHandler(phone)}>ارسال مجدد کد</Button>
         )}
       </div>
     </div>

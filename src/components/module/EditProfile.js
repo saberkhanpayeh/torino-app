@@ -200,7 +200,7 @@ function EditProfile() {
           >
             تایید
           </button>
-          <button>انصراف</button>
+          <button onClick={()=>router.push("/profile")}>انصراف</button>
         </div>
       </div>
       <div className={section==="creaditInfo"? `${styles.bank}`:`${styles.bank} ${styles.disable}`}>
@@ -237,7 +237,7 @@ function EditProfile() {
           >
             تایید
           </button>
-          <button>انصراف</button>
+          <button onClick={()=>router.push("/profile")}>انصراف</button>
         </div>
       </div>
     </div>

@@ -11,7 +11,7 @@ api.interceptors.request.use(
   (request) => {
     const accessToken = getCookie("accessToken");
     if (accessToken) {
-      request.headers["Authorization"] = `bearer ${accessToken}`;
+      request.headers["Authorization"] = `Bearer ${accessToken}`;
     }
     return request;
   },
@@ -27,11 +27,16 @@ api.interceptors.response.use((response) => {
   if(error.response.status===401 && !originalRequest._retry){
     originalRequest._retry=true;
     const res=await getNewTokens();
-    if(!res?.response) return;
-    setCookie(res.response.data);
-    return api(originalRequest);
-    
+    if(res?.response?.status===200) {
+      setCookie("accessToken",res?.response?.data?.accessToken,30);
+      return api(originalRequest);
+    }
+    else{
+      setCookie("accessToken","",0);
+      setCookie("refreshToken","",0);
+    }
   }
+  return Promise.reject(error?.response?.data);
 });
 
 export default api;

@@ -9,7 +9,9 @@ import Close from "@/components/icons/Close";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { saveToLocalStorage } from "@/utils/localstorage";
+import { useSendOtp } from "@/services/mutations";
 function SendOtpModal({ setModalState, setPhone }) {
+  const { isPending, mutate } = useSendOtp();
   //   useEffect(() => {
   //     otpExpireTimer();
   //   }, []);
@@ -21,18 +23,19 @@ function SendOtpModal({ setModalState, setPhone }) {
   } = useForm();
   const onSubmit = async (data) => {
     console.log(data);
-    const { response, error } = await sendOtpCode(data);
-    if (response) {
-      setPhone(data);
-      setModalState("CheckOtpModal");
-      saveToLocalStorage(data);
-    }
-    if (error) {
-      console.log(error?.response?.data.messaage);
-    }
+    if (isPending) return;
+    mutate(data, {
+      onSuccess: () => {
+        setPhone(data);
+        setModalState("CheckOtpModal");
+      },
+      onError:(error)=>{
+        console.log(error?.messaage);
+      }
+    });
   };
   const closeHandler = () => {
-   // localStorage.clear();
+    // localStorage.clear();
     setModalState("");
     router.push("/");
   };

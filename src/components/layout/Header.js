@@ -11,6 +11,7 @@ import DownArrow from "@/components/icons/DownArrow";
 import ProfileBold from "../icons/ProfileBold";
 import ProfileBlank from "../icons/ProfileBlank";
 import Logout from "../icons/Logout";
+import { setCookie } from "@/utils/cookie";
 
 function Header() {
   const [isLogin, setIsLogin] = useState(false);
@@ -20,7 +21,7 @@ function Header() {
   const pathname = usePathname();
   const router = useRouter();
   useEffect(() => {
-    if (pathname === "/") {
+    
       const data = getFromLocalStorage("mobile");
       if (data) {
         setUserPhone(data);
@@ -28,13 +29,22 @@ function Header() {
       } else {
         setIsLogin(false);
       }
-    }
   }, [pathname]);
   useEffect(() => {
     if (menue && menueRef.current) {
       menueRef.current.focus(); // setFoucos when menue is open
     }
   }, [menue]);
+  const logoutHandler=()=>{
+    localStorage.clear();
+    setCookie("accessToken","",0);
+    setCookie("refreshToken","",0);
+    router.push("/");
+  }
+  const profileHandler=()=>{
+    router.push("/profile");
+    setMenue((menue)=>!menue);
+  }
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -74,10 +84,9 @@ function Header() {
               <Profile />
               <span>ورود | ثبت نام</span>
             </button>
-            <Link href="/login">login</Link>
           </div>
         )}
-        {menue && (
+        {menue && isLogin && (
           <ul
             className={styles.userMenue}
             ref={menueRef}
@@ -90,13 +99,13 @@ function Header() {
               </span>
               <p>{userPhone}</p>
             </li>
-            <li>
-              <ProfileBlank />
-              <p>اطلاعات حساب کاربری</p>
+            <li onClick={profileHandler}>
+                <ProfileBlank />
+                <p>اطلاعات حساب کاربری</p>
             </li>
-            <li>
-              <Logout />
-              <p>خروج از حساب کاربری</p>
+            <li onClick={logoutHandler}>
+                <Logout />
+                <p>خروج از حساب کاربری</p>
             </li>
           </ul>
         )}

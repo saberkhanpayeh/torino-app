@@ -1,5 +1,5 @@
 import api from "@/config/api";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueries, useQueryClient } from "@tanstack/react-query";
 
 const useEditProfile = () => {
     const sendData = (data) => {
@@ -14,4 +14,14 @@ const useEditProfile = () => {
     };
     return useMutation(sendData); 
   }
-export { useEditProfile };
+const useSendOtp=()=>{
+    const sendData=(data)=>{
+        return api.post("auth/send-otp",data);
+    }
+    return useMutation(sendData);
+}
+const useCheckOtp=()=>{
+    const sendData=(data)=>api.post("auth/check-otp",data);
+    return useMutation(sendData);
+}
+export { useEditProfile,useCheckOtp,useSendOtp };

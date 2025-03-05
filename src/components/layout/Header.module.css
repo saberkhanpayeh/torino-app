@@ -49,6 +49,7 @@
     width: 24px;
     height: 24px;
     margin-left: 4px;
+    fill:#28A745;
 }
 .loginBtn span{
     font-family: var(--font-vazirmatn-numbers);
@@ -73,6 +74,7 @@
 }
 .userInfo svg{
     display: block;
+    
 }
 .userMenue{
 position: absolute;
@@ -94,6 +96,7 @@ outline: none;
     height: 54px;
     display: flex;
     align-items: center;
+    cursor: pointer;
     /* background-color: blueviolet; */
 }
 .userMenue li:nth-last-child(1){
