@@ -11,6 +11,7 @@ import { getFromLocalStorage, saveToLocalStorage } from "@/utils/localstorage";
 import { setCookie } from "@/utils/cookie";
 import { useCheckOtp, useSendOtp } from "@/services/mutations";
 import { useRouter } from "next/navigation";
+import { useInvalidateQuery } from "@/services/queries";
 
 function CheckOtpModal({ otpCode, setOtpCode, phone, setModalState }) {
   const router=useRouter()
@@ -20,6 +21,7 @@ function CheckOtpModal({ otpCode, setOtpCode, phone, setModalState }) {
   const [resetTimer, setResetTimer] = useState(false);
   const { isPending: checkOtpPending, mutate: mutateCheck, } = useCheckOtp();
   const { isPending: sendOtpPending, mutate: mutateSend } = useSendOtp();
+  const invalidateQuery=useInvalidateQuery();
 
   useEffect(() => {
     // setResetTimer(resetTimer=>!resetTimer);
@@ -36,11 +38,9 @@ function CheckOtpModal({ otpCode, setOtpCode, phone, setModalState }) {
       mutateCheck(data, {
         onSuccess: (data) => {
           console.log(data);
-          setCookie("accessToken", data?.data?.accessToken, 30);
-          setCookie("refreshToken", data?.data?.refrehToken, 365);
           saveToLocalStorage(phone);
           setModalState("");
-          router.push("/profile");
+          router.push("/dashboard/profile");
         },
         onError: (error) => {
           console.log(error?.message);

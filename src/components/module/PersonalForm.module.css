@@ -1,0 +1,112 @@
+.container{
+    /* margin-top: 500px; */
+    width: 865px;
+    height: fit-content;
+    padding: 20px 20px 29px 23px;
+    background-color: #fff;
+    border: 1px solid #00000033;
+    border-radius: 10px;
+    margin-left: 16px;
+    margin-top: 36px;
+    /* for datepikcer */
+
+}
+.container .title{
+    display: flex;
+    align-items: center;
+    margin-bottom: 17px;
+}
+.title h3{
+    margin-right: 12px;
+    font-family: var(--font-vazirmatn-numbers);
+    font-weight: 400;
+    font-size: 24px;
+}
+.title img{
+    display: block;
+}
+.container fieldset{
+    border: none;
+}
+.container .inputContainer{
+    position: relative;
+}
+.container .inputContainer label{
+    display: none;
+}
+.container   fieldset input{
+
+    width: 262px;
+    padding: 14px 8px;
+    border:1px solid #00000080;
+    border-radius: 5px;
+    font-family: var(--font-yekan-bakh);
+    font-weight: 300;
+    font-size: 14px;
+    color:#00000080 ;
+    outline: none;
+}
+.container  fieldset input:focus{
+    color: #000000;
+}
+.personal fieldset {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    column-gap: 15px;
+    row-gap: 24px;
+    margin-right: 4px;
+ 
+ }
+ .personal .selectOption{
+    position: relative;
+    
+}
+.selectOption label{
+    font-size: 10px;
+    color:#00000080;
+    padding: 0 8px;
+    background-color: #fff;
+    position: absolute;
+    top:0;
+    right: 8px;
+    transform: translateY(-50%);
+}
+.personal fieldset select{
+    width: 255px;
+    padding:12.5px 10px;
+    box-sizing: border-box;
+    padding-left: 0;
+    border:1px solid #00000080;
+    border-radius: 5px;
+    font-family: var(--font-yekan-bakh);
+    font-weight: 300;
+    font-size: 16px;
+    color:#282828 ;
+    cursor: pointer;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+.selectOption img{
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    left: 15px;
+}
+.disable{
+    pointer-events: none;
+    opacity: 0.8;
+ }
+ .container .disable  .inputContainer  label{
+    display: inline-block !important;
+    font-size: 10px ;
+    color:#00000080;
+    padding: 0 8px;
+    background-color: #fff;
+    position: absolute;
+    top:0;
+    right: 8px;
+    transform: translateY(-50%);
+    z-index: 10;
+}

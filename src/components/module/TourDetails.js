@@ -11,6 +11,7 @@ import DoubleUser from "@/components/icons/DoubleUser";
 import Security from "@/components/icons/Security";
 import styles from "@/components/module/TourDetails.module.css"
 import Wrapper from "../partials/container/Wrapper";
+import BuyButton from "./BuyButton";
 function TourDetails({ data }) {
     const {id,origin,startDate,endDate,title,fleetVehicle,price,capacity,image}=data
     const periodTour=getPeriodTour(startDate,endDate);
@@ -34,11 +35,12 @@ function TourDetails({ data }) {
           <p>
             <span>{price.toLocaleString()}</span>تومان
           </p>
+          <BuyButton id={id}/>
           </div>
         </div>
       </div>
         <ul className={styles.footer}>
-            <li><div><RoutinBold/><span>مبدا</span></div><p>سنندج</p></li>
+            <li><div><RoutinBold/><span>مبدا</span></div><p>{origin.name}</p></li>
             <li><div><Calender/><span>تاریخ رفت</span></div><p>{goneDate}</p></li>
             <li><div><Calender/><span>تاریخ برگشت</span></div><p>{returnDate}</p></li>
             <li><div><Bus/><span>حمل و نقل</span></div><p>{fleetVehicle}</p></li>

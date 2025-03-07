@@ -1,0 +1,82 @@
+.container{
+    width: 307px;
+    height: 228px;
+/* background-color: bisque; */
+background-color: #fff;
+padding: 12px;
+padding-top: 16px;
+border-radius: 10px;
+display: flex;
+flex-direction: column;
+margin-top: 36px;
+}
+.title{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 24px;
+    position: relative;
+}
+.title h3{
+    font-family: var(--font-yekan-bakh);
+    font-weight: 500;
+    font-size: 24px;
+    color: #000;
+    word-spacing: 2px;
+}
+.title p{
+    font-weight:400 ;
+    font-size: 16px;
+    color: #939393;
+}
+.title::after{
+    content: "";
+position: absolute;
+left:-12px;
+bottom:0;
+width: 307px; /* طول دلخواه */
+height: 1px;
+background: repeating-linear-gradient(
+  to right,
+  #00000080 0px, #00000080 6px, /* طول هر قسمت */
+  transparent 5px, transparent 10px /* فاصله بین خطوط */
+);
+
+}
+.price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.price p{
+    font-weight: 400;
+    font-size: 16px;
+    color: #282828;
+    margin-top: 19px;
+}
+.price .toman{
+    font-weight: 400;
+    font-size: 14px;
+    color: #535353;
+}
+.price span{
+    font-weight: 500;
+    font-size: 28px;
+    color: #009eca;
+    margin-left: 10px;
+}
+.price p,.price span,.container button,.title p{
+    font-family: var(--font-vazirmatn-numbers);
+}
+.container button{
+    margin-top: 20px;
+    width: 283px;
+    height: 56px;
+    background-color: #28A745;
+    border: none;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 24px;
+    color: #fff;
+}

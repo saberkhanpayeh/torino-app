@@ -42,12 +42,12 @@ function ProfileInfo() {
           </ul>
           <div className={styles.btnAccount}>
             {userProfile.email ? (
-              <Link href="/edit-profile?section=accountInfo&edit=userEmail/">
+              <Link href="/dashboard/profile/edit-profile?section=accountInfo&edit=userEmail/">
                 <Edit />
                 <span>ویرایش</span>
               </Link>
             ) : (
-              <Link href="/edit-profile?section=accountInfo&add=userEmail/">
+              <Link href="/dashboard/profile/edit-profile?section=accountInfo&add=userEmail/">
                 <Edit />
                 <span>افزودن</span>
               </Link>
@@ -59,7 +59,7 @@ function ProfileInfo() {
         <div>
           <h3>اطلاعات شخصی</h3>
           <div className={styles.btn}>
-            <Link href="/edit-profile?section=personalInfo&edit=fields">
+            <Link href="/dashboard/profile/edit-profile?section=personalInfo&edit=fields">
               <Edit />
               <span>ویرایش اطلاعات</span>
             </Link>
@@ -94,7 +94,7 @@ function ProfileInfo() {
         <div>
           <h3>اطلاعات حساب بانکی</h3>
           <div className={styles.btn}>
-            <Link href="/edit-profile?section=creaditInfo&edit=fields">
+            <Link href="/dashboard/profile/edit-profile?section=creaditInfo&edit=fields">
               <Edit />
               <span>ویرایش اطلاعات</span>
             </Link>

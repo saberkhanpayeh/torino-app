@@ -2,11 +2,18 @@
 import api from "@/config/api";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 
-const useProfileData = (queryOptions=null) => {
+const useProfileData = (queryOptions = null) => {
   const sendData = () => {
     return api.get("/user/profile");
   };
-  return useQuery(["profile-info"], sendData,queryOptions);
+  return useQuery(["profile-info"], sendData, queryOptions);
+};
+
+const useCartData = (queryOptions = null) => {
+  const sendData = () => {
+    return api.get("basket");
+  };
+  return useQuery(["basket-item"], sendData, queryOptions);
 };
 
 const useInvalidateQuery = () => {
@@ -22,4 +29,5 @@ const useInvalidateQuery = () => {
 
   return invalidateQuery;
 };
-export { useProfileData,useInvalidateQuery };
+
+export { useProfileData, useInvalidateQuery, useCartData };

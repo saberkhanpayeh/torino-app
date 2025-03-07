@@ -81,6 +81,17 @@
     color: #009eca;
     margin-left: 8px;
 }
+.btnContainer button{
+    width: 204px;
+    height: 56px;
+    background-color:#28A745;
+    border: none;
+    border-radius: 10px;
+    font-family: var(--font-vazirmatn-numbers);
+    font-weight: 400;
+    font-size: 24px;
+    color: #fff;
+}
 .footer{
     width: 100%;
     /* background-color: bisque; */

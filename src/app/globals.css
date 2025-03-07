@@ -84,6 +84,12 @@ button{
 .zaman-calendar .zaman-day:hover {
   background-color: #ddd !important; /* پس‌زمینه روزها در زمان hover */
 }
+.css-1m8qzkt {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%);
+}
 .zm-IconNextButton{
   
 }

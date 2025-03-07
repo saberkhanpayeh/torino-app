@@ -37,7 +37,7 @@ function SendOtpModal({ setModalState, setPhone }) {
   const closeHandler = () => {
     // localStorage.clear();
     setModalState("");
-    router.push("/");
+    router.back();
   };
   return (
     <div className={styles.wrapper}>

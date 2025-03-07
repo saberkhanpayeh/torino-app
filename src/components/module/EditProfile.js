@@ -122,7 +122,7 @@ function EditProfile() {
   };
   const navigateToProfile=()=>{
     invalidateQuery(["profile-info"]);
-    router.push("/profile");
+    router.push("/dashboard/profile");
   }
   return (
     <div className={styles.container}>
@@ -200,7 +200,7 @@ function EditProfile() {
           >
             تایید
           </button>
-          <button onClick={()=>router.push("/profile")}>انصراف</button>
+          <button onClick={()=>router.push("/dashboard/profile")}>انصراف</button>
         </div>
       </div>
       <div className={section==="creaditInfo"? `${styles.bank}`:`${styles.bank} ${styles.disable}`}>
@@ -237,7 +237,7 @@ function EditProfile() {
           >
             تایید
           </button>
-          <button onClick={()=>router.push("/profile")}>انصراف</button>
+          <button onClick={()=>router.push("/dashboard/profile")}>انصراف</button>
         </div>
       </div>
     </div>

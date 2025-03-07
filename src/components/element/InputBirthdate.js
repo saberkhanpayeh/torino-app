@@ -18,13 +18,16 @@ function InputBirthdate({setBirthDate,initialValue}) {
   /* Mon Mar 03 2025 13:58:35 GMT+0330 (Iran Standard Time) */
   // but we want UTC format of Date to store in DB so we have to convert it
   const handleDateChange = (e) => {
-    // console.log(e.value);
+    // e.target.scrollIntoView({ behavior: "smooth", block: "center" });
+    // console.log(e.value); 
+  
     const inputDate = new Date(e.value);
     const isoString = inputDate.toISOString();
     const newDate=converDateToFarsiFromat(isoString);
     setInputDate(newDate);
     setBirthDate(isoString);
   };
+
   // console.log(inputDate);
   // console.log(new Date(Date.now()));
   return (

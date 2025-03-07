@@ -42,7 +42,7 @@ function Header() {
     router.push("/");
   }
   const profileHandler=()=>{
-    router.push("/profile");
+    router.push("/dashboard/profile");
     setMenue((menue)=>!menue);
   }
   return (
