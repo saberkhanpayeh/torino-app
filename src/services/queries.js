@@ -16,6 +16,12 @@ const useCartData = (queryOptions = null) => {
   return useQuery(["basket-item"], sendData, queryOptions);
 };
 
+const useTransactionData = (queryOptions = null) => {
+  const sendData = () => {
+    return api.get("user/transactions");
+  };
+  return useQuery(["transaction-data"], sendData, queryOptions);
+};
 const useInvalidateQuery = () => {
   const queryClient = useQueryClient();
 
@@ -30,4 +36,4 @@ const useInvalidateQuery = () => {
   return invalidateQuery;
 };
 
-export { useProfileData, useInvalidateQuery, useCartData };
+export { useProfileData, useInvalidateQuery, useCartData,useTransactionData };
