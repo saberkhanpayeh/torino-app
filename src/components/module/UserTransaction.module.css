@@ -34,9 +34,7 @@
     font-weight: 300;
     font-size: 14px;
 }
-.tableContainer table tbody td:last-child{
-    font-family: var(--font-vazirmatn);
-}
+
 .tableContainer table tbody td{
     padding-right: 10px;
 }
@@ -73,16 +71,18 @@
 
 .tableContainer::-webkit-scrollbar {
     width: 2px;
-    background: transparent; 
+    background: transparent;
 }
 
 .tableContainer::-webkit-scrollbar-thumb {
     background: #28A745; 
     border-radius: 10px; 
-    height: 30%;
+    height: 20%;
+    
 }
 
 .tableContainer::-webkit-scrollbar-track {
     background: transparent; 
-
+    margin-top: 55px; 
+    margin-bottom: 10px;
 }

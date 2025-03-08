@@ -1,0 +1,150 @@
+.list{
+    margin-bottom: 218px;
+    margin-left: 14px;
+    width: 872px;
+    max-height: 569px;
+    overflow-y: scroll;
+    border-radius: 10px;
+    border:1px solid #00000033;
+    padding: 20px;
+    padding-top: 13px;
+    background-color: #fff;
+    /* background-color: aquamarine; */
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+}
+.card{
+    width: 100%;
+    border: 1px solid #00000033;
+    border-radius: 10px;
+    /* background-color: antiquewhite; */
+}
+.list .details{
+    /* background-color: blueviolet; */
+    padding: 16px 17px 20px 20px;
+    position: relative;
+}
+.list .details ul{
+    width: fit-content;
+    /* background-color: cadetblue; */
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 26px;
+    row-gap: 13px;
+}
+.list .details ul li{
+    display: flex;
+    align-items: center;
+    /* background-color: aliceblue; */
+}
+.list .details ul li:nth-child(3){
+    margin-right: 2px;
+}
+.list .details ul li:last-child{
+    margin-right: 18px;
+}
+.list .details ul li p{
+    font-family: var(--font-yekan-bakh);
+    font-weight: 300;
+}
+.list .details ul li:nth-child(1){
+    gap:8px;
+}
+  .list .details ul li:nth-child(2){
+      gap:8px;
+      padding: 0 8px;
+    }
+    .list .details ul li:nth-child(3),.list .details ul li:last-child{
+        /* distancs for content in them */
+        gap:3px;
+    }
+    .list .details ul li:nth-child(3) p,.list .details ul li:last-child p{
+        /* distancs for content in them */
+        font-weight: 400;
+    }
+    .list .details ul li span{
+        display: block;
+        font-family: var(--font-vazirmatn-numbers);
+        font-weight: 400;
+        color: #00000099;
+        font-size: 14px;
+    }
+    
+  .list .footer{
+      padding: 16px 18px;
+      border-top: 1px solid #00000033;
+    }
+    .list .footer ul{
+    display: flex;
+    align-items: center;
+  }
+  .list .footer ul li{
+      display: flex;
+      align-items: center;
+    }
+    .list .footer ul li:nth-child(1){
+        border-left: 1px solid #00000033;
+    padding-left: 26px;
+  }
+  .list .footer ul li:nth-child(2){
+      padding-right: 26px;
+    }
+  .list .footer ul li span{
+      display: inline-block;
+      font-family: var(--font-yekan-bakh);
+      font-weight: 400;
+    font-size: 14px;
+    color: #00000080;
+}
+  .list .footer ul li p{
+      font-family: var(--font-vazirmatn-numbers);
+    font-weight: 500;
+    font-size: 14px;
+    color: #282828;
+    margin-right: 8px;
+  }
+  .toman{
+    margin-right: 4px;
+}
+
+.list .badge{
+    display: inline-block;
+    height:20px;
+    padding: 0 8px;
+    background-color: #D1B9004D;
+    border-radius: 27px;
+    font-family: var(--font-yekan-bakh);
+    font-weight: 300;
+    font-size: 14px;
+    color: #D1B900;
+    text-align: center;
+
+    position: absolute;
+    top:20px;
+    left: 20px;
+
+}
+.list .end{
+    background-color: #28A7454D;
+    color: #28A745;
+}
+.list::-webkit-scrollbar {
+    width: 2px;
+    background: transparent;
+  }
+  
+.list::-webkit-scrollbar-thumb {
+  background: #28A745; 
+  border-radius: 10px; 
+  height: 20%;
+  
+}
+
+.list::-webkit-scrollbar-track {
+  background: transparent; 
+  margin-top: 10px; 
+  margin-bottom: 10px;
+}

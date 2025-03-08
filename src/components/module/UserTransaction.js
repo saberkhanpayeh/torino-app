@@ -30,7 +30,7 @@ function UserTransaction() {
               </td>
               <td>{item.amount}</td>
               <td>ثبت نام در تور گردشگری</td>
-              <td>{shortenTransactionId(item.id)}</td>
+              <td>سفارش {shortenTransactionId(item.id)}</td>
             </tr>
           ))}
         </tbody>

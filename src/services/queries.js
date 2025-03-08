@@ -22,6 +22,12 @@ const useTransactionData = (queryOptions = null) => {
   };
   return useQuery(["transaction-data"], sendData, queryOptions);
 };
+const useMyToursList=(queryOptions=null)=>{
+  const sendData=()=>{
+    return api.get("user/tours");
+  }
+  return useQuery(["my-tours-list"],sendData,queryOptions);
+}
 const useInvalidateQuery = () => {
   const queryClient = useQueryClient();
 
@@ -36,4 +42,4 @@ const useInvalidateQuery = () => {
   return invalidateQuery;
 };
 
-export { useProfileData, useInvalidateQuery, useCartData,useTransactionData };
+export { useProfileData, useInvalidateQuery, useCartData,useTransactionData,useMyToursList };

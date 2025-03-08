@@ -54,10 +54,10 @@ body {
   font-weight: 400;
 
 }
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 0px;
   background: transparent; 
-}
+} */
 
 
 a {
