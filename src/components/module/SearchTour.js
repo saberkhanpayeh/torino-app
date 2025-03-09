@@ -4,6 +4,7 @@ function SearchTour() {
   return (
     <div className={styles.container}>
         <h2><span>تورینو </span>برگزار کننده بهترین تور های داخلی و خارجی</h2>
+        <div></div>
     </div>
   )
 }

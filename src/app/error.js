@@ -1,8 +1,11 @@
-"use client"
-import React from "react";
+"use client";
 
-function Error() {
-  return <div>Error</div>;
+import NetworkError from "@/components/module/NetworkError";
+
+export default function Error({ error, reset }) {
+  return (
+    <>
+      <NetworkError reset={reset} />
+    </>
+  );
 }
-
-export default Error;

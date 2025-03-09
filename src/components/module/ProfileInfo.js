@@ -8,7 +8,8 @@ import Line from "../icons/Line";
 function ProfileInfo() {
   const queryOptions = {
     refetchOnWindowFocus: false,
-    staleTime: 1000 * 60 * 5,
+    // staleTime: 1000 * 60 * 5,
+    retry:1
   };
   const { data, error, isLoading, isError, isFetching } =
     useProfileData(queryOptions);
@@ -25,6 +26,7 @@ function ProfileInfo() {
       return gender === "male" ? "مرد" : "زن";
     } else return <Line />;
   };
+  if(isError)return<p>خطا در ارتباط با سرور</p>
   return (
     <div className={styles.container}>
       <div className={styles.accountInfo}>

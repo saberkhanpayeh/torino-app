@@ -1,0 +1,41 @@
+.container{
+padding-top: 83px;
+padding-bottom: 96px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.container div{
+    margin-right: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.container h2,.container p{
+    font-family: var(--font-yekan-bakh);
+    font-weight: 500;
+    text-align: right;
+    color: #282828;
+}
+.container h2{
+    font-size: 36px;
+}
+.container p{
+    margin-top: 24.5px;
+    font-size: 24px;
+}
+.container img{
+    display: block;
+    margin-left: 48px;
+}
+.container div button{
+    margin-top: 40px;
+    align-self: center;
+    width: 250px;
+    height: 60px;
+    background-color: #D8FFE1;
+    border: none;
+    border-radius: 16px;
+    font-size: 22px;
+    color: #28A745;
+}

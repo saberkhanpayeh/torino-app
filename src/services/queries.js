@@ -6,14 +6,24 @@ const useProfileData = (queryOptions = null) => {
   const sendData = () => {
     return api.get("/user/profile");
   };
-  return useQuery(["profile-info"], sendData, queryOptions);
+  return useQuery({
+    queryKey: ["profile-info"],
+    queryFn: sendData,
+    meta: { persist: true },
+    ...queryOptions,
+  });
 };
 
 const useCartData = (queryOptions = null) => {
   const sendData = () => {
     return api.get("basket");
   };
-  return useQuery(["basket-item"], sendData, queryOptions);
+  return useQuery({
+    queryKey: ["basket-item"],
+    queryFn: sendData,
+    meta: { persist: true },
+    ...queryOptions,
+  });
 };
 
 const useTransactionData = (queryOptions = null) => {
@@ -22,12 +32,12 @@ const useTransactionData = (queryOptions = null) => {
   };
   return useQuery(["transaction-data"], sendData, queryOptions);
 };
-const useMyToursList=(queryOptions=null)=>{
-  const sendData=()=>{
+const useMyToursList = (queryOptions = null) => {
+  const sendData = () => {
     return api.get("user/tours");
-  }
-  return useQuery(["my-tours-list"],sendData,queryOptions);
-}
+  };
+  return useQuery(["my-tours-list"], sendData, queryOptions);
+};
 const useInvalidateQuery = () => {
   const queryClient = useQueryClient();
 
@@ -42,4 +52,10 @@ const useInvalidateQuery = () => {
   return invalidateQuery;
 };
 
-export { useProfileData, useInvalidateQuery, useCartData,useTransactionData,useMyToursList };
+export {
+  useProfileData,
+  useInvalidateQuery,
+  useCartData,
+  useTransactionData,
+  useMyToursList,
+};

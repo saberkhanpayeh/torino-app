@@ -6,9 +6,12 @@ import SunFog from "../icons/SunFog";
 import Bus from "../icons/Bus";
 import { convertMiladiToJalali, getTourStatus } from "@/utils/convertDate";
 import { shortenTransactionId } from "@/utils/helper";
+import { isError } from "@tanstack/react-query";
+import NetworkError from "./NetworkError";
 function MyToursList() {
-  const { data, isLoading } = useMyToursList();
+  const { data, isLoading,isError } = useMyToursList();
   const tours = data?.data || [];
+  // if(isError)return<NetworkError/>
   return (
     <div className={styles.list}>
       {tours.map((tour) => (
@@ -33,6 +36,7 @@ function ToursItem({ tour }) {
   const { middleFormat: goneDate } = convertMiladiToJalali(startDate);
   const { middleFormat: returnDate } = convertMiladiToJalali(endDate);
   //console.log(getTourStatus(endDate));
+
   return (
     <div className={styles.card}>
       <div className={styles.details}>

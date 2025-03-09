@@ -1,0 +1,38 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 83px;
+    padding-bottom: 96px;
+
+}
+.container div h2,.container div button{
+    font-family: var(--font-yekan-bakh);
+    font-weight: 500;
+    color: #282828;
+}
+.container div {
+    margin-right: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container div h2{
+    font-size: 36px;
+    text-align: right;
+    word-spacing: 2px;
+}
+.container div button{
+    margin-top: 80px;
+    width: 323px;
+    height: 75px;
+    font-size: 28px;
+    color: #28A745;
+    word-spacing: 2px;
+    border: none;
+    border-radius: 16px;
+    background-color: #D8FFE1;
+}
+.container img{
+    margin-left: 48px;
+}

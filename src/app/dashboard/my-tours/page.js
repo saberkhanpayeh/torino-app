@@ -1,10 +1,11 @@
-import MyToursPage from '@/components/template/MyToursPage'
-import React from 'react'
+
+import MyToursPage from "@/components/template/MyToursPage";
+import React, { Suspense } from "react";
 
 function MyTours() {
   return (
-    <MyToursPage/>
-  )
+      <MyToursPage />
+  );
 }
 
-export default MyTours
+export default MyTours;

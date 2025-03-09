@@ -29,6 +29,7 @@ function Header() {
       } else {
         setIsLogin(false);
       }
+      setMenue(false);
   }, [pathname]);
   useEffect(() => {
     if (menue && menueRef.current) {
@@ -43,7 +44,6 @@ function Header() {
   }
   const profileHandler=()=>{
     router.push("/dashboard/profile");
-    setMenue((menue)=>!menue);
   }
   return (
     <header className={styles.header}>
