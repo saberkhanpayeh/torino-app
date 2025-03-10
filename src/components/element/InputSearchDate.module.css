@@ -1,0 +1,53 @@
+
+.inputWrapper {
+    position: relative;
+    /* padding: 8px; */
+    /* background-color: #fff; */
+    /* background-color: #007bff; */
+  }
+  
+  .dateInput {
+    width: 100%;
+    padding-right: 28px !important ;
+    cursor: pointer;
+    border: none;
+    font-family: var(--font-iransans);
+    font-weight: 400;
+    font-size:18px ;
+    color: #2C2C2C !important;
+    text-align: right;
+  }
+  .dateInput:focus{
+    outline: none;
+  }
+  .calendarIcon{
+    width:20px;
+    height:20px;
+    position: absolute;
+    right: 6px;
+    top:50%;
+    transform: translateY(-50%);
+  }
+  
+  .inputWrapper .closeBtn{ 
+    border-radius: 16px;
+    cursor: pointer;
+    /* background-color: rgba(255, 23, 27, 0.65); */
+    background-color:#f7753d49;
+    color: #fe5d42;
+    font-family: var(--font-yekan-bakh);
+    font-size: 10px;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: -20px;
+    left: -24px;
+    transform: rotateZ(335deg);
+    z-index: 10;
+}
+.closeBtn svg{
+    /* display: block; */
+    width: 20px;
+    height: 20px;
+}

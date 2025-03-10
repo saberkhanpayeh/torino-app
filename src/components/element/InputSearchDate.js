@@ -1,0 +1,96 @@
+"use client";
+import React, { useEffect, useState } from "react";
+import { Calendar, CalendarProvider, DatePicker } from "zaman";
+import styles from "@/components/element/InputSearchDate.module.css";
+import "@/app/globals.css";
+import Close from "../icons/Close";
+function InputSearchDate({ setSearchTour }) {
+  const [inputDate, setInputDate] = useState("");
+  const [showClose, setShowClose] = useState(false);
+  useEffect(() => {
+    if (inputDate) setShowClose(true);
+    else setShowClose(false);
+  }, [inputDate]);
+  const converDateToFarsiFromat = (date) => {
+    const farsiDatefromat = new Date(date).toLocaleDateString("fa-IR");
+    return farsiDatefromat;
+  };
+
+  const handleDateChange = (e) => {
+    // e.target.scrollIntoView({ behavior: "smooth", block: "center" });
+
+    // conver this date that we have get from datepicker
+    // Wed Mar 05 2025 14:36:45 GMT+0330 (Iran Standard Time)
+    //to this format that is utc and standard
+    // 2025-03-05T11:10:19.000Z
+    const startDate = new Date(e.from).toISOString();
+    console.log(startDate);
+    const endDate = new Date(e.to).toISOString();
+    setSearchTour((searchTour) => ({ ...searchTour, startDate, endDate }));
+    setInputDate(
+      ` ${converDateToFarsiFromat(startDate)}-${converDateToFarsiFromat(
+        endDate
+      )}`
+    );
+    // const inputDate = new Date(e.value);
+    // const isoString = inputDate.toISOString();
+    // const newDate = converDateToFarsiFromat(isoString);
+    // setInputDate(newDate);
+    // setBirthDate(isoString);
+  };
+
+  console.log(inputDate);
+  // console.log(new Date(Date.now()));
+  const closeHandler = () => {
+    setInputDate("");
+    setSearchTour((searchTour)=>({...searchTour,startDate:"",endDate:""}));
+  };
+  return (
+    <div className={styles.inputWrapper}>
+      <input
+        type="text"
+        placeholder="رفت-برگشت"
+        readOnly
+        className={styles.dateInput}
+        value={inputDate}
+      />
+      <DatePicker
+        onChange={handleDateChange}
+        defaultValue={Date.now()}
+        inputAttributes={{
+          style: {
+            position: "absolute",
+            top: "0",
+            right: "0",
+            width: "100%",
+            opacity: "0",
+          },
+        }}
+        locale="fa"
+        range
+      />
+      {showClose && (
+        <span onClick={closeHandler} className={styles.closeBtn}>
+          <Close /> پاک کردن
+        </span>
+      )}
+
+      <img
+        src="/svg-files/calendar-search.svg"
+        className={styles.calendarIcon}
+        alt="calender-serach"
+      />
+    </div>
+  );
+}
+
+// {
+//     style: {
+//         padding: "10px",
+//         borderRadius: "5px",
+//         border: "1px solid #ABABAB",
+//         fontSize: "16px",
+//     },
+
+// }
+export default InputSearchDate;

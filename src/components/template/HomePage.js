@@ -11,7 +11,7 @@ function HomePage({data}) {
   return (
     <>
       <Banner />
-      <SearchTour />
+      <SearchTour data={data}/>
       <Tours data={data}/>
       <Advertise/>
       <WhyTorino/>

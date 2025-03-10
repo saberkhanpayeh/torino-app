@@ -1,0 +1,112 @@
+.container{
+    position: absolute;
+    z-index: 12;
+    top:510px;
+    width: 490px;
+    /* background-color: chartreuse; */
+}
+.container .notFound{
+    width: 100%;
+    background-color: #fff;
+    padding: 30px 50px;
+    text-align: center;
+    border: 1px solid #0000001F;
+    border-radius:16px ;
+    word-spacing: 2px;
+    font-family: var(--font-yekan-bakh);
+    font-weight: 500;
+    font-size: 24px;
+    color: #000000;
+}
+.container ul{
+    height: 365px;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #0000001F;
+    border-radius:16px ;
+    overflow-y: scroll;
+}
+.container ul li{
+    width: 100%;
+    padding: 24px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #0000001F;
+    
+}
+.detail{
+    /* background-color: aquamarine; */
+
+}
+.detail .title{
+    /* background-color: peachpuff; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 10px;
+    margin-left: 16px;
+}
+.title h3{
+    word-spacing: 6px;
+    font-family: var(--font-yekan-bakh);
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+}
+.title p{
+    font-family: var(--font-yekan-bakh);
+    font-weight: 300;
+    font-size: 12px;
+    color: #7D7D7D;
+    margin-top: 10px;
+}
+.detail .reservBtn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8px 10px; 
+    border-right: 1px solid #0000001F; 
+}
+.reservBtn p{
+    display: flex;
+    align-items: center;
+    
+    gap: 8px;
+    font-family: var(--font-yekan-bakh);
+    font-weight: 300;
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 5px;
+}
+.reservBtn button{
+    width: 145px;
+    height: 30px;
+    border-radius: 4px;
+    text-align: center;
+    background-color: #28A745;
+    border: none;
+    font-family: var(--font-yekan-bakh);
+    font-weight: 300;
+    font-size: 16px;
+    color: #fff;
+
+}
+
+.container ul::-webkit-scrollbar {
+    width: 4px;
+    background: transparent;
+  }
+  
+.container ul::-webkit-scrollbar-thumb {
+  background:#C0C0C0; 
+  border-radius: 15px; 
+  height: 10%;
+  
+}
+
+.container ul::-webkit-scrollbar-track {
+  background: transparent; 
+  margin-top: 10px; 
+  margin-bottom: 10px;
+}

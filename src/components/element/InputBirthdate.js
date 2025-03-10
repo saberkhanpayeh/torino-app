@@ -54,9 +54,9 @@ function InputBirthdate({setBirthDate,initialValue}) {
         locale="fa"
       />
       <img
-        src="/svg-files/calendar.svg"
+        src="/svg-files/calendar-profile.svg"
         className={styles.calendarIcon}
-        alt="calender"
+        alt="calendar-profile"
       />
     </div>
   );

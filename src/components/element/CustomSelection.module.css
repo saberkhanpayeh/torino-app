@@ -1,0 +1,105 @@
+.selectContainer{
+    background-color:green;
+    position: relative;
+    
+  
+}
+
+.selectContainer button{
+    width:100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #fff;
+    border:none;
+    padding: 8px;
+
+    font-family: var(--font-iransans);
+font-weight: 400;
+font-size:20px ;
+color: #2C2C2C;
+text-align: right;
+}
+.selectContainer .closeBtn{
+    border-radius: 16px;
+    cursor: pointer;
+    /* background-color: rgba(255, 23, 27, 0.65); */
+    background-color:#f7753d49;
+    color: #fe5d42;
+    position: absolute;
+    top: 50%;
+    left: 2px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    font-family: var(--font-yekan-bakh);
+    font-size: 10px;
+    font-weight: 300;
+    /* color: #282828B2; */
+}
+.selectContainer .closeBtn svg{
+    /* display: block; */
+    width: 20px;
+    height: 20px;
+}
+.selectContainer .optionsContainer{
+    position: absolute;
+    top:60px;
+    left: -6px;
+    width: 218px;
+    border: 1px solid #0000001F;
+    border-radius: 11px;
+    background-color: #fff;
+    max-height: 250px;;
+    overflow-y: scroll;
+}
+
+.optionsContainer .option{
+    
+    width: 100% !important;
+    padding: 16px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #0000001F;
+    cursor: pointer;
+    /* background-color: red; */
+}
+.selectContainer .option svg{
+    display: block;
+}
+.selectContainer .option span{
+    font-family: var(--font-yekan-bakh);
+    font-weight: 400;
+    font-size:14px ;
+    color:#282828;
+}
+
+.active{
+    background-color: #28A745 !important;
+    
+}
+.active span{
+    color: #fff !important;
+}
+/* .active svg{
+    stroke: #fff;
+} */
+
+.optionsContainer::-webkit-scrollbar {
+    width: 4px;
+    background: transparent;
+  }
+  
+.optionsContainer::-webkit-scrollbar-thumb {
+  background: #007bff; 
+  border-radius: 10px; 
+  height: 20%;
+  
+}
+
+.optionsContainer::-webkit-scrollbar-track {
+  background: transparent; 
+  margin-top: 10px; 
+  margin-bottom: 10px;
+}
