@@ -1,0 +1,47 @@
+.container{
+    width: 307px;
+    height: 228px;
+/* background-color: bisque; */
+background-color: #fff;
+padding: 12px;
+padding-top: 20px;
+border-radius: 10px;
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 36px;
+}
+.title{
+
+    width: 100%;
+    padding-bottom: 18px;
+    position: relative;
+    
+}
+.title h3{
+    text-align:center;
+    font-family: var(--font-yekan-bakh);
+    font-weight: 500;
+    font-size: 24px;
+    color: #000;
+    word-spacing: 2px;
+}
+
+.title::after{
+    content: "";
+position: absolute;
+left:-12px;
+bottom:0;
+width: 307px; /* طول دلخواه */
+height: 2px;
+background: repeating-linear-gradient(
+  to right,
+  #00000080 0px, #00000080 6px, /* طول هر قسمت */
+  transparent 5px, transparent 10px /* فاصله بین خطوط */
+);
+
+}
+.container img{
+    margin-top: 6px;
+}
+

@@ -8,6 +8,7 @@ function AuthPage() {
   const [modalState, setModalState] = useState("SendOtpModal");
   const [phone, setPhone] = useState({});
   const [otpCode, setOtpCode] = useState("");
+  const [fail,setFail]=useState(0);
   const pathname = usePathname();
   useEffect(() => {
     if (pathname === "/login") {
@@ -30,6 +31,8 @@ function AuthPage() {
           setOtpCode={setOtpCode}
           phone={phone}
           setModalState={setModalState}
+          fail={fail}
+          setFail={setFail}
         />
       )}
     </>

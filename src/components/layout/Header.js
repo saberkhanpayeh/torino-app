@@ -5,15 +5,17 @@ import React, { useEffect, useRef, useState } from "react";
 import Profile from "@/components/icons/Profile";
 import SiteLogo from "@/components/element/SiteLogo";
 import styles from "@/components/layout/Header.module.css";
-import { usePathname, useRouter } from "next/navigation";
+import { redirect, usePathname, useRouter } from "next/navigation";
 import { getFromLocalStorage } from "@/utils/localstorage";
 import DownArrow from "@/components/icons/DownArrow";
 import ProfileBold from "../icons/ProfileBold";
 import ProfileBlank from "../icons/ProfileBlank";
 import Logout from "../icons/Logout";
 import { setCookie } from "@/utils/cookie";
+import { useQueryClient } from "@tanstack/react-query";
 
 function Header() {
+  const queryClient=useQueryClient();
   const [isLogin, setIsLogin] = useState(false);
   const [userPhone, setUserPhone] = useState("");
   const [menue, setMenue] = useState(false);
@@ -37,10 +39,12 @@ function Header() {
     }
   }, [menue]);
   const logoutHandler=()=>{
+    
     localStorage.clear();
     setCookie("accessToken","",0);
     setCookie("refreshToken","",0);
-    router.push("/");
+    queryClient.clear();
+    window.location.reload();
   }
   const profileHandler=()=>{
     router.push("/dashboard/profile");

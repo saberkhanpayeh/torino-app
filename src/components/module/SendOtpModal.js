@@ -10,6 +10,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { saveToLocalStorage } from "@/utils/localstorage";
 import { useSendOtp } from "@/services/mutations";
+import { toast } from "react-toastify";
+import { toastOptions } from "@/constant/toast";
 function SendOtpModal({ setModalState, setPhone }) {
   const { isPending, mutate } = useSendOtp();
   //   useEffect(() => {
@@ -22,16 +24,27 @@ function SendOtpModal({ setModalState, setPhone }) {
     formState: { errors, isSubmitting },
   } = useForm();
   const onSubmit = async (data) => {
-    console.log(data);
+    setPhone(data);  //data is a phone number
     if (isPending) return;
     mutate(data, {
-      onSuccess: () => {
-        setPhone(data);
+      onSuccess: (data) => {
+        console.log(data); //data back from server
         setModalState("CheckOtpModal");
+        toast.info(data?.data?.message, {
+          ...toastOptions,
+          position: "top-left",
+        });
+        toast.success(data?.data?.code, {
+          ...toastOptions,
+          autoClose: 6000,
+          theme: "light",
+          pauseOnHover:true
+        });
       },
-      onError:(error)=>{
+      onError: (error) => {
         console.log(error?.messaage);
-      }
+        toast.error(error?.messaage,toastOptions);
+      },
     });
   };
   const closeHandler = () => {

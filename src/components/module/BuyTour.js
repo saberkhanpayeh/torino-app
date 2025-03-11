@@ -5,8 +5,10 @@ import { useCreateOrder, useEditProfile } from "@/services/mutations";
 import { splitByFirstSpace } from "@/utils/helper";
 import { useInvalidateQuery } from "@/services/queries";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+import { toastOptions } from "@/constant/toast";
 function BuyTour({ cartData, watch, birthDate, createProfile, profileInfo }) {
-  const router=useRouter();
+  const router = useRouter();
   const { mutate: mutateProfile, isPending: profilePending } = useEditProfile();
   const { mutate: mutateOrder, isPending: orderPending } = useCreateOrder();
   const invalidateQueries = useInvalidateQuery();
@@ -23,7 +25,7 @@ function BuyTour({ cartData, watch, birthDate, createProfile, profileInfo }) {
   } = cartData;
   const periodTour = getPeriodTour(startDate, endDate);
   const night = periodTour - 1;
-  console.log(cartData);
+  // console.log(cartData);
   const orderHandler = () => {
     const data = { fullName: "", nationalCode: "", gender: "", birthDate: "" };
     if (createProfile) {
@@ -38,6 +40,7 @@ function BuyTour({ cartData, watch, birthDate, createProfile, profileInfo }) {
         !data.birthDate
       ) {
         //show toast to enter info
+        toast.warning("مشخصات کاربری خود را تکمیل کنید!",toastOptions);
         console.log("enter valid");
         return;
       }
@@ -59,10 +62,15 @@ function BuyTour({ cartData, watch, birthDate, createProfile, profileInfo }) {
       mutateProfile(newUserProfile, {
         onSuccess: (data) => {
           console.log(data?.data?.message);
+          toast.info(
+            "کاربر گرامی پروفایل شما با موفقیت ایجاد شد",
+            toastOptions
+          );
         },
         onError: (error) => {
           //show toast error in create profile
           console.log(error?.message);
+          toast.error(error?.message);
         },
       });
     }
@@ -71,11 +79,20 @@ function BuyTour({ cartData, watch, birthDate, createProfile, profileInfo }) {
         console.log(data?.data?.message);
         //show toast order has successfully
         //push to transactions
-        invalidateQueries(["basket-item"]);
-        router.push("/");
+        toast.success("تور مورد نظر با موفقیت برای شما رزرو شد", {
+          ...toastOptions,
+          autoClose: 4000,
+        });
+        setTimeout(()=>{
+          invalidateQueries(["basket-item"]);
+          invalidateQueries(["profile-info"]);
+          router.push("/dashboard/transactions");
+        },1000)
+ 
       },
       onError: (error) => {
-        console.log(error.message);
+        console.log(error?.message);
+        toast.error(error?.message);
         //show toast
       },
     });

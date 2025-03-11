@@ -9,6 +9,8 @@ import { useEditProfile } from "@/services/mutations";
 import { Calendar, CalendarProvider, DatePicker } from "zaman";
 import InputBirthdate from "../element/InputBirthdate";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+import { toastOptions } from "@/constant/toast";
 
 
 function EditProfile() {
@@ -70,16 +72,18 @@ function EditProfile() {
       mutate(newAccountEmail, {
         onSuccess: (data) => {
           console.log(data?.data?.message);
+          toast.success("ایمیل شما با موفقیت بروزرسانی شد",toastOptions);
           navigateToProfile();
         },
         onError: (error) => {
-          console.log(error);
+          console.log(error?.message);
+          toast.error(error?.message,toastOptions);
         },
       });
     }
     if (formType === "personal") {
       if (!birth) {
-        window.alert("enter date");
+        // window.alert("enter date");
         //show toast
         return;
       }
@@ -97,10 +101,12 @@ function EditProfile() {
       mutate(newUserProfile, {
         onSuccess: (data) => {
           console.log(data?.data?.message);
+          toast.success("اطلاعات شخصی شما بروزرسانی شد",toastOptions);
           navigateToProfile();
         },
         onError: (error) => {
-          console.log(error);
+          console.log(error?.message);
+          toast.error(error?.message,toastOptions);
         },
       });
     }
@@ -112,10 +118,12 @@ function EditProfile() {
       mutate(newBankInfo, {
         onSuccess: (data) => {
           console.log(data?.data?.message);
+          toast.success("اطلاعات بانکی شما با موفقیت بروزرسانی شد",toastOptions);
           navigateToProfile();
         },
         onError: (error) => {
           console.log(error);
+          toast.error(error?.message,toastOptions);
         },
       });
     }

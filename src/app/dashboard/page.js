@@ -1,13 +1,16 @@
 "use client";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
 function Dashboard() {
   const router = useRouter();
-
+  const pathname=usePathname();
   useEffect(() => {
-    router.push("/");
-  }, [router]);
+    // فقط در صورتی که مسیر دقیقا "/dashboard" باشد، هدایت انجام شود
+    if (pathname === "/dashboard") {
+      router.replace("/"); // از replace به‌جای push استفاده کردیم
+    }
+  }, [router,pathname]);
 
   return null;
 }

@@ -41,8 +41,8 @@
     display: flex;
     align-items: center;
     position: absolute;
-    top: -20px;
-    left: -24px;
+    top: -12px;
+    left: -9px;
     transform: rotateZ(335deg);
     z-index: 10;
 }

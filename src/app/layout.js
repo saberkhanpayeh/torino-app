@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import Layout from "@/components/layout/Layout";
 import ReactQueryProvider from "@/components/partials/provider/ReactQueryProvider";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { ToastContainer } from "react-toastify";
 //yekan bakh 400
 //yekan bakh 600
 //vazir FD-WOL 400
@@ -28,7 +29,9 @@ export default function RootLayout({ children,auth }) {
     >
       <body>
         <ReactQueryProvider>
-        <Layout>{children}{auth??null}</Layout>
+        <Layout>{children}{auth??null}
+          <ToastContainer/>
+        </Layout>
         <ReactQueryDevtools/>
         </ReactQueryProvider>
       </body>

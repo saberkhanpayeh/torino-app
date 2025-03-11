@@ -6,8 +6,8 @@ import React from "react";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      cacheTime: 1000 * 60 * 60 * 24, // 24 hours
-      staleTime: 1000 *60*60*1, //1 hour stale time and then refresh
+      // cacheTime: 1000 * 60 * 60 * 24, // 24 hours
+      // staleTime: 1000 *60*60*1, //1 hour stale time and then refresh
       refetchOnWindowFocus: false,
       retry:1,
     },

@@ -19,7 +19,9 @@
     color: #000000;
 }
 .container ul{
-    height: 365px;
+    /* height: 365px; */
+    height: fit-content;
+    max-height: 365px;
     width: 100%;
     background-color: #fff;
     border: 1px solid #0000001F;

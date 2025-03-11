@@ -1,17 +1,15 @@
 "use client";
 import api from "@/config/api";
+import { getCookie } from "@/utils/cookie";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-
 const useProfileData = (queryOptions = null) => {
   const sendData = () => {
-    return api.get("/user/profile");
+    return api.get("user/profile");
   };
   return useQuery({
     queryKey: ["profile-info"],
     queryFn: sendData,
-    meta: { persist: true },
-    ...queryOptions,
-  });
+});
 };
 
 const useCartData = (queryOptions = null) => {
@@ -21,8 +19,6 @@ const useCartData = (queryOptions = null) => {
   return useQuery({
     queryKey: ["basket-item"],
     queryFn: sendData,
-    meta: { persist: true },
-    ...queryOptions,
   });
 };
 

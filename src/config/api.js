@@ -1,7 +1,6 @@
 import { getNewTokens } from "@/services/token";
 import { getCookie, setCookie } from "@/utils/cookie";
 import axios from "axios";
-
 const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_URL,
   headers: { "Content-Type": "application/json" },
@@ -24,7 +23,7 @@ api.interceptors.response.use((response) => {
   return response;
 },async (error)=>{
   const originalRequest=error.config;
-  if(error.response.status===403 && !originalRequest._retry){
+  if(error.response.status===401 && !originalRequest._retry){
     originalRequest._retry=true;
     const res=await getNewTokens();
     if(res?.response?.status===200) {

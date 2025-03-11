@@ -7,14 +7,15 @@ import { useRouter } from "next/navigation";
 import PersonalForm from "../module/PersonalForm";
 import { useForm } from "react-hook-form";
 import { useEditProfile } from "@/services/mutations";
+import EmptyCart from "../module/EmptyCart";
 
 function CartPage() {
   // in this page we have 3 type user
   //1)UnAuthoraized 2)Authoraized no profilIno 3)complete profile
   const router = useRouter();
   const [birthDate, setBirthDate] = useState("");
-  const { data: profile, isPending: profilePending } = useProfileData();
-  const { data: cart, isLoading, isPending: cartPending } = useCartData();
+  const { data: profile,isLoading:profileLoading } = useProfileData();
+  const { data: cart,isLoading:cartLoading} = useCartData();
   const [createProfile, setCreateProfile] = useState(false);
   const profileInfo = profile?.data || "";
   const cartData = cart?.data || "";
@@ -35,14 +36,11 @@ function CartPage() {
 
   //   console.log(cartData);
   //   return null;
-  useEffect(() => {
-     if (!profileInfo) router.push("/");
-  }, [profile]);
-  if (profilePending) return <p>...Loading</p>;
+ 
   return (
     <Wrapper>
         {
-        cartData && !isLoading &&(
+        profileInfo && !profileLoading &&(
           <PersonalForm
           register={register}
           handleSubmit={handleSubmit}
@@ -53,7 +51,7 @@ function CartPage() {
         />
         )
       }
-      {cartData && !isLoading && (
+      {cartData && !cartLoading && (
         <BuyTour
           cartData={cartData}
           watch={watch}
@@ -61,6 +59,9 @@ function CartPage() {
           createProfile={createProfile}
           profileInfo={profileInfo}
         />
+      )}
+      {!cartData && !cartLoading &&(
+          <EmptyCart/>
       )}
     
     </Wrapper>
