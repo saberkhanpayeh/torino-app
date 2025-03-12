@@ -13,17 +13,18 @@ import ProfileBlank from "../icons/ProfileBlank";
 import Logout from "../icons/Logout";
 import { setCookie } from "@/utils/cookie";
 import { useQueryClient } from "@tanstack/react-query";
+import { ThreeDots } from "react-loader-spinner";
 
 function Header() {
   const queryClient=useQueryClient();
   const [isLogin, setIsLogin] = useState(false);
   const [userPhone, setUserPhone] = useState("");
-  const [menue, setMenue] = useState(false);
+  const [menue, setMenue] = useState(true);
   const menueRef=useRef(null);
   const pathname = usePathname();
   const router = useRouter();
   useEffect(() => {
-    
+      
       const data = getFromLocalStorage("mobile");
       if (data) {
         setUserPhone(data);

@@ -9,6 +9,7 @@ function Banner() {
         width={1440}
         height={350}
         alt="banner-picture"
+        priority={true}
       />
     </div>
   );

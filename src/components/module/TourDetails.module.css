@@ -19,7 +19,7 @@
     align-items: center;
 }
 
-.top h2{
+.top .title h2{
     word-spacing: 6px;
   font-family: var(--font-yekan-bakh);
   font-weight: 600;
@@ -27,12 +27,19 @@
   color: #000000;
   margin-bottom: 16px;
 }
-.top p{
+.top .title p{
     font-family: var(--font-vazirmatn-numbers);
     font-weight: 300;
     font-size: 20px;
     color: #282828;
     margin-bottom: 24px;
+}
+.top .title{
+    display: flex;
+    justify-content: space-between;
+}
+.title .titleContainer{
+
 }
 .content{
     width: 100%;

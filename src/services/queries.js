@@ -34,6 +34,13 @@ const useMyToursList = (queryOptions = null) => {
   };
   return useQuery(["my-tours-list"], sendData, queryOptions);
 };
+const useTourDetailsData=(id,queryOptions=null)=>{
+  
+  const sendData=()=>{
+    return api.get(`tour/${id}`);
+  }
+  return useQuery(["tour-details"],sendData,queryOptions);
+}
 const useInvalidateQuery = () => {
   const queryClient = useQueryClient();
 
@@ -54,4 +61,5 @@ export {
   useCartData,
   useTransactionData,
   useMyToursList,
+  useTourDetailsData
 };

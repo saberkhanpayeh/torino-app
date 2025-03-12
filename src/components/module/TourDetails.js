@@ -12,6 +12,7 @@ import Security from "@/components/icons/Security";
 import styles from "@/components/module/TourDetails.module.css"
 import Wrapper from "../partials/container/Wrapper";
 import BuyButton from "./BuyButton";
+import Capacity from "./Capacity";
 function TourDetails({ data }) {
     const {id,origin,startDate,endDate,title,fleetVehicle,price,capacity,image}=data
     const periodTour=getPeriodTour(startDate,endDate);
@@ -22,10 +23,15 @@ function TourDetails({ data }) {
   return (
     <div className={styles.container}>
       <div className={styles.top}>
-        <Image src={image} width={397} height={265} alt="tour-image"/>
+        <Image src={image} width={397} height={265} alt="tour-image" priority={true}/>
         <div className={styles.content}>
-            <h2>{title}</h2>
-            <p>{periodTour} روز و {night} شب</p>
+          <div className={styles.title}>
+            <div className={styles.titleContainer}>
+              <h2>{title}</h2>
+              <p>{periodTour} روز و {night} شب</p>
+            </div>
+            <Capacity tourId={id}/>
+          </div>
             <ul>
                 <li><UserTick/>تورلیدر از مبدا</li>
                 <li><Map/>برنامه سفر</li>

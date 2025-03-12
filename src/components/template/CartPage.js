@@ -8,6 +8,7 @@ import PersonalForm from "../module/PersonalForm";
 import { useForm } from "react-hook-form";
 import { useEditProfile } from "@/services/mutations";
 import EmptyCart from "../module/EmptyCart";
+import RotatingLineLoader from "../element/RotatingLineLoader";
 
 function CartPage() {
   // in this page we have 3 type user
@@ -36,9 +37,13 @@ function CartPage() {
 
   //   console.log(cartData);
   //   return null;
- 
+  // if(profileLoading||cartLoading)
+  //   return<RotatingLineLoader/>
   return (
     <Wrapper>
+        {
+          profileLoading||cartLoading ? <RotatingLineLoader/>:null
+        }
         {
         profileInfo && !profileLoading &&(
           <PersonalForm
