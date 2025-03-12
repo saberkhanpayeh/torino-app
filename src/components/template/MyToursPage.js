@@ -7,9 +7,7 @@ function MyToursPage() {
   return (
     <PageLayout>
       <UserSidebar style={{ marginLeft: "18px" }} />
-      <Suspense fallback={<p>...loading</p>}>
         <MyToursList />
-      </Suspense>
     </PageLayout>
   );
 }

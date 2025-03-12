@@ -3,6 +3,7 @@ import { sendOtpCode } from "@/services/auth";
 import { otpExpireTimer } from "@/utils/timer";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { yupResolver } from '@hookform/resolvers/yup';
 import styles from "@/components/module/SendOtpModal.module.css";
 import Button from "@/components/element/Button";
 import Close from "@/components/icons/Close";
@@ -12,6 +13,8 @@ import { saveToLocalStorage } from "@/utils/localstorage";
 import { useSendOtp } from "@/services/mutations";
 import { toast } from "react-toastify";
 import { toastOptions } from "@/constant/toast";
+import { p2eFromat } from "@/utils/helper";
+import { mobileSchema } from "@/schema/validation";
 function SendOtpModal({ setModalState, setPhone }) {
   const { isPending, mutate } = useSendOtp();
   //   useEffect(() => {
@@ -22,13 +25,18 @@ function SendOtpModal({ setModalState, setPhone }) {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm();
+  } = useForm({
+    resolver:yupResolver(mobileSchema),
+  });
   const onSubmit = async (data) => {
-    setPhone(data);  //data is a phone number
+    //control format of data
+    const checkData={mobile:p2eFromat(data.mobile)};
+    // console.log(checkData);
+    setPhone(checkData);  //data is a phone number
     if (isPending) return;
-    mutate(data, {
+    mutate(checkData, {
       onSuccess: (data) => {
-        console.log(data); //data back from server
+        // console.log(data); //data back from server
         setModalState("CheckOtpModal");
         toast.info(data?.data?.message, {
           ...toastOptions,
@@ -62,6 +70,7 @@ function SendOtpModal({ setModalState, setPhone }) {
         <form onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="mobile">شماره موبایل خود را وارد کنید</label>
           <input {...register("mobile")} placeholder="0933***3319" />
+          {errors?.mobile && <span className={styles.error}>*{errors?.mobile.message}</span>}
           <Button type="submit" disabled={isSubmitting}>
             {isSubmitting ? "در حال ارسال کد..." : "ارسال کد تایید"}
           </Button>

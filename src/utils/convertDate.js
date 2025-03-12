@@ -22,7 +22,7 @@ const getTourStatus = (endTourData) => {
     return false;
   }
   if (diffirence <= 0) {
-    console.log("bargozari");
+    // console.log("bargozari");
     return true;
   }
 };

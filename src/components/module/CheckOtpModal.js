@@ -14,6 +14,8 @@ import { useRouter } from "next/navigation";
 import { useInvalidateQuery } from "@/services/queries";
 import { toast } from "react-toastify";
 import { toastOptions } from "@/constant/toast";
+import { p2eFromat } from "@/utils/helper";
+import { isNumericString } from "@/schema/validation";
 
 function CheckOtpModal({
   otpCode,
@@ -40,10 +42,13 @@ function CheckOtpModal({
   // console.log({ timer });
   // console.log(phone);
   const otpHandler = async (enteredOtp) => {
-    setInput(enteredOtp);
+    if(!isNumericString(enteredOtp))
+      return;
+    const checkFormat=p2eFromat(enteredOtp);
+    setInput(checkFormat);
     // console.log(phone);
-    if (enteredOtp.length === 6) {
-      const data = { ...phone, code: enteredOtp };
+    if (checkFormat.length === 6) {
+      const data = { ...phone, code: checkFormat };
       if (fail >= 2) {
         toast.warning(
           "شما بیش از حدمجاز تلاش کرده اید مطمئن شوید که شماره تلفن تان صحیح است",

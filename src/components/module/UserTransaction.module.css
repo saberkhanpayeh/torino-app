@@ -1,6 +1,7 @@
 .tableContainer{
  width: 871px;
  max-height: 533px;
+ min-height: 177px;
  border-radius: 10px;
  /* background-color: bisque; */
  background-color: #fff;
@@ -8,7 +9,23 @@
  overflow-y: auto;
 
 }
+.notFound{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 177px;
 
+}
+.notFound p{
+    width: 100%;
+    text-align: center;
+    border-radius:16px ;
+    word-spacing: 2px;
+    font-family: var(--font-yekan-bakh);
+    font-weight: 500;
+    font-size: 24px;
+    color: #000000;
+  }
 
 .tableContainer table{
     width: 100%;

@@ -27,7 +27,7 @@ function InputBirthdate({setBirthDate,initialValue}) {
     setInputDate(newDate);
     setBirthDate(isoString);
   };
-
+ 
   // console.log(inputDate);
   // console.log(new Date(Date.now()));
   return (

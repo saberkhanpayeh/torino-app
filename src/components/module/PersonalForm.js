@@ -1,11 +1,11 @@
 "use client"
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "@/components/module/PersonalForm.module.css";
 import InputBirthdate from "../element/InputBirthdate";
 import ProfileBold from "../icons/ProfileBold";
 import ProfileBlank from "../icons/ProfileBlank";
-function PersonalForm({onSubmit,handleSubmit,reset,profileInfo,register,setBirthDate}) {
+function PersonalForm({onSubmit,handleSubmit,reset,profileInfo,register,setBirthDate,errors}) {
   const userCurrentData=profileInfo||{
     fullName:"",
     nationalCode:"",
@@ -16,7 +16,7 @@ function PersonalForm({onSubmit,handleSubmit,reset,profileInfo,register,setBirth
       personal:userCurrentData,
     })
   },[reset,profileInfo]);
- const section="personalInfo";
+  
   return <div className={styles.container}>
      <div className={!userCurrentData.fullName ? `${styles.personal}`:`${styles.personal} ${styles.disable}`}>
           <div className={styles.title}>
@@ -34,6 +34,7 @@ function PersonalForm({onSubmit,handleSubmit,reset,profileInfo,register,setBirth
                 {...register("personal.fullName")}
                 placeholder="نام و نام خانوادگی"
               />
+              {errors?.personal?.fullName &&<span className={styles.error}>*{errors?.personal?.fullName?.message}</span>}
               </div>
               <div className={styles.inputContainer}>
                 <label htmlFor="personal.nationalCode">کدملی</label>
@@ -41,6 +42,7 @@ function PersonalForm({onSubmit,handleSubmit,reset,profileInfo,register,setBirth
                 {...register("personal.nationalCode")}
                 placeholder="کد ملی"
               />
+              {errors?.personal?.nationalCode && <span className={styles.error}>*{errors?.personal?.nationalCode?.message}</span>}
               </div>
 
               <div className={styles.inputContainer}>
@@ -62,6 +64,7 @@ function PersonalForm({onSubmit,handleSubmit,reset,profileInfo,register,setBirth
                   src="/svg-files/arrow-down.svg"
                   alt="arrow"
                 />
+              {errors?.personal?.gender && <span className={styles.genderError}>*{errors?.personal?.gender?.message}</span>}
               </div>
             </fieldset>
           </form>

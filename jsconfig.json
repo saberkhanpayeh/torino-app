@@ -16,7 +16,8 @@
       "@/components/partials/provider/*":["src/components/partials/provider/*"],
       "@/utils/*":["src/utils/*"],
       "@/config/*":["src/config/*"],
-      "@/services/*":["src/services/*"]
+      "@/services/*":["src/services/*"],
+      "@/schema/*":["src/schema/*"],
     }
   }
 }

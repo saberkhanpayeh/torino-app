@@ -9,6 +9,8 @@ import { useForm } from "react-hook-form";
 import { useEditProfile } from "@/services/mutations";
 import EmptyCart from "../module/EmptyCart";
 import RotatingLineLoader from "../element/RotatingLineLoader";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { profileSchema } from "@/schema/validation";
 
 function CartPage() {
   // in this page we have 3 type user
@@ -30,7 +32,11 @@ function CartPage() {
     watch,
     formState: { errors },
     reset,
-  } = useForm();
+  } = useForm(
+   {resolver:yupResolver(profileSchema),
+    mode:"onChange"
+   } 
+  );
   const onSubmit = (data) => {
     console.log(data);
   };
@@ -53,6 +59,7 @@ function CartPage() {
           onSubmit={onSubmit}
           profileInfo={profileInfo}
           setBirthDate={setBirthDate}
+          errors={errors}
         />
         )
       }

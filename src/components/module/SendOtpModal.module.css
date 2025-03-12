@@ -48,6 +48,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 .container form input {
     width: 491px;
@@ -63,4 +64,15 @@
     border: 1px solid #00000040;
     border-radius: 6px;
     margin-bottom: 41px;
+}
+.container .error{
+    position: absolute;
+    top: 55%;
+    font-family: var(--font-yekan-bakh);
+    font-weight: 300;
+    font-size: 14px;
+    color: red;
+    right: 0;
+    word-spacing: 2px;
+
 }

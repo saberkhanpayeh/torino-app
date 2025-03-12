@@ -14,9 +14,13 @@ function MyToursList() {
   // if(isError)return<NetworkError/>
   return (
     <div className={styles.list}>
-      {tours.map((tour) => (
+      {
+        tours?.length===0 && !isLoading ? <div className={styles.notFound}><p>سابقه ای برای تور های شما یافت نشد!</p></div>:null
+      }
+      { tours?.length > 0 && !isLoading ? tours.map((tour) => (
         <ToursItem tour={tour} key={tour.id} />
-      ))}
+      )):null}
+      
     </div>
   );
 }

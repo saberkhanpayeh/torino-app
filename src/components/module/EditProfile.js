@@ -4,13 +4,15 @@ import styles from "@/components/module/EditProfile.module.css";
 import { useForm } from "react-hook-form";
 import { useInvalidateQuery, useProfileData } from "@/services/queries";
 import {  useSearchParams } from "next/navigation";
-import { splitByFirstSpace } from "@/utils/helper";
+import { splitByFirstSpace, validationSchemas } from "@/utils/helper";
 import { useEditProfile } from "@/services/mutations";
 import { Calendar, CalendarProvider, DatePicker } from "zaman";
 import InputBirthdate from "../element/InputBirthdate";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { toastOptions } from "@/constant/toast";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { profileSchema } from "@/schema/validation";
 
 
 function EditProfile() {
@@ -18,6 +20,7 @@ function EditProfile() {
   const searchParams = useSearchParams();
   const [section,setSection]=useState("");
   const [birth, setBirthDate] = useState("");
+  const [birtError,setBirthError]=useState(false);
   const { mutate } = useEditProfile();
   const invalidateQuery = useInvalidateQuery();
   const queryOptions = {
@@ -48,7 +51,10 @@ function EditProfile() {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm();
+  } = useForm({
+    resolver:yupResolver(profileSchema),
+  });
+//  console.log(birtError);
 
   useEffect(()=>{
     const section = searchParams.get("section")||"";
@@ -64,6 +70,10 @@ function EditProfile() {
   }, [userProfile, bankInfo, reset]);
 
   const onSubmit = (data, formType) => {
+    // if(birth)
+    //   setBirthError(false)
+    // else
+    // setBirthError(true);
     // console.log(data);
     if (formType === "account") {
       const { account } = data;
@@ -84,7 +94,8 @@ function EditProfile() {
     if (formType === "personal") {
       if (!birth) {
         // window.alert("enter date");
-        //show toast
+        // show toast
+        setBirthError(true);
         return;
       }
       console.log(data.personal);
@@ -128,6 +139,7 @@ function EditProfile() {
       });
     }
   };
+  
   const navigateToProfile=()=>{
     invalidateQuery(["profile-info"]);
     router.push("/dashboard/profile");
@@ -144,9 +156,9 @@ function EditProfile() {
             <fieldset>
               <div className={styles.inputContainer}>
                 <label htmlFor="account.email">آدرس ایمیل</label>
-              <input {...register("account.email")} placeholder="آدرس ایمیل" />
+              <input {...register("account.email")} placeholder="آدرس ایمیل" disabled={section!=="accountInfo"&&"disable"} />
+              {errors?.account?.email &&section==="accountInfo"&& <span>*{errors?.account?.email?.message}</span>}
               </div>
-
               <button
                 type="button"
                 onClick={handleSubmit((data) => onSubmit(data, "account"))}
@@ -167,14 +179,18 @@ function EditProfile() {
               <input
                 {...register("personal.fullName")}
                 placeholder="نام و نام خانوادگی"
+                disabled={section!=="personalInfo"&&"disable"} 
               />
+              {errors?.personal?.fullName && section==="personalInfo" &&<span className={styles.error}>*{errors?.personal?.fullName?.message}</span>}
               </div>
               <div className={styles.inputContainer}>
                 <label htmlFor="personal.nationalCode">کدملی</label>
               <input
                 {...register("personal.nationalCode")}
                 placeholder="کد ملی"
+                disabled={section!=="personalInfo"&&"disable"} 
               />
+              {errors?.personal?.nationalCode &&section==="personalInfo" && <span className={styles.error}>*{errors?.personal?.nationalCode?.message}</span>}
               </div>
 
               <div className={styles.inputContainer}>
@@ -183,6 +199,7 @@ function EditProfile() {
                 setBirthDate={setBirthDate}
                 initialValue={userProfile?.birthDate}
               />
+              { birtError && section==="personalInfo" ? <span className={styles.error}>مقدار تاریخ تولد الزامی است!</span>:null}
               </div>
 
               <div className={styles.selectOption}>
@@ -196,6 +213,7 @@ function EditProfile() {
                   src="/svg-files/arrow-down.svg"
                   alt="arrow"
                 />
+                {errors?.personal?.gender && section==="personalInfo" && <span className={styles.genderError} >*{errors?.personal?.gender?.message}</span>}
               </div>
             </fieldset>
           </form>
@@ -218,21 +236,26 @@ function EditProfile() {
           <fieldset>
             <div className={styles.inputContainer}>
             <label htmlFor="bank.shaba_code">شماره شبا</label>
-            <input {...register("bank.shaba_code")} placeholder="شماره شبا" />
+            <input {...register("bank.shaba_code")} placeholder="شماره شبا" disabled={section!=="creaditInfo"&&"disable"} />
+            {errors?.bank?.shaba_code && section==="creaditInfo" && <span className={styles.error} >*{errors?.bank?.shaba_code?.message}</span>}
             </div>
             <div className={styles.inputContainer}>
               <label htmlFor="bank.debitCard_code">شماره کارت</label>
             <input
               {...register("bank.debitCard_code")}
               placeholder="شماره کارت"
+              disabled={section!=="creaditInfo"&&"disable"}
             />
+            {errors?.bank?.debitCard_code && section==="creaditInfo" && <span className={styles.error} >*{errors?.bank?.debitCard_code?.message}</span>}
             </div>
               <div className={styles.inputContainer}>
                 <label htmlFor="bank.accountIdentifier">شماره حساب</label>
                 <input
               placeholder="شماره حساب"
               {...register("bank.accountIdentifier")}
+              disabled={section!=="creaditInfo"&&"disable"}
             />
+            {errors?.bank?.accountIdentifier && section==="creaditInfo" && <span className={styles.error} >*{errors?.bank?.accountIdentifier?.message}</span>}
               </div>
           </fieldset>
         </form>
