@@ -7,7 +7,7 @@
 
 }
 .detail{
-    margin-bottom: 140px;
+    margin-bottom: 158px;
     /* background-color: aquamarine; */
 }
 .title{
@@ -51,6 +51,9 @@
 .detail p{
     font-family: var(--font-iransans);
     font-weight: 400;
+    font-size: 20px;
     width: 517px;
     text-align: justify;
+    line-height: 220%;
 }
+

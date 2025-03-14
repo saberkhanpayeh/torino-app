@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "@/components/module/WhyTorino.module.css";
+import Slider from "./Slider";
 function WhyTorino() {
   return (
     <div className={styles.continer}>
@@ -20,7 +21,7 @@ function WhyTorino() {
           را خریداری کنید.
         </p>
       </article>
-      <div></div>
+      <Slider/>
     </div>
   );
 }
