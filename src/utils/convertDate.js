@@ -1,3 +1,5 @@
+import { e2pFormat } from "./helper";
+
 const { toJalaali } = require("jalaali-js");
 
 const getPeriodTour = (date1, date2) => {
@@ -63,8 +65,8 @@ const convertMiladiToJalali = (isoDate) => {
     "فروردین",
   ];
   const monthName = months[jm - 1];
-  const highFormat = `${weekDay} ${jd} ${monthName} ${jy}`;
-  const middleFormat = `${jd} ${monthName} ${jy}`;
+  const highFormat = `${weekDay} ${e2pFormat(jd)} ${monthName} ${e2pFormat(jy)}`;
+  const middleFormat = `${e2pFormat(jd)} ${monthName} ${e2pFormat(jy)}`;
 
   return { highFormat, middleFormat, monthName };
 };

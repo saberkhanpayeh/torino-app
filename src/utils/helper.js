@@ -11,6 +11,7 @@ const shortenTransactionId = (uuid) => {
   return shortId;
 };
 
-const p2eFromat = (s) =>
+const p2eFormat = (s) =>
   s.toString().replace(/[۰-۹]/g, (d) => "۰۱۲۳۴۵۶۷۸۹".indexOf(d));
-export { splitByFirstSpace, shortenTransactionId, p2eFromat };
+const e2pFormat = (s) => s.toString().replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d]);
+export { splitByFirstSpace, shortenTransactionId, p2eFormat,e2pFormat };

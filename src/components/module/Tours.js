@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import styles from "@/components/module/Tours.module.css"
 import Link from "next/link";
+import { e2pFormat } from "@/utils/helper";
 function Tours({ data }) {
   console.log(data);
   return (
@@ -31,7 +32,7 @@ const TourItem = ({ tour }) => {
       <div>
         <div className={styles.top}>
           <h3>{title}</h3>
-          <p>{`${monthName} ماه . ${periodTour} روزه - پرواز - هتل 5س...`}</p>
+          <p>{`${monthName} ماه . ${e2pFormat(periodTour)} روزه - پرواز - هتل 5س...`}</p>
         </div>
         <div className={styles.bottom}>
           <Link href={`/tours/${tour.id}`}>رزرو</Link>

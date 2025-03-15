@@ -4,6 +4,7 @@ import Image from "next/image";
 import { convertMiladiToJalali } from "@/utils/convertDate";
 import Detail from "../icons/Detail";
 import { useRouter } from "next/navigation";
+import { vehicleType } from "@/constant/transport";
 function SearchToursList({ tours,isOpen,setIsOpen }) {
    const toursMenuRef=useRef(null);
    
@@ -41,6 +42,7 @@ const TourItem = ({ tour }) => {
   const { highFormat, middleFormat, monthName } =
     convertMiladiToJalali(startDate);
   //   console.log(highFormat);
+  const vehicle=vehicleType(fleetVehicle)
   const router=useRouter();
   const tourHandler=(id)=>{
       router.push(`/tours/${id}`);
@@ -51,7 +53,7 @@ const TourItem = ({ tour }) => {
         <div className={styles.title}>
           <h3>{title}</h3>
           <p>
-            {highFormat} - {fleetVehicle}
+            {highFormat} - {vehicle?.label}
           </p>
         </div>
       <div className={styles.reservBtn}>

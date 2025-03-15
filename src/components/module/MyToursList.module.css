@@ -45,7 +45,7 @@
     position: relative;
 }
 .list .details ul{
-    width: fit-content;
+    width: 69%;
     /* background-color: cadetblue; */
     display: grid;
     grid-template-columns: repeat(2,1fr);
@@ -53,6 +53,7 @@
     row-gap: 13px;
 }
 .list .details ul li{
+  width: max-content;
     display: flex;
     align-items: center;
     /* background-color: aliceblue; */
@@ -147,6 +148,15 @@
 .list .end{
     background-color: #28A7454D;
     color: #28A745;
+}
+
+.list .vehicle svg{
+  width: 24px;
+  height:24px
+}
+.list .airplane svg{
+  width:36px !important;
+  height:34px !important;
 }
 .list::-webkit-scrollbar {
     width: 2px;

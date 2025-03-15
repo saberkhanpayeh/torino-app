@@ -8,6 +8,8 @@ import { convertMiladiToJalali, getTourStatus } from "@/utils/convertDate";
 import { shortenTransactionId } from "@/utils/helper";
 import { isError } from "@tanstack/react-query";
 import NetworkError from "./NetworkError";
+import { vehicleType } from "@/constant/transport";
+import { getDestinationCity, getOriginCity } from "@/constant/cities";
 function MyToursList() {
   const { data, isLoading,isError } = useMyToursList();
   const tours = data?.data || [];
@@ -39,6 +41,9 @@ function ToursItem({ tour }) {
   } = tour;
   const { middleFormat: goneDate } = convertMiladiToJalali(startDate);
   const { middleFormat: returnDate } = convertMiladiToJalali(endDate);
+  const vehicle=vehicleType(fleetVehicle)
+  const originCity=getOriginCity(origin.name);
+  const destinationCity=getDestinationCity(destination.name);
   //console.log(getTourStatus(endDate));
 
   return (
@@ -49,13 +54,13 @@ function ToursItem({ tour }) {
             <SunFog />
             <p>{title}</p>
           </li>
-          <li>
-            <Bus />
-            <p>سفر با {fleetVehicle}</p>
+          <li className={`${styles.vehicle} ${fleetVehicle==="airplane" && styles.airplane}`}>
+            {vehicle.icon}
+            <p>سفر با {vehicle.label}</p>
           </li>
           <li>
             <p>
-              {origin.name} به {destination.name}
+              {originCity} به {destinationCity}
             </p>
             <span>󠁯•󠁏󠁏</span>
             <span>{goneDate}</span>

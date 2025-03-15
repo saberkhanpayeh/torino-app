@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 import { useInvalidateQuery } from "@/services/queries";
 import { toast } from "react-toastify";
 import { toastOptions } from "@/constant/toast";
-import { p2eFromat } from "@/utils/helper";
+import { p2eFormat } from "@/utils/helper";
 import { isNumericString } from "@/schema/validation";
 
 function CheckOtpModal({
@@ -44,7 +44,7 @@ function CheckOtpModal({
   const otpHandler = async (enteredOtp) => {
     if(!isNumericString(enteredOtp))
       return;
-    const checkFormat=p2eFromat(enteredOtp);
+    const checkFormat=p2eFormat(enteredOtp);
     setInput(checkFormat);
     // console.log(phone);
     if (checkFormat.length === 6) {
@@ -109,7 +109,6 @@ function CheckOtpModal({
   };
   const loginHandler = () => {};
   return (
-    <div className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.svg} onClick={backHandler}>
           <BackArrow />
@@ -138,7 +137,6 @@ function CheckOtpModal({
           <Button onClick={() => resendHandler(phone)}>ارسال مجدد کد</Button>
         )}
       </div>
-    </div>
   );
 }
 

@@ -13,13 +13,16 @@ import styles from "@/components/module/TourDetails.module.css"
 import Wrapper from "../partials/container/Wrapper";
 import BuyButton from "./BuyButton";
 import Capacity from "./Capacity";
+import { getOriginCity } from "@/constant/cities";
+import { vehicleType } from "@/constant/transport";
 function TourDetails({ data }) {
     const {id,origin,startDate,endDate,title,fleetVehicle,price,capacity,image}=data
     const periodTour=getPeriodTour(startDate,endDate);
     const night=periodTour-1;
     const {middleFormat:goneDate}=convertMiladiToJalali(startDate);
     const {middleFormat:returnDate}=convertMiladiToJalali(endDate);
-    
+    const originCity=getOriginCity(origin.name);
+    const vehicle=vehicleType(fleetVehicle);
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -46,10 +49,10 @@ function TourDetails({ data }) {
         </div>
       </div>
         <ul className={styles.footer}>
-            <li><div><RoutinBold/><span>مبدا</span></div><p>{origin.name}</p></li>
+            <li><div><RoutinBold/><span>مبدا</span></div><p>{originCity}</p></li>
             <li><div><Calender/><span>تاریخ رفت</span></div><p>{goneDate}</p></li>
             <li><div><Calender/><span>تاریخ برگشت</span></div><p>{returnDate}</p></li>
-            <li><div><Bus/><span>حمل و نقل</span></div><p>{fleetVehicle}</p></li>
+            <li><div><Bus/><span>حمل و نقل</span></div><p>{vehicle.label}</p></li>
             <li><div><DoubleUser/><span>ظرفیت</span></div><p>حداکثر{capacity} نفر</p></li>
             <li><div><Security/><span>بیمه</span></div><p>بیمه 50 هزار دیناری</p></li>
         </ul>

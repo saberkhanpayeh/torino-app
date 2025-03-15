@@ -13,7 +13,7 @@ import { saveToLocalStorage } from "@/utils/localstorage";
 import { useSendOtp } from "@/services/mutations";
 import { toast } from "react-toastify";
 import { toastOptions } from "@/constant/toast";
-import { p2eFromat } from "@/utils/helper";
+import { p2eFormat } from "@/utils/helper";
 import { mobileSchema } from "@/schema/validation";
 function SendOtpModal({ setModalState, setPhone }) {
   const { isPending, mutate } = useSendOtp();
@@ -30,7 +30,7 @@ function SendOtpModal({ setModalState, setPhone }) {
   });
   const onSubmit = async (data) => {
     //control format of data
-    const checkData={mobile:p2eFromat(data.mobile)};
+    const checkData={mobile:p2eFormat(data.mobile)};
     // console.log(checkData);
     setPhone(checkData);  //data is a phone number
     if (isPending) return;
@@ -61,7 +61,6 @@ function SendOtpModal({ setModalState, setPhone }) {
     router.back();
   };
   return (
-    <div className={styles.wrapper}>
       <div className={styles.container}>
         <div onClick={closeHandler} className={styles.svg}>
           <Close />
@@ -76,7 +75,6 @@ function SendOtpModal({ setModalState, setPhone }) {
           </Button>
         </form>
       </div>
-    </div>
   );
 }
 

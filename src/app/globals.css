@@ -54,6 +54,10 @@ body {
   font-weight: 400;
 
 }
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
 /* ::-webkit-scrollbar {
   width: 0px;
   background: transparent; 
