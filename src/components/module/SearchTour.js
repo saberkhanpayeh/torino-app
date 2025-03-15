@@ -12,10 +12,7 @@ import { tourFilter } from "@/utils/filter";
 import SearchToursList from "./SearchToursList";
 
 function SearchTour({ data }) {
-  // const date = new Date("2025-03-01");
-  // if (isNaN(date.getTime())) {
-  //   console.error("تاریخ نامعتبر است!");
-  // }
+
   const [isOpen,setIsOpen]=useState(false);
   const [filteredTours,setFilteredTours]=useState([]);
   const [searchTour, setSearchTour] = useState({

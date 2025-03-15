@@ -7,7 +7,7 @@ import { useInvalidateQuery } from "@/services/queries";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { toastOptions } from "@/constant/toast";
-function BuyTour({ cartData, watch, birthDate, createProfile, profileInfo }) {
+function BuyTour({ cartData, watch, createProfile, profileInfo }) {
   const router = useRouter();
   const { mutate: mutateProfile, isPending: profilePending } = useEditProfile();
   const { mutate: mutateOrder, isPending: orderPending } = useCreateOrder();
@@ -32,7 +32,7 @@ function BuyTour({ cartData, watch, birthDate, createProfile, profileInfo }) {
       data.fullName = watch("personal.fullName");
       data.nationalCode = watch("personal.nationalCode");
       data.gender = watch("personal.gender");
-      data.birthDate = birthDate;
+      data.birthDate = watch("personal.birthDate");
       if (
         !data.fullName ||
         !data.nationalCode ||
@@ -41,7 +41,6 @@ function BuyTour({ cartData, watch, birthDate, createProfile, profileInfo }) {
       ) {
         //show toast to enter info
         toast.warning("مشخصات کاربری خود را تکمیل کنید!",toastOptions);
-        console.log("enter valid");
         return;
       }
     } else {

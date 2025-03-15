@@ -3,7 +3,6 @@ import Location from "@/components/icons/Location";
 
 const customOriginCity = () => {
   let originCity = [
-    { value: "", label: "مبدا" },
     { value: "Tehran", label: "تهران" },
     { value: "Sananndaj", label: "سنندج" },
     { value: "Madrid", label: "مادرید" },
@@ -20,7 +19,6 @@ const customOriginCity = () => {
 };
 const customDestinationCity = () => {
   let originCity = [
-    { value: "", label: "مبدا" },
     { value: "Tehran", label: "تهران" },
     { value: "Sananndaj", label: "سنندج" },
     { value: "Madrid", label: "مادرید" },

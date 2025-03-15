@@ -3,13 +3,13 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "@/components/module/PersonalForm.module.css";
 import InputBirthdate from "../element/InputBirthdate";
-import ProfileBold from "../icons/ProfileBold";
-import ProfileBlank from "../icons/ProfileBlank";
-function PersonalForm({onSubmit,handleSubmit,reset,profileInfo,register,setBirthDate,errors}) {
+import { Controller } from "react-hook-form";
+function PersonalForm({control,reset,profileInfo,register,errors}) {
   const userCurrentData=profileInfo||{
     fullName:"",
     nationalCode:"",
     gender:"",
+    birthDate:""
   };
   useEffect(()=>{
     reset({
@@ -46,11 +46,21 @@ function PersonalForm({onSubmit,handleSubmit,reset,profileInfo,register,setBirth
               </div>
 
               <div className={styles.inputContainer}>
-                <label htmlFor="date">تاریخ تولد</label>
-              <InputBirthdate
-                setBirthDate={setBirthDate}
-                initialValue={profileInfo?.birthDate}
-              />
+                <label htmlFor="personal.birthDate">تاریخ تولد</label>
+                <Controller
+                  name="personal.birthDate"
+                  control={control}
+                  
+                  render={({ field: { onChange, value } }) => (
+                    <InputBirthdate onChange={onChange} value={value}/>
+                  )}
+                />
+
+                {errors?.personal?.birthDate && section === "personalInfo" ? (
+                  <span className={styles.error}>
+                   {errors?.personal?.birthDate?.message} 
+                  </span>
+                ) : null}
               </div>
 
               <div className={styles.selectOption}>
@@ -68,16 +78,6 @@ function PersonalForm({onSubmit,handleSubmit,reset,profileInfo,register,setBirth
               </div>
             </fieldset>
           </form>
-        {/* <div className={section==="personalInfo"? `${styles.footerBtn}`:`${styles.footerBtn} ${styles.disableBtn}`}>
-          <button
-            type="button"
-            onClick={handleSubmit((data) => onSubmit(data, "personal"))}
-            className={styles.select}
-          >
-            تایید
-          </button>
-          <button onClick={()=>router.push("/dashboard/profile")}>انصراف</button>
-        </div> */}
       </div>
   </div>;
 }

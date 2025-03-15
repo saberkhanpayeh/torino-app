@@ -1,9 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Calendar, CalendarProvider, DatePicker } from "zaman";
+import { DatePicker } from "zaman";
 import styles from "@/components/element/InputSearchDate.module.css";
 import "@/app/globals.css";
 import Close from "../icons/Close";
+import { DateToIso } from "@/utils/convertDate";
 function InputSearchDate({ setSearchTour }) {
   const [inputDate, setInputDate] = useState("");
   const [showClose, setShowClose] = useState(false);
@@ -17,33 +18,30 @@ function InputSearchDate({ setSearchTour }) {
   };
 
   const handleDateChange = (e) => {
-    // e.target.scrollIntoView({ behavior: "smooth", block: "center" });
-
     // conver this date that we have get from datepicker
     // Wed Mar 05 2025 14:36:45 GMT+0330 (Iran Standard Time)
     //to this format that is utc and standard
     // 2025-03-05T11:10:19.000Z
-    const startDate = new Date(e.from).toISOString();
-    console.log(startDate);
-    const endDate = new Date(e.to).toISOString();
+
+    const startDate = DateToIso(e.from);
+    const endDate = DateToIso(e.to);
     setSearchTour((searchTour) => ({ ...searchTour, startDate, endDate }));
     setInputDate(
       ` ${converDateToFarsiFromat(startDate)}-${converDateToFarsiFromat(
         endDate
       )}`
     );
-    // const inputDate = new Date(e.value);
-    // const isoString = inputDate.toISOString();
-    // const newDate = converDateToFarsiFromat(isoString);
-    // setInputDate(newDate);
-    // setBirthDate(isoString);
   };
 
-  console.log(inputDate);
+  // console.log(inputDate);
   // console.log(new Date(Date.now()));
   const closeHandler = () => {
     setInputDate("");
-    setSearchTour((searchTour)=>({...searchTour,startDate:"",endDate:""}));
+    setSearchTour((searchTour) => ({
+      ...searchTour,
+      startDate: "",
+      endDate: "",
+    }));
   };
   return (
     <div className={styles.inputWrapper}>
@@ -57,6 +55,8 @@ function InputSearchDate({ setSearchTour }) {
       <DatePicker
         onChange={handleDateChange}
         defaultValue={Date.now()}
+        round="x2"
+        accentColor="#28A745"
         inputAttributes={{
           style: {
             position: "absolute",

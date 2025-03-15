@@ -68,5 +68,6 @@ const convertMiladiToJalali = (isoDate) => {
 
   return { highFormat, middleFormat, monthName };
 };
+const DateToIso=(farsiDate)=>new Date(farsiDate).toISOString();
 
-export { getPeriodTour, convertMiladiToJalali, getTourStatus };
+export { getPeriodTour, convertMiladiToJalali, getTourStatus,DateToIso };

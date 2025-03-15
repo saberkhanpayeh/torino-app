@@ -7,7 +7,6 @@ const mobileSchema = yup.object({
 });
 const isNumericString = (str) => /^[0-9]+$/.test(str);
 
-
 const profileSchema = yup.object().shape({
   account: yup.object().shape({
     email: yup
@@ -26,6 +25,7 @@ const profileSchema = yup.object().shape({
       .length(10, "تعداد ارقام غیر مجاز!")
       .matches(/^[0-9]+$/, "کدملی نامعتبر!"),
     gender: yup.string().required("مقدار جنسیت الزامی است!"),
+     birthDate: yup.date().nullable().required("تاریخ تولد الزامی است!"),
   }),
   bank: yup.object().shape({
     shaba_code: yup.string().required("شماره شبا الزامی است!"),
@@ -38,7 +38,7 @@ const profileSchema = yup.object().shape({
       .string()
       .required("شماره حساب الزامی است!")
       .length(8, "تعداد ارقام خارج از بازه مجاز!")
-      .matches(/^[0-9]+$/,"شماره حساب نامعتبر است!"),
+      .matches(/^[0-9]+$/, "شماره حساب نامعتبر است!"),
   }),
 });
 
