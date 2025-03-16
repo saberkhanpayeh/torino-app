@@ -1,15 +1,21 @@
 import React, { useEffect, useRef } from "react";
 import styles from "@/components/partials/container/ModalContainer.module.css";
 import { useRouter } from "next/navigation";
-function ModalContainer({ children,setModalState }) {
+function ModalContainer({ children,setModalState,modalState}) {
    const modalRef=useRef(null); 
    const router=useRouter();
    useEffect(()=>{
     const handleClickOutside=(event)=>{
-        if(event.target.id==="modal"){
+        if(modalState==="SendOtpModal"|| modalState==="CheckOtpModal"){
             // console.log(event.target)
-            setModalState("");
-            router.back();
+            if(event.target.id==="modal"){
+              setModalState("");
+              router.back();
+            }
+
+        }
+        if(modalState==="hamburger"&&event.target.id==="modal"){
+          setModalState("");
         }
     }
     document.addEventListener("mousedown", handleClickOutside);

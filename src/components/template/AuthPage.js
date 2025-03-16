@@ -35,12 +35,12 @@ function AuthPage() {
   return (
     <>
       {modalState === "SendOtpModal" && (
-        <ModalContainer  setModalState={setModalState}>
+        <ModalContainer  setModalState={setModalState} modalState={modalState}>
           <SendOtpModal setModalState={setModalState} setPhone={setPhone} />
         </ModalContainer>
       )}
       {modalState === "CheckOtpModal" && (
-        <ModalContainer  setModalState={setModalState}>
+        <ModalContainer  setModalState={setModalState} modalState={modalState}>
           <CheckOtpModal
             otpCode={otpCode}
             setOtpCode={setOtpCode}

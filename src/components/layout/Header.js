@@ -14,45 +14,68 @@ import Logout from "../icons/Logout";
 import { setCookie } from "@/utils/cookie";
 import { useQueryClient } from "@tanstack/react-query";
 import { ThreeDots } from "react-loader-spinner";
+import Hamburger from "../icons/mobile-icons/Hamburger";
+import Login from "../icons/mobile-icons/Login";
+import ModalContainer from "../partials/container/ModalContainer";
+import HamburgerMenu from "../element/HamburgerMenu";
 
 function Header() {
-  const queryClient=useQueryClient();
+  const queryClient = useQueryClient();
   const [isLogin, setIsLogin] = useState(false);
   const [userPhone, setUserPhone] = useState("");
+  const [modalState, setModalState] = useState("");
   const [menue, setMenue] = useState(true);
-  const menueRef=useRef(null);
+  const [isFexed,setIsFixed]=useState(false);
+  const fixedRange=[200,1700];
+  const menueRef = useRef(null);
   const pathname = usePathname();
   const router = useRouter();
   useEffect(() => {
-      
-      const data = getFromLocalStorage("mobile");
-      if (data) {
-        setUserPhone(data);
-        setIsLogin(true);
-      } else {
-        setIsLogin(false);
-      }
-      setMenue(false);
+    const data = getFromLocalStorage("mobile");
+    if (data) {
+      setUserPhone(data);
+      setIsLogin(true);
+    } else {
+      setIsLogin(false);
+    }
+    setMenue(false);
   }, [pathname]);
   useEffect(() => {
     if (menue && menueRef.current) {
       menueRef.current.focus(); // setFoucos when menue is open
     }
   }, [menue]);
-  const logoutHandler=()=>{
-    
+  useEffect(()=>{
+    const handleScroll = () => {
+      if (window.scrollY > fixedRange[0] && window.scrollY <fixedRange[1]) {
+        setIsFixed(true);
+      } else {
+        setIsFixed(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  },[])
+  const logoutHandler = () => {
     localStorage.clear();
-    setCookie("accessToken","",0);
-    setCookie("refreshToken","",0);
+    setCookie("accessToken", "", 0);
+    setCookie("refreshToken", "", 0);
     queryClient.clear();
     window.location.reload();
-  }
-  const profileHandler=()=>{
+  };
+  const profileHandler = () => {
     router.push("/dashboard/profile");
-  }
+  };
+  const hamburgerHandler = () => {
+    setModalState("hamburger");
+  };
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${isFexed ?styles.fixed:styles.absolute}`}>
       <div className={styles.container}>
+        <div className={styles.hamburgerIcon} onClick={hamburgerHandler}>
+          <Hamburger />
+        </div>
         <div className={styles.navbar}>
           <Link href="/">
             <SiteLogo />
@@ -84,19 +107,27 @@ function Header() {
             <DownArrow />
           </div>
         ) : (
-          <div className={styles.loginBtn}>
-            <button onClick={() => router.push("/login")}>
-              <Profile />
-              <span>ورود | ثبت نام</span>
-            </button>
-          </div>
+          <>
+            <div className={styles.loginBtn}>
+              <button onClick={() => router.push("/login")}>
+                <Profile />
+                <span>ورود | ثبت نام</span>
+              </button>
+            </div>
+            <span
+              className={styles.mobileLogin}
+              onClick={() => router.push("/login")}
+            >
+              <Login />
+            </span>
+          </>
         )}
         {menue && isLogin && (
           <ul
             className={styles.userMenue}
             ref={menueRef}
             tabIndex={0}
-            onBlur={() => setMenue((menue)=>!menue)}
+            onBlur={() => setMenue((menue) => !menue)}
           >
             <li>
               <span>
@@ -105,16 +136,21 @@ function Header() {
               <p>{userPhone}</p>
             </li>
             <li onClick={profileHandler}>
-                <ProfileBlank />
-                <p>اطلاعات حساب کاربری</p>
+              <ProfileBlank />
+              <p>اطلاعات حساب کاربری</p>
             </li>
             <li onClick={logoutHandler}>
-                <Logout />
-                <p>خروج از حساب کاربری</p>
+              <Logout />
+              <p>خروج از حساب کاربری</p>
             </li>
           </ul>
         )}
       </div>
+      {modalState === "hamburger" && (
+        <ModalContainer setModalState={setModalState} modalState={modalState}>
+          <HamburgerMenu />
+        </ModalContainer>
+      )}
     </header>
   );
 }

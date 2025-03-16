@@ -1,9 +1,9 @@
 import { convertMiladiToJalali, getPeriodTour } from "@/utils/convertDate";
 import Image from "next/image";
 import React from "react";
-import styles from "@/components/module/Tours.module.css"
 import Link from "next/link";
 import { e2pFormat } from "@/utils/helper";
+import styles from "@/components/module/Tours.module.css"
 function Tours({ data }) {
   console.log(data);
   return (
