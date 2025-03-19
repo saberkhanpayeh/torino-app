@@ -15,6 +15,9 @@ function Slider() {
   const [currentIndex,setCurrentIndex]=useState(1);
   const [prevState,setPrevState]=useState(false);
   const [nextState,setNextState]=useState(true);
+  const getWidth = () => document.documentElement.clientWidth;
+  const [width, setWidth] = useState(getWidth());
+  const [pivot,setPivot]=useState(0);
   const nextSlide = () => {
     if(currentIndex===slides.length)
     {
@@ -42,19 +45,36 @@ function Slider() {
     }
 };
 // console.log({prevState,nextState});
+    // useEffect(() => {
+    //   if (!autoPlay) return; 
+  
+    //   const interval = setInterval(() => {
+    //     if(nextState)
+    //      nextSlide();
+    //     else{
+    //       prevSlide();
+    //     }
+    //   }, 3000); 
+  
+    //   return () => clearInterval(interval); 
+    // }, [slides,prevState,prevState]);
+  
     useEffect(() => {
-      if (!autoPlay) return; 
-  
-      const interval = setInterval(() => {
-        if(nextState)
-         nextSlide();
-        else{
-          prevSlide();
-        }
-      }, 3000); 
-  
-      return () => clearInterval(interval); 
-    }, [slides,prevState,prevState]);
+      const handleResize = () => setWidth(getWidth());
+      if(width<=480){
+          setPivot(40);
+      }
+     else if(width>480 && width<=768){
+        setPivot(55);
+      }
+      else{
+        setPivot(60);
+      }
+      
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+    console.log(width)
   return (   
   <div className={styles.sliderContainer}>
     {slides.map((item, index) => (
@@ -62,7 +82,7 @@ function Slider() {
         key={item.id}
         className={styles.slide}
         style={{
-          transform: `translateX(${-index * 60}px) scale(${1 - index * 0.15})`,
+          transform: `translateX(${-index * pivot}px) scale(${1 - index * 0.15})`,
           zIndex: images.length - index,
           opacity: index === images.length - 1 ? 0.8 : 1,
         }}

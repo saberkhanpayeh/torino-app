@@ -14,7 +14,7 @@ function Advertise() {
         <Image src="/images/advertise-icon.png" width={308} height={225} />
       </div>
       <div className={styles.left}>
-        <div>
+        <div className={styles.number}>
           <span>021-1840</span>
           <Call />
         </div>

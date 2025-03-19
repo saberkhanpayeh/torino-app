@@ -59,3 +59,42 @@
     pointer-events: none;
     opacity: 0.5;
   }
+
+  @media (max-width:480px){
+    .sliderContainer {
+      width: 76.4%;
+      height:calc(284px + 10vh);
+      margin-right: 10px;
+      /* direction: ltr; */
+    }
+    .controls {
+      bottom: -44px;
+      gap: 26px;
+    }
+    .controls .progress{
+      width: 39px;
+      font-size: 20px;
+    }
+    .btnLeft svg,.btnRight svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  @media(min-width:481px) and (max-width:768px){
+    .sliderContainer {
+      width: 76.4%;
+      height: calc(284px + 50vh);
+      margin-right: 0;
+      max-height: 580px;
+    }
+  }
+  @media(min-width:769px) and (max-width:1200px){
+    .sliderContainer {
+      max-width: 420px;
+      max-height: 470px;
+      width: 76.4%;
+      height: calc(284px + 60vh);
+      margin-right: 0;
+      margin: 0 auto;
+    }
+  }

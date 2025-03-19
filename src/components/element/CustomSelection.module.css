@@ -20,6 +20,9 @@ font-size:20px ;
 color: #2C2C2C;
 text-align: right;
 }
+.selectContainer button svg{
+    stroke: #000000e6;
+}
 .selectContainer .closeBtn{
     border-radius: 16px;
     cursor: pointer;
@@ -52,6 +55,7 @@ text-align: right;
     background-color: #fff;
     max-height: 250px;;
     overflow-y: scroll;
+    z-index: 20;
 }
 
 .optionsContainer .option{
@@ -67,6 +71,7 @@ text-align: right;
 }
 .selectContainer .option svg{
     display: block;
+    stroke: #000000e6;
 }
 .selectContainer .option span{
     font-family: var(--font-yekan-bakh);
@@ -78,6 +83,9 @@ text-align: right;
 .active{
     background-color: #28A745 !important;
     
+}
+.active svg{
+    stroke: #fff !important;
 }
 .active span{
     color: #fff !important;
@@ -102,4 +110,165 @@ text-align: right;
   background: transparent; 
   margin-top: 10px; 
   margin-bottom: 10px;
+}
+
+@media (max-width:480px){
+    .selectContainer button{    
+    height: 47px;
+    border: 1px solid #00000026;
+    border-radius: 12px;
+    justify-content: center;
+    padding:0;
+    font-size:16px ;
+    color: #00000080;
+    }
+    .selectContainer button svg{
+        width: 18px;
+        height: 18px;
+        stroke: #00000080;
+    }
+
+    .selectContainer .optionsContainer{
+        
+        max-height: 174px;
+        top:48px;
+        width: 100%;
+        left: 0;
+      
+    }
+    
+    .optionsContainer .option{
+
+        padding: 8px 6px;
+        /* background-color: red; */
+    }
+    .selectContainer .option svg{
+        width: 18px;
+        height: 18px;
+        stroke: #00000080;
+    }
+    .selectContainer .option span{
+        font-size:10px ;
+        color: #00000080;
+    }
+    
+    .optionsContainer::-webkit-scrollbar-thumb {
+        background:#C0C0C0; 
+    }
+
+    .selectContainer .closeBtn{
+        border-radius: 6px;
+        top: 50%;
+        left: 1px;
+        transform: translateY(-50%);
+        font-size: 8px;
+    }
+    .selectContainer .closeBtn svg{
+        /* display: block; */
+        width: 16px;
+        height: 16px;
+    }
+}
+@media(min-width:481px) and (max-width:768px){
+    .selectContainer button{    
+        height:50px;
+        border: 1px solid #00000026;
+        border-radius: 12px;
+        justify-content: center;
+        padding:0;
+        font-size:18px ;
+        color: #00000080;
+        }
+        .selectContainer button svg{
+            width: 18px;
+            height: 18px;
+            stroke: #00000080;
+        }
+    
+        .selectContainer .optionsContainer{
+            
+            max-height: 174px;
+            top:48px;
+            width: 100%;
+            left: 0;
+          
+        }
+        
+        .optionsContainer .option{
+    
+            padding: 12px 10px;
+            /* background-color: red; */
+        }
+        .selectContainer .option svg{
+            width: 20px;
+            height: 20px;
+            stroke: #00000080;
+        }
+        .selectContainer .option span{
+            font-size:12px ;
+            color: #00000080;
+        }
+        
+        .optionsContainer::-webkit-scrollbar-thumb {
+            background:#C0C0C0; 
+        }
+    
+        .selectContainer .closeBtn{
+            border-radius: 6px;
+            top: 50%;
+            left: 1px;
+            transform: translateY(-50%);
+            font-size: 10px;
+        }
+        .selectContainer .closeBtn svg{
+            /* display: block; */
+            width: 20px;
+            height: 20px;
+        }
+}
+
+@media(min-width:769px) and (max-width:1200px){
+    
+    .selectContainer button{
+        padding: 4px;
+        font-size:16px ;
+    }
+  .selectContainer button svg{
+    height: 20px;
+    width: 20px;
+  }
+    .selectContainer .closeBtn{
+        left: 8px;
+        font-size: 10px;
+        border-radius: 4px;
+    }
+    .selectContainer .closeBtn svg{
+        /* display: block; */
+        width: 18px;
+        height: 18px;
+    }
+    .selectContainer .optionsContainer{
+        top:44px;
+        left: -4px;
+        width: 200px;
+        max-height: 204px;
+    }
+    
+    .optionsContainer .option{
+        
+        padding: 10px 6px;
+    }
+    .selectContainer .option svg{
+        width: 20px;
+        height: 20px;
+    }
+    .selectContainer .option span{
+        font-size:12px ;
+    }
+    
+    .optionsContainer::-webkit-scrollbar-thumb {
+        background:#C0C0C0; 
+      
+    }
+    
 }

@@ -51,3 +51,138 @@
     font-weight: 300;
     font-size: 16px;
 }
+
+@media (max-width:480px){
+    /* .main{
+        width: calc(100% - 62px);
+        padding-top: 63px;
+    } */
+    .container::before{
+        left:0;
+        width: 100%; /* طول دلخواه */
+     }
+    .container{
+        padding-top: 43px;
+        padding-bottom: 32px;
+        flex-direction: column;
+        align-items: unset;
+        gap: 40px;
+    }
+    
+    .container figure{
+        height: 64px;
+        width: 100%;
+    }
+    
+    .container figure:nth-child(2){
+      margin: 0;
+    }
+    .container figure:nth-child(1) img{
+        width: 71.27px;
+        height: 64px;
+    }
+    .container figure:nth-child(2) img,.container figure:nth-child(3) img{
+        width: 64px;
+        height: 64px;
+    }
+    .detail{
+        margin-right: 13px;
+    }
+    .detail:last-child{
+        margin-right: 16.5px;
+    }
+    .detail h4{
+        line-height: 100%;
+        font-size: 14px;
+        margin-bottom: 2px;
+    }
+    .detail figcaption{
+        font-size: 12px;
+        text-align: justify;
+    }
+   
+}
+@media(min-width:481px) and (max-width:950px){
+    .container::before{
+        left:0;
+        width: 100%; /* طول دلخواه */
+     }
+    .container{
+        padding-top: 53px;
+        padding-bottom: 42px;
+        flex-direction: column;
+        align-items: unset;
+        gap: 45px;
+    }
+    
+    .container figure{
+        height: 64px;
+        width: 100%;
+    }
+    
+    .container figure:nth-child(2){
+      margin: 0;
+    }
+    .container figure:nth-child(1) img{
+        width: 71.27px;
+        height: 64px;
+    }
+    .container figure:nth-child(2) img,.container figure:nth-child(3) img{
+        width: 64px;
+        height: 64px;
+    }
+    .detail{
+        margin-right: 13px;
+    }
+    .detail:last-child{
+        margin-right: 16.5px;
+
+    }
+    .container figure:last-child{
+        padding-left:82px;
+    }
+    .detail h4{
+        line-height: 100%;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    .detail figcaption{
+        font-size: 14px;
+        text-align: justify;
+    }
+}
+@media(min-width:951px) and (max-width:1200px){
+    .container::before{
+        left:0;
+        width: 100%;
+     }
+    .container{
+        padding: 30px 25px;
+        gap:10px;
+    }
+    
+    .container figure:nth-child(2){
+        margin: 0;
+    }
+    .container figure:nth-child(1) img{
+        width: 100px;
+        height: 90px;
+    }
+    .container figure:nth-child(2) img,.container figure:nth-child(3) img{
+        width: 90px;
+        height: 90px;
+    }
+    
+    .detail{
+        margin-right: 8px;
+    }
+    .detail h4{
+        margin-bottom: 8px;
+        line-height: 100%;
+        font-size: 18px;
+    }
+    .detail figcaption{
+        font-size: 12px;
+        text-align: justify;
+    }
+}

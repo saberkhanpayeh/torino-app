@@ -1,7 +1,8 @@
 .header{
-    /* background-color: aqua; */
+    background-color: aqua;
     box-shadow: 0px 1px 4px 0px #00000029;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
+    /* background-color: #fff; */
     transition: all 0.8s ease-in-out;
 }
 .absolute{
@@ -11,8 +12,9 @@
     
 }
 .fixed{
-    position: fixed;
-    width: 1440px;
+   position: sticky;
+   top: 0;
+   width:100% ;
     z-index: 30;
 }
 .container{
@@ -25,8 +27,10 @@
     padding: 15px 0;
     position: relative;
 }
-.container .navbar{
+.container .hamburgerIcon{
     display: none;
+}
+.container .navbar{
     display: flex;
     align-items: center;
 }
@@ -48,7 +52,7 @@
     color:#28A745;
 }
 .loginBtn {
-display: none;
+/* display: none; */
 }
 .loginBtn button{
  display: flex;
@@ -81,7 +85,7 @@ display: none;
     border: 1px solid #28A745;
     border-radius: 8px;
     cursor: pointer;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
@@ -99,8 +103,9 @@ display: none;
     color: #28A745;
     cursor: pointer;
 }
-.userInfo svg{
+.userInfo span svg{
     display: block;
+    fill:#28A745 !important;
     
 }
 .userMenue{
@@ -175,4 +180,340 @@ font-size: 14px;
     opacity: 0;
     transform: scale(1.1);
 } */
+@media(max-width:480px){
+    .header{
+     
+    }
+    .absolute{
+        width: 100%;  
+    }
+    .container{
+        width: calc(100% - 62px);
+        padding:0;
+        padding-top: 13px;
+        padding-bottom: 12px;
+    }
+    .container .hamburgerIcon{
+        display: block;
+    }
+    .container .navbar{
+        display: none;
+    }
+    .navbar img{
+        display:block;
+    }
+    .navbar ul{
+        display: flex;
+        margin-right:84px ;
+        width: 499px;
+        justify-content: space-between;
+    }
+    .navbar ul li a{
+        /* width: 124.75px; */
+        font-size: 16px;
+        color: #282828;
+    }
+    .navbar ul li a:hover{
+        color:#28A745;
+    }
+    .loginBtn {
+    display: none;
+    }
+    .loginBtn button{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 166px;
+     height: 44px;
+     background-color: white;
+     /* background-color: #fff; */
+     border: 2px solid #28A745;
+     border-radius: 8px;
+     /* transition: all 300ms ease-out; */
+    }
+    .loginBtn  svg{
+        width: 24px;
+        height: 24px;
+        margin-left: 4px;
+    }
+    .loginBtn span{
+        font-family: var(--font-vazirmatn-numbers);
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 28.13px;
+        color: #28A745;
+    }
+    .mobileLogin{
+       display: flex;
+    }
+    
+    .userInfo{
+        gap: 4px;
+        padding: 8px;
+    }
+    .userInfo p{
+        font-size: 14px;
+    }
+    .userInfo span svg{
+        width: 14px;
+        height: 14px;
+    }
+    .userInfo svg{
+        display: block;
+        width: 16px;
+        height: 16px;
+       
+    }
+    .userMenue{
+    left: -17px;
+    top:56px;
+    z-index: 15;
+    width: 157px;
+    border: 1px solid #0000001F;
+    border-radius: 11px;
+    
+    }
+    .userMenue li{
+        width: 100%;
+        height: 35px;
+        /* background-color: blueviolet; */
+    }
+    .userMenue li:nth-last-child(1)::after{
+        top:0;
+        left:0;
+        width:100%;
+    } 
+    .userMenue li p{
+        margin-right: 8px;
+    }
+    .userMenue li svg {
+        width: 16px;
+        height: 16px;
+    }
+    .userMenue li:nth-child(1){
 
+        font-size: 14px;
+    }
+    .userMenue li:nth-child(2),.userMenue li:nth-child(3){
+    font-size: 12px;
+    }
+    .userMenue li:nth-child(2) svg,.userMenue li:nth-child(3) svg{
+        margin-right: 12px;
+    }
+
+}
+
+@media(min-width:481px) and (max-width:768px){
+    .header{
+     /* background-color: #fff; */
+    }
+    .absolute{
+        width: 100%;
+        min-width: 481px; 
+    }
+    .container{
+        width: calc(100% - 124px);
+        padding:0;
+        padding-top: 13px;
+        padding-bottom: 12px;
+    }
+    .container .hamburgerIcon{
+        display: none;
+    }
+    .container .navbar{
+        display: flex;
+        width: 70%;
+        
+    }
+    .navbar img{
+        display:block;
+        width: 60px;
+        height: 20px;
+    }
+  
+    .navbar ul{
+        width: 100%;
+        display: flex;
+        margin-right:15px ;
+        justify-content: space-between;
+    }
+    .navbar ul li a{
+        /* width: 124.75px; */
+        font-size: 10px;
+        color: #282828;
+    }
+    
+    .loginBtn {
+    display: block;
+    }
+    .loginBtn button{
+     width: 100px;
+     height: 33px;
+     padding: 0;
+     /* background-color: #fff; */
+     border: 1px solid #28A745;
+     border-radius: 6px;
+     /* transition: all 300ms ease-out; */
+    }
+    .loginBtn  svg{
+        width: 18px;
+        height: 18px;
+        margin-left: 2px;
+    }
+    .loginBtn span{
+        font-size: 12px;
+    }
+    
+    .userInfo{
+        gap: 2px;
+        padding: 8px;
+    }
+    .userInfo p{
+        font-size: 12px;
+    }
+    
+    .userInfo svg{
+        display: block;
+        width: 12px;
+        height: 12px;
+       
+    }
+    .userMenue{
+    left:0;
+    top:56px;
+    z-index: 15;
+    width: 160px;
+    border: 1px solid #0000001F;
+    border-radius: 11px;
+    
+    }
+    .userMenue li{
+        width: 100%;
+        height: 35px;
+        /* background-color: blueviolet; */
+    }
+    .userMenue li:nth-last-child(1)::after{
+        top:0;
+        left:0;
+        width:100%;
+    } 
+
+    .userMenue li svg {
+        width: 16px;
+        height: 16px;
+    }
+    .userMenue li:nth-child(1){
+
+        font-size: 10px;
+    }
+    .userMenue li:nth-child(2),.userMenue li:nth-child(3){
+    font-size: 10px;
+    }
+    .userMenue li:nth-child(2) svg,.userMenue li:nth-child(3) svg{
+        margin-right: 12px;
+    }
+
+}
+@media(min-width:769px) and (max-width:1200px){
+    .header{
+     
+    }
+    .absolute{
+      width: 100%; 
+    }
+    .container{
+        width: calc(100% - 200px);
+        padding: 15px 0;
+    }
+    .container .hamburgerIcon{
+        display: none;
+    }
+    .container .navbar{
+        display: flex;
+        width: 70%;
+    }
+    .navbar img{
+        width: 120px;
+        height: 36px;
+    }
+    .navbar ul{
+        margin-right:34px ;
+        width: 280px;
+    }
+    .navbar ul li a{
+        font-size: 14px;
+    }
+    
+    .loginBtn {
+    display: block;
+    }
+    .loginBtn button{
+     width: 122px;
+     height: 36px;
+     /* background-color: #fff; */
+     border: 1px solid #28A745;
+     border-radius: 8px;
+     /* transition: all 300ms ease-out; */
+    }
+    .loginBtn  svg{
+        width: 20px;
+        height: 20px;
+        margin-left: 2px;
+    }
+    .loginBtn span{
+        font-size: 16px;
+    }
+    .mobileLogin{
+       display: none;
+    }
+    
+    .userInfo{
+        gap: 4px;
+        padding: 8px;
+    }
+    .userInfo p{
+        font-size: 16px;
+    }
+    .userInfo svg{
+        display: block;
+        width: 16px;
+        height: 16px;
+       
+    }
+    .userMenue{
+    left:0;
+    top:60px;
+    z-index: 15;
+    width: 220px;
+    border: 1px solid #0000001F;
+    border-radius: 11px;
+    
+    }
+    .userMenue li{
+        width: 100%;
+        height: 45px;
+        /* background-color: blueviolet; */
+    }
+    .userMenue li:nth-last-child(1)::after{
+        top:0;
+        left:0;
+        width:100%;
+    } 
+    .userMenue li p{
+        margin-right: 8px;
+    }
+    .userMenue li svg {
+        width: 18px;
+        height: 18px;
+    }
+    .userMenue li:nth-child(1){
+
+        font-size: 16px;
+    }
+    .userMenue li:nth-child(2),.userMenue li:nth-child(3){
+    font-size: 14px;
+    }
+    .userMenue li:nth-child(2) svg,.userMenue li:nth-child(3) svg{
+        margin-right: 12px;
+    }
+}

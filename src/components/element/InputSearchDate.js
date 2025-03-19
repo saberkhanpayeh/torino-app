@@ -12,6 +12,7 @@ function InputSearchDate({ setSearchTour }) {
     if (inputDate) setShowClose(true);
     else setShowClose(false);
   }, [inputDate]);
+
   const converDateToFarsiFromat = (date) => {
     const farsiDatefromat = new Date(date).toLocaleDateString("fa-IR");
     return farsiDatefromat;
@@ -45,41 +46,42 @@ function InputSearchDate({ setSearchTour }) {
   };
   return (
     <div className={styles.inputWrapper}>
-      <input
-        type="text"
-        placeholder="رفت-برگشت"
-        readOnly
-        className={styles.dateInput}
-        value={inputDate}
-      />
-      <DatePicker
-        onChange={handleDateChange}
-        defaultValue={Date.now()}
-        round="x2"
-        accentColor="#28A745"
-        inputAttributes={{
-          style: {
-            position: "absolute",
-            top: "0",
-            right: "0",
-            width: "100%",
-            opacity: "0",
-          },
-        }}
-        locale="fa"
-        range
-      />
+        <input
+          type="text"
+          placeholder="رفت-برگشت"
+          readOnly
+          className={styles.dateInput}
+          value={inputDate}
+        />
+        <DatePicker
+          onChange={handleDateChange}
+          defaultValue={Date.now()}
+          round="x2"
+          accentColor="#28A745"
+          inputAttributes={{
+            style: {
+              position: "absolute",
+              top: "0",
+              right: "0",
+              width: "100%",
+              opacity: "0",
+            },
+          }}
+          locale="fa"
+          range
+        />
       {showClose && (
         <span onClick={closeHandler} className={styles.closeBtn}>
           <Close /> پاک کردن
         </span>
       )}
-
-      <img
-        src="/svg-files/calendar-search.svg"
-        className={styles.calendarIcon}
-        alt="calender-serach"
-      />
+      {!inputDate ? (
+        <img
+          src="/svg-files/calendar-search.svg"
+          className={styles.calendarIcon}
+          alt="calender-serach"
+        />
+      ) : null}
     </div>
   );
 }

@@ -1,6 +1,8 @@
 
 .inputWrapper {
     position: relative;
+    width: 100%;
+    height: fit-content;
     /* padding: 8px; */
     /* background-color: #fff; */
     /* background-color: #007bff; */
@@ -50,4 +52,90 @@
     /* display: block; */
     width: 20px;
     height: 20px;
+}
+
+@media(max-width:480px){
+  .dateInput {    
+    padding-right: 0 !important ;
+    height: 47px;
+    font-size:16px ;
+    border: 1px solid #00000026;
+    border-radius: 12px;
+    text-align: center;
+  }
+  .calendarIcon{
+    width:18px;
+    height:18px;
+    color: #00000080;
+    right: unset;
+    left: 50%;
+    top: 50%;
+    transform: translate(245%, -50%);
+  }
+  .inputWrapper .closeBtn{ 
+    border-radius: 6px;
+    font-size: 8px;
+    top: 50%;
+    left: 20px;
+    transform: rotateZ(0deg) translateY(-50%);
+    z-index: 10;
+}
+.closeBtn svg{
+    /* display: block; */
+    width: 20px;
+    height: 20px;
+}
+}
+@media(min-width:481px) and (max-width:768px){
+  .dateInput {    
+    padding-right: 0 !important ;
+    height: 50px;
+    font-size:18px ;
+    border: 1px solid #00000026;
+    border-radius: 12px;
+    text-align: center;
+  }
+  .calendarIcon{
+    width:20px;
+    height:20px;
+    color: #00000080;
+    right: unset;
+    left: 50%;
+    top: 50%;
+    transform: translate(245%, -50%);
+  }
+  .inputWrapper .closeBtn{ 
+    border-radius: 6px;
+    font-size: 10px;
+    top: 50%;
+    left: 20px;
+    transform: rotateZ(0deg) translateY(-50%);
+    z-index: 10;
+}
+.closeBtn svg{
+    /* display: block; */
+    width: 20px;
+    height: 20px;
+}
+}
+
+@media(min-width:769px) and (max-width:1200px){
+
+  .dateInput {
+    font-size:16px ;
+  }
+ 
+  .calendarIcon{
+    right: 4px;
+  }
+  
+  .inputWrapper .closeBtn{ 
+    
+    border-radius: 4px;
+}
+.closeBtn svg{
+    /* display: block; */
+    width: 18px;
+    height: 18px;
+}
 }

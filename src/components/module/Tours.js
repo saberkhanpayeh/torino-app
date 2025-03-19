@@ -4,7 +4,9 @@ import React from "react";
 import Link from "next/link";
 import { e2pFormat } from "@/utils/helper";
 import styles from "@/components/module/Tours.module.css"
+import MobileViewTours from "./MobileViewTours";
 function Tours({ data }) {
+  
   console.log(data);
   return (
     <div className={styles.container}>
@@ -14,6 +16,7 @@ function Tours({ data }) {
           <TourItem key={tour.id} tour={tour} />
         ))}
       </ul>
+      <MobileViewTours tours={data}  />
     </div>
   );
 }

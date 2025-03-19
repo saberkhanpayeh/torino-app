@@ -71,3 +71,162 @@
     border-radius: 9px;
     margin-top: 12px;
 }
+
+@media(max-width:480px){
+    .container{
+        display: flex;
+        flex-direction: column;
+        margin-top: 82px;
+    }
+    .right{
+        border-radius: 0;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        width:100%;
+        height: 128px;
+    }
+    .right h3{
+        margin-top: 12px;
+        margin-right: 12px;
+    }
+    .right h3,.right span{
+        font-size: 22px;
+    }
+    
+    .right p{
+        margin-top: 8px;
+        margin-right: 12px;
+        font-size: 14px;
+    }
+    .right img{
+        left:0;
+        width: 59.63%;
+        height: 123.43%;
+    }
+    .left{
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 27px 12px 28px;
+        margin: 0;
+    }
+    .number{
+      gap:8px;
+    }
+     .number svg{
+        width: 20px;
+        height: 20px;
+    }
+     .number span{
+        font-size: 20px !important;
+    }
+    .left button{
+        width: 136px;
+        height: 38px;
+        font-size: 14px;
+        margin: 0;
+    }
+  }
+  @media(min-width:481px) and (max-width:900px){
+    .container{
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        margin-top: 90px;
+    }
+    .right{
+        border-radius: 0;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        width:100%;
+        height: 140px;
+    }
+    .right h3{
+        margin-top: 22px;
+        margin-right: 22px;
+    }
+    .right h3,.right span{
+        font-size: 26px;
+    }
+ 
+    .right p{
+        margin-top: 12px;
+        margin-right: 22px;
+        font-size: 20px;
+    }
+    .right img{
+        left:0;
+        width: 59.63%;
+        height: 123.43%;
+        max-width: 308px;
+        max-height: 225px;
+    }
+    .left{
+
+        flex-direction: row;
+        justify-content:center;
+        align-items: center;
+        padding: 12px 27px 12px 28px;
+        margin: 0;
+        gap: 20px;
+    }
+    .number{
+        gap:8px;
+    }
+     .number svg{
+        width: 24px;
+        height: 24px;
+    }
+     .number span{
+        font-size: 22px !important;
+    }
+    .left button{
+        width: 140px;
+        height: 40px;
+        font-size: 16px;
+        margin: 0;
+    }
+  }
+  
+  @media(min-width:901px) and (max-width:1400px){
+    .container{
+        width: 100%;
+        /* background-color: aqua; */
+        border: 1px solid #00000040;
+        border-radius: 10px;
+        display: flex;
+        margin-top: 109px;
+    }
+    .right{
+        height: 240px;
+        width: 73.15%;
+    }
+    .right h3{
+        margin-top: 26px;
+        margin-right: 47px;
+    }
+    .right h3,.right span{
+        font-size: 36px;
+    }
+    .right p{
+
+        margin-right: 47px;
+        font-size: 28px;
+    }
+    .right img{
+        width: 42.43%;
+        height: 86.64%;
+        max-width: 308px;
+        max-height: 225px;
+    }
+    .left{
+        width: 26%;
+        margin: 0;
+    }
+
+    .left button{
+        width: 160px;
+        height: 38px;
+    }
+  }

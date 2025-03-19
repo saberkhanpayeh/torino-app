@@ -102,7 +102,7 @@ function Header() {
             className={styles.userInfo}
             onClick={() => setMenue((menue) => !menue)}
           >
-            <Profile />
+            <span><Profile /></span>
             <p>{userPhone}</p>
             <DownArrow />
           </div>
@@ -127,7 +127,7 @@ function Header() {
             className={styles.userMenue}
             ref={menueRef}
             tabIndex={0}
-            onBlur={() => setMenue((menue) => !menue)}
+            onBlur={() => setMenue((menue) => menue)}
           >
             <li>
               <span>

@@ -112,3 +112,208 @@
   margin-top: 10px; 
   margin-bottom: 10px;
 }
+
+@media (max-width:480px){
+    .container{
+        top:364px;
+        width:300px ;
+        max-width: 480px;
+        /* background-color: chartreuse; */
+    }
+    .container .notFound{
+        border-radius:12px ;
+        padding: 15px 25px;
+        font-size: 20px;
+    }
+    .container ul{
+        max-height: 170px;
+        width: 100%;
+        padding: 4px;
+        border-radius:6px ;
+    }
+    .container ul li{
+        padding: 4px 2px; 
+    }
+    .detail img{
+        width: 80px;
+        height:44.94px
+    }
+    .detail .title{
+
+        margin-right: 5px;
+        margin-left: 6px;
+    }
+    .title h3{
+
+        font-size: 12px;
+        word-spacing: 2px;
+    }
+    .title p{
+
+        margin-top: 4px;
+        font-size: 8px;
+    }
+    .detail .reservBtn{
+ 
+        padding: 2px 3px; 
+    }
+    .reservBtn p{
+
+        font-size: 10px;
+        margin-bottom: 4px;
+        gap: 4px;
+    }
+    .reservBtn p svg{
+        width: 16px;
+        height:16px;
+    }
+    .reservBtn button{
+        font-size: 10px;
+        width: 75px;
+        height: 22px;
+    
+    }
+    
+    .container ul::-webkit-scrollbar-thumb {
+      border-radius: 20px; 
+      height: 5%;
+      
+    }   
+}
+@media(min-width:481px) and (max-width:768px){
+    .container{
+        top:495px;
+        width:70%;
+        min-width: 345px;
+        /* background-color: chartreuse; */
+    }
+    .container .notFound{
+        border-radius:16px ;
+        padding: 25px 30px;
+        font-size: 22px;
+    }
+    .container ul{
+        max-height: 250px;
+        width: 100%;
+        padding: 4px;
+        border-radius:10px ;
+    }
+    .container ul li{
+        padding: 10px 6px;
+        
+    }
+    .detail img{
+        width: 28.90%;
+        height:100%;
+    }
+    .detail .title{
+
+        margin-right: 5px;
+        margin-left: 6px;
+    }
+    .title h3{
+
+        font-size: 16px;
+        word-spacing: 2px;
+    }
+    .title p{
+
+        margin-top: 4px;
+        font-size: 10px;
+    }
+    .detail .reservBtn{
+        width: 30%;
+        padding: 2px 0px;
+        padding-right: 4px; 
+    }
+    .reservBtn p{
+        font-size: 12px;
+        margin-bottom: 4px;
+        gap: 4px;
+    }
+    .reservBtn p svg{
+        width: 18px;
+        height:18px;
+    }
+    .reservBtn button{
+        font-size:12px;
+        width: 100%;
+        padding: 2px 4px;
+        height: fit-content;
+    
+    }
+    
+    .container ul::-webkit-scrollbar-thumb {
+      border-radius: 20px; 
+      height: 5%;
+      
+    }  
+}
+@media(min-width:769px) and (max-width:1200px){
+    .container{
+        top:406px;
+        width:60%;
+        max-width: 480px;
+        min-width: 400px;
+        /* background-color: chartreuse; */
+    }
+    .container .notFound{
+        border-radius:16px ;
+        padding: 25px 30px;
+        font-size: 22px;
+    }
+    .container ul{
+        max-height: 250px;
+        width: 100%;
+        padding: 4px;
+        border-radius:10px ;
+    }
+    .container ul li{
+        padding: 10px 6px;
+        
+    }
+    .detail img{
+        width: 28.90%;
+        height:100%;
+        max-width: 132px;
+        max-height: 75px;
+    }
+    .detail .title{
+
+        margin-right: 5px;
+        margin-left: 6px;
+    }
+    .title h3{
+
+        font-size: 18px;
+        word-spacing: 2px;
+    }
+    .title p{
+
+        margin-top: 4px;
+        font-size: 12px;
+    }
+    .detail .reservBtn{
+        width: 27%;
+        max-width: 118px;
+        padding: 2px 0px;
+        padding-right: 4px; 
+    }
+    .reservBtn p{
+        font-size: 14px;
+        margin-bottom: 8px;
+        gap: 4px;
+    }
+    .reservBtn p svg{
+        width: 18px;
+        height:18px;
+    }
+    .reservBtn button{
+        font-size:12px;
+        width: 80%;
+        padding: 4px 6px;
+        height: fit-content;
+    
+    }
+    
+}
