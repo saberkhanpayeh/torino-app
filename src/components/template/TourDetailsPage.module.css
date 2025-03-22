@@ -1,0 +1,11 @@
+.mobileContainer{
+   display: none;
+   }
+
+@media  (max-width:1439px){
+   .mobileContainer{
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+     } 
+}

@@ -5,8 +5,8 @@ import MyToursList from "../module/MyToursList";
 
 function MyToursPage() {
   return (
-    <PageLayout>
-      <UserSidebar style={{ marginLeft: "18px" }} />
+    <PageLayout page="my-tours">
+      <UserSidebar />
         <MyToursList />
     </PageLayout>
   );

@@ -11,7 +11,7 @@ import EmptyCart from "../module/EmptyCart";
 import RotatingLineLoader from "../element/RotatingLineLoader";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { profileSchema } from "@/schema/validation";
-
+import styles from"@/components/template/CartPage.module.css"
 function CartPage() {
 
   const router = useRouter();
@@ -38,7 +38,7 @@ function CartPage() {
   
 
   return (
-    <Wrapper>
+    <Wrapper page="cart">
       {profileLoading || cartLoading ? <RotatingLineLoader /> : null}
       {profileInfo && !profileLoading && (
         <PersonalForm

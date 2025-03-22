@@ -1,6 +1,6 @@
 .container{
     width: 307px;
-    height: 228px;
+    height: 234px;
 /* background-color: bisque; */
 background-color: #fff;
 padding: 12px;
@@ -43,5 +43,39 @@ background: repeating-linear-gradient(
 }
 .container img{
     margin-top: 6px;
+}
+@media (max-width:768px){
+    .container{
+        width: 84.10%;
+        max-width: 270px;
+        min-height:fit-content;
+        border:1px solid #0000001A;
+        overflow: hidden;
+    }
+    .title::after{
+    left:-10;
+    width: 120%; /* طول دلخواه */
+    }
+    .container img{
+        width: 120px;
+        height: 120px;
+        margin-top:30px;
+    }
+}
+@media(min-width:769px) and (max-width:1439px){
+    .container{
+        width: 40%;
+        max-width: 320px;
+        min-height:fit-content;
+        border:1px solid #0000001A;
+        overflow: hidden;
+    }
+    .title::after{
+    left:-10;
+    width: 120%; /* طول دلخواه */
+    }
+    .container img{
+        margin-top:30px;
+    }
 }
 

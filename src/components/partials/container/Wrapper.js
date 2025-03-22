@@ -1,9 +1,12 @@
-import React from 'react'
-import styles from "@/components/partials/container/Wrapper.module.css"
-function Wrapper({children}) {
+import React from "react";
+import styles from "@/components/partials/container/Wrapper.module.css";
+function Wrapper({ children, page }) {
   return (
-    <div className={styles.wrapper}>{children}</div>
-  )
+    <>
+      {page === "cart" && <div className={styles.cartWrapper}>{children}</div>}
+      {page === "tour-details" && <div className={styles.tourWrapper}>{children}</div>}
+    </>
+  );
 }
 
-export default Wrapper
+export default Wrapper;

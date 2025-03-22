@@ -62,7 +62,7 @@ function Slider() {
     useEffect(() => {
       const handleResize = () => setWidth(getWidth());
       if(width<=480){
-          setPivot(40);
+          setPivot(35);
       }
      else if(width>480 && width<=768){
         setPivot(55);

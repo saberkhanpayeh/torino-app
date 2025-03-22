@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { toastOptions } from "@/constant/toast";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { profileSchema } from "@/schema/validation";
+import { getSchema, profileSchema } from "@/schema/validation";
 import { DateToIso } from "@/utils/convertDate";
 
 function EditProfile() {
@@ -52,11 +52,14 @@ function EditProfile() {
     handleSubmit,
     control,
     formState: { errors },
+    trigger,
     reset,
+    getValues
   } = useForm({
-    resolver:yupResolver(profileSchema),
+    resolver:!isLoading?yupResolver(getSchema(section)):"",
+    mode:"onChange"
   });
-  //  console.log(birtError);
+ 
 
   useEffect(() => {
     const section = searchParams.get("section") || "";
@@ -71,8 +74,8 @@ function EditProfile() {
     });
   }, [userProfile, bankInfo, reset]);
 
-  const onSubmit = (data, formType) => {
-    // console.log(data);
+  const onSubmit =async (data, formType) => {
+    console.log(data);
 
     if (formType === "account") {
       const { account } = data;
@@ -139,6 +142,7 @@ function EditProfile() {
     invalidateQuery(["profile-info"]);
     router.push("/dashboard/profile");
   };
+  if(isLoading)return<p>...loading</p>
   return (
     <div className={styles.container}>
       <div
@@ -150,9 +154,9 @@ function EditProfile() {
       >
         <h3>اطلاعات حساب کاربری</h3>
         <div className={styles.emailForm}>
-          <p>
-            شماره موبایل<span>{userProfile?.mobile}</span>
-          </p>
+          <div className={styles.numberPhone}>
+            <p>شماره موبایل</p><span>{userProfile?.mobile}</span>
+          </div>
           <form id="accountForm">
             <fieldset>
               <div className={styles.inputContainer}>
@@ -196,7 +200,7 @@ function EditProfile() {
                 />
                 {errors?.personal?.fullName && section === "personalInfo" && (
                   <span className={styles.error}>
-                    *{errors?.personal?.fullName?.message}
+                    *{errors?.fullName?.message}
                   </span>
                 )}
               </div>
@@ -210,7 +214,7 @@ function EditProfile() {
                 {errors?.personal?.nationalCode &&
                   section === "personalInfo" && (
                     <span className={styles.error}>
-                      *{errors?.personal?.nationalCode?.message}
+                      *{errors?.nationalCode?.message}
                     </span>
                   )}
               </div>
@@ -228,7 +232,7 @@ function EditProfile() {
 
                 {errors?.personal?.birthDate && section === "personalInfo" ? (
                   <span className={styles.error}>
-                   {errors?.personal?.birthDate?.message} 
+                   {errors?.birthDate?.message} 
                   </span>
                 ) : null}
               </div>
@@ -243,7 +247,7 @@ function EditProfile() {
                 <img src="/svg-files/arrow-down.svg" alt="arrow" />
                 {errors?.personal?.gender && section === "personalInfo" && (
                   <span className={styles.genderError}>
-                    *{errors?.personal?.gender?.message}
+                    *{errors?.gender?.message}
                   </span>
                 )}
               </div>

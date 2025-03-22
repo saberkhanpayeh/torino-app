@@ -11,3 +11,15 @@ color: #282828;
 .container .number{
     font-family: var(--font-vazirmatn-numbers);
 }
+
+@media (max-width:480px){
+    .container{
+        margin-top: 24px;
+    }  
+}
+@media (min-width:481px) and (max-width:768px){
+
+}
+@media (min-width:769px) and (max-width:1200px){
+
+}

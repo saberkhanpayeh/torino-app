@@ -5,7 +5,7 @@ import PageLayout from "../partials/container/PageLayout";
 
 function EditProfilePage() {
   return (
-    <PageLayout>
+    <PageLayout page="edit-profile">
       <UserSidebar />
       <EditProfile />
     </PageLayout>

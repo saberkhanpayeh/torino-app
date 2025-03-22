@@ -1,7 +1,67 @@
-.container{
+.editpage,.transactionPage,.myTours,.profilepage{
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-top: 37px;
     /* background-color: burlywood; */
+}
+.myTours{
+    /* margin left for my-tours page 18px */
+    gap: 18px;
+}
+@media(max-width:768px){
+    .editpage,.profilepage,.myTours,.transactionPage{
+        flex-direction: column;
+        justify-content: unset;
+        align-items: center;
+        gap:unset
+    }
+}
+@media (min-width:769px) and (max-width:1200px){
+    .profilepage{
+        max-width: 860px;
+        justify-content: center;
+        /* background-color: aqua; */
+        gap: 60px;
+    }
+}
+@media (min-width:769px) and (max-width:1000px){
+    .transactionPage{
+        max-width: 735px;
+        justify-content: center;
+        gap: 35px;
+    }
+}
+@media (min-width:1201px) and (max-width:1439px){
+    .profilepage{
+        /* max-width: 860px; */
+        justify-content: center;
+        /* background-color: aqua; */
+        gap: 60px;
+    }
+}
+@media (min-width:901px) and (max-width:1300px){
+    .myTours{
+        max-width: 780px;
+        justify-content: center;
+        margin: 0 auto;
+        margin-top: 37px;
+        /* background-color: aqua; */
+    }
+}
+@media (min-width:1001px) and (max-width:1439px){
+    .transactionPage{
+        max-width: 1050px;
+        justify-content: center;
+        gap: 40px;
+    
+    }
+}
+@media(min-width:1101px) and (max-width:1439px){
+    .editpage{
+        max-width: 1040px;
+        justify-content: center;
+        /* background-color: aqua; */
+        gap: 60px;
+    }
 }

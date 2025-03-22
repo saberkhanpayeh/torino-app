@@ -5,7 +5,7 @@ import styles from "@/components/template/ProfilePage.module.css";
 import PageLayout from "../partials/container/PageLayout";
 function ProfilePage() {
   return (
-    <PageLayout>
+    <PageLayout page="profile">
       <UserSidebar />
       <ProfileInfo />
     </PageLayout>

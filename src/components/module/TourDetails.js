@@ -26,7 +26,7 @@ function TourDetails({ data }) {
   return (
     <div className={styles.container}>
       <div className={styles.top}>
-        <Image src={image} width={397} height={265} alt="tour-image" priority={true}/>
+        <Image  id="tour-image" src={image} width={397} height={265} alt="tour-image" priority={true}/>
         <div className={styles.content}>
           <div className={styles.title}>
             <div className={styles.titleContainer}>
@@ -46,9 +46,7 @@ function TourDetails({ data }) {
           </p>
           <BuyButton id={id}/>
           </div>
-        </div>
-      </div>
-        <ul className={styles.footer}>
+          <ul className={`${styles.footer} ${styles.footerRes}`}>
             <li><div><RoutinBold/><span>مبدا</span></div><p>{originCity}</p></li>
             <li><div><Calender/><span>تاریخ رفت</span></div><p>{goneDate}</p></li>
             <li><div><Calender/><span>تاریخ برگشت</span></div><p>{returnDate}</p></li>
@@ -56,7 +54,23 @@ function TourDetails({ data }) {
             <li><div><DoubleUser/><span>ظرفیت</span></div><p>حداکثر{capacity} نفر</p></li>
             <li><div><Security/><span>بیمه</span></div><p>بیمه 50 هزار دیناری</p></li>
         </ul>
+        </div>
+      </div>
+      <ul className={`${styles.footer} ${styles.footerDisable}`}>
+            <li><div><RoutinBold/><span>مبدا</span></div><p>{originCity}</p></li>
+            <li><div><Calender/><span>تاریخ رفت</span></div><p>{goneDate}</p></li>
+            <li><div><Calender/><span>تاریخ برگشت</span></div><p>{returnDate}</p></li>
+            <li><div><Bus/><span>حمل و نقل</span></div><p>{vehicle.label}</p></li>
+            <li><div><DoubleUser/><span>ظرفیت</span></div><p>حداکثر{capacity} نفر</p></li>
+            <li><div><Security/><span>بیمه</span></div><p>بیمه 50 هزار دیناری</p></li>
+        </ul>
+        <div className={`${styles.mobileStyle}`}>
+          <BuyButton id={id}/>
+          <p>
+            <span>{price.toLocaleString()}</span>تومان
+          </p>
 
+          </div>
     </div>
   );
 }

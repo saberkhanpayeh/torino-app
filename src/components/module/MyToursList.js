@@ -39,8 +39,8 @@ function ToursItem({ tour }) {
     capacity,
     image,
   } = tour;
-  const { middleFormat: goneDate } = convertMiladiToJalali(startDate);
-  const { middleFormat: returnDate } = convertMiladiToJalali(endDate);
+  const { highFormat: goneDate } = convertMiladiToJalali(startDate);
+  const { highFormat: returnDate } = convertMiladiToJalali(endDate);
   const vehicle=vehicleType(fleetVehicle)
   const originCity=getOriginCity(origin.name);
   const destinationCity=getDestinationCity(destination.name);
@@ -52,22 +52,22 @@ function ToursItem({ tour }) {
         <ul>
           <li>
             <SunFog />
-            <p>{title}</p>
+            <p className={styles.text1}>{title}</p>
           </li>
           <li className={`${styles.vehicle} ${fleetVehicle==="airplane" && styles.airplane}`}>
             {vehicle.icon}
-            <p>سفر با {vehicle.label}</p>
+            <p className={styles.text1}>سفر با {vehicle.label}</p>
           </li>
           <li>
-            <p>
+            <p className={styles.text2}>
               {originCity} به {destinationCity}
             </p>
-            <span>󠁯•󠁏󠁏</span>
+            <span className={styles.dot}>󠁯•󠁏󠁏</span>
             <span>{goneDate}</span>
           </li>
           <li>
-            <p>تاریخ برگشت</p>
-            <span>•󠁏󠁏</span>
+            <p className={styles.text2}>تاریخ برگشت</p>
+            <span className={styles.dot}>•󠁏󠁏</span>
             <span>{returnDate}</span>
           </li>
         </ul>

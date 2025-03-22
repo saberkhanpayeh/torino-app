@@ -65,6 +65,7 @@
       width: 76.4%;
       height:calc(284px + 10vh);
       margin-right: 10px;
+      /* max-height: 300px; */
       /* direction: ltr; */
     }
     .controls {

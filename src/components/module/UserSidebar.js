@@ -22,8 +22,10 @@ function UserSidebar({style}) {
 
   useEffect(() => {
   
-    if(pathname==="/dashboard/edit-profile")
-      {setSelected("profile");
+    if(pathname==="/dashboard/profile/edit-profile")
+      {
+        setSelected("/dashboard/profile");
+        console.log(pathname);
         return;
       }
   

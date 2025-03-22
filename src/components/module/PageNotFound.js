@@ -12,6 +12,7 @@ function PageNotFound() {
         <button onClick={() => router.push("/")}>بازگشت به صفحه اصلی</button>
       </div>
       <Image src="/images/404.png" width={555} height={555} />
+      
     </div>
   );
 }

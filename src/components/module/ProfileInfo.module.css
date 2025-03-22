@@ -44,41 +44,6 @@
     align-items: center;
 }
 
-/* .personalInfo ul li,.bankInfo ul li,.accountInfo ul li{
-    width: 50%;
-    display: flex;
-    background-color: blueviolet;
-
-} */
-
-/* .personalInfo h3,.bankInfo h3,.accountInfo h3{
- font-family: var(--font-yekan-bakh);
- font-weight: 400;
- font-size: 16px;
- color: #000;
-} */
-
-/* .personalInfo .itemName,.bankInfo .itemName,.accountInfo .itemName{
-    font-family: var(--font-yekan-bakh);
-    font-weight: 300;
-    font-size: 14px;
-    color: #000;
-    text-align: right;
-      flex-basis: 0;
-    flex-grow: 1;
-   } */
-  
- /* .personalInfo  .itemValue,.bankInfo .itemValue,.accountInfo .itemValue{
-    flex-grow: 2.5 !important;
-    font-family: var(--font-yekan-bakh);
-    font-weight: 500;
-    font-size: 14px;
-    color:#282828;
-    text-align: right;
-    }  */
-    
-   /* ////////////////////////////////////////////////////////////////////////////// */
-
 .container > div{
     /* background-color:bisque; */
     padding: 12px 12px 34px 16px;
@@ -136,10 +101,10 @@
         width: 40%;
        } 
     .accountInfo ul li:nth-child(1) .itemValue{
-        flex-grow: 3 !important;
+        flex-grow: 2 ;
         }
        .accountInfo ul li:nth-child(2) .itemValue{
-        flex-grow: 2 !important;
+        flex-grow: 2 ;
        } 
     /* // .personalInfo ///////////////////////////////////// */
     .personalInfo ul li:nth-child(2) .itemValue{
@@ -165,3 +130,203 @@
     flex-grow: 6 !important;
    } 
    /* ///////////////////////////////////////////////////////////// */
+
+   @media(max-width:768px){
+    .container{
+        width: 100%;
+        max-width: 500px;
+        min-width:300px;
+        margin-bottom: 41px;
+    
+    }
+    .accountInfo h3{
+
+        margin-bottom: 28px;
+    }
+    .accountInfo .accountContainer{
+        justify-content:center;
+        position: relative;
+        width: 100%;
+    }
+    .accountInfo .accountContainer ul{
+
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+    .accountInfo .accountContainer ul li{
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 50%;
+    }
+    .btnAccount{
+        margin-top: 0;
+        position:absolute;
+        bottom: 0;
+        left: 0;
+    }
+    .accountContainer .btnAccount a{
+        margin-left: 0;
+    }
+
+    .accountContainer .btnAccount span,.btn span{
+        font-size: 13px;
+    }
+    /* /////////////////////////////////////////////.personalInfo,.bankInfo */
+    .personalInfo > div,.bankInfo > div{
+        margin-bottom: 34px;
+    }
+    .container > div{
+        margin-bottom: 20px;
+        padding: 16px 20px;
+    }
+    .container > div ul{
+        flex-wrap: unset;
+        flex-direction: column;
+        width: 100%;
+        gap: 24px;
+    
+    }
+    
+    .container > div ul li{
+        margin:0;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+    
+    }
+    .container > div h3{
+     line-height: 100%;
+  
+    }
+    .container ul li .itemName{
+          flex-basis: unset;
+        flex-grow: unset;
+        width: 50%;
+       }
+      
+     .container ul li .itemValue{
+         flex-grow: unset;
+         width: 50%;
+        } 
+        
+        /* ////. .accountInfo /////////////////////////////////////// */
+        .accountInfo ul li:nth-child(1) {
+            width: 100%;
+            }
+           .accountInfo ul li:nth-child(2){
+            width: 50%;
+            align-self: flex-start;
+           } 
+           .accountInfo ul li{
+            flex-grow: unset;
+           }
+           .accountInfo ul li .itemName,.accountInfo ul li .itemValue{
+            flex-grow: unset;
+           }
+        /* // .personalInfo ///////////////////////////////////// */
+       .personalInfo ul li{
+        flex-grow: unset;
+    }
+    .personalInfo ul li .itemName,.personalInfo ul li .itemValue{
+        flex-grow: unset;
+    }
+      /* .bankInfo///////////////////////////////////////////// */
+
+       .bankInfo ul li{
+        flex-grow: unset;
+    }
+    .bankInfo ul li .itemName,.bankInfo ul li .itemValue{
+        flex-grow: unset;
+    }
+    .bankInfo ul li:last-child{
+        display: none;
+    }
+       /* ///////////////////////////////////////////////////////////// */
+   }
+   @media(min-width:769px) and (max-width:1200px){
+    .container{
+        width:70%;
+        max-width: 600px;
+    }
+    .accountInfo .accountContainer{
+        justify-content:center;
+        position: relative;
+        width: 100%;
+    }
+    .accountInfo .accountContainer ul{
+
+        width: 100%;
+        display: flex;
+        flex-wrap: unset;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+    .accountInfo .accountContainer ul li{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 50%;
+    }
+    
+    .btnAccount{
+        margin-top: 0;
+        position:absolute;
+        bottom: 0;
+        left: 0;
+    }
+    .accountContainer .btnAccount a{
+        margin-left: 0;
+    }
+
+        /* ////. .accountInfo /////////////////////////////////////// */
+        .accountInfo ul li{
+            width: 40% !important;
+            align-self: flex-start;
+        }
+        .accountInfo ul li{
+            flex-grow: unset !important;
+           }
+           .accountInfo ul li p{
+            flex-grow: unset !important;
+           }
+        /* // .personalInfo ///////////////////////////////////// */
+        .personalInfo ul li .itemValue{
+
+            flex-grow: 0.5 !important;
+        }
+        .personalInfo ul li:nth-child(2) .itemValue{
+        flex-grow: 2 !important;
+        }
+       .personalInfo ul li:nth-last-child(1) .itemValue{
+        flex-grow: 2 !important;
+       } 
+      /* .bankInfo///////////////////////////////////////////// */
+       .bankInfo .itemName{
+        flex-grow: 2 !important;
+       }
+       .bankInfo .itemValue{
+        flex-grow: 1.2 !important;
+        } 
+        .bankInfo ul li:nth-child(3) .itemValue{
+            flex-grow: 1.2 !important;
+        }
+        .bankInfo ul li:nth-child(2) .itemValue{
+        flex-grow: 4 !important;
+        }
+       .bankInfo ul li:nth-last-child(1) .itemValue{
+        flex-grow: 4 !important;
+       } 
+       /* ///////////////////////////////////////////////////////////// */
+   }
+
+   @media (min-width:1201px) and (max-width:1439px){
+    .container{
+        width:75%;
+    }
+   }

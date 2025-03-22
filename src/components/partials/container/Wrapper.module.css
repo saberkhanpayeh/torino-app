@@ -1,9 +1,40 @@
-.wrapper{
+.tourWrapper,.cartWrapper{
     position: absolute;
     background-color: #f3f3f3;
     width: 1440px;
-    min-height: inherit;
+    max-height: -webkit-fill-available;
     left: -126px;
     display: flex;
     justify-content: center;
 }
+
+@media (max-width:1000px){
+    .cartWrapper{
+        position: static;
+        width: 100%;
+        max-height: unset;
+        background:none;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media (min-width:1001px) and (max-width:1440px){
+    .cartWrapper{
+        position: static;
+        width: 100%;
+        max-height: unset;
+        background:none;
+        flex-direction:row;
+    }
+}
+@media (max-width:1439px){
+    .tourWrapper{
+        position: static;
+        width: 100%;
+        max-height: unset;
+        background:none;
+    }
+   
+}
+
+

@@ -116,7 +116,7 @@
 @media (max-width:480px){
     .container{
         top:364px;
-        width:300px ;
+        width:100% ;
         max-width: 480px;
         /* background-color: chartreuse; */
     }

@@ -70,3 +70,49 @@
     background-color: #ff31314a;
   }
   
+  @media (max-width:768px){
+    .container{
+      /* background-color: beige; */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+    .container .label{
+      display: flex;
+      align-items: center;
+      margin-top: 16px;
+      
+      gap: 5px;
+      margin-left: 0;
+      margin-top: 5px;
+      justify-content: center;
+  }
+  .container .label p{
+      font-family: var(--font-yekan-bakh) !important;
+      font-weight: 400 !important;
+      color: #000000 !important;
+      text-align: center !important;
+      margin: 0 !important;
+
+      font-size: 12px !important;
+  }
+  .label img{
+      width: 18px;
+      height: 18px;
+  }
+  .available,.notAvailable {
+    border-radius: 8px;
+    margin-top: 10px;
+    font-size: 12px;
+  }
+  }
+  @media (min-width:769px) and (max-width:1200px){
+
+    .container .label p{
+      font-size: 16px !important;
+  }
+    .label img{
+      width: 20px;
+      height: 20px;
+  }
+  }

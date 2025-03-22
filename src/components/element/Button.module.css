@@ -9,3 +9,13 @@
     border:1px solid #00000040;
     border-radius: 6px;
 }
+@media (max-width:480px){
+    .btn{
+        width: 278px;
+    }
+}
+@media(min-width:481px) and (max-width:1200px){
+    .btn{
+        width: 100%;
+    }
+}

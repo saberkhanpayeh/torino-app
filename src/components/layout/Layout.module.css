@@ -3,13 +3,14 @@
     width: calc(100% - 252px);
     margin: 0 auto;
     position: relative;
-    min-height: 562px;
+    min-height: 620px;
     padding-top: 74px;
 }
 @media (max-width:480px){
     .main{
         width: calc(100% - 62px);
-        padding-top: 63px;
+        padding-top: 65px;
+        min-height: 520px;
     }
    
 }

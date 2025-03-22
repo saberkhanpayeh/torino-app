@@ -76,3 +76,60 @@
     word-spacing: 2px;
 
 }
+
+@media (max-width:480px){
+    .container{
+        padding:40px;
+        padding-top: 0;
+        width: 91.79%;
+        max-width: 390px;
+    }
+    .container p{
+        line-height: 100%;
+        font-size: 22px;
+        margin-bottom: 45px;
+    }
+    .container form input {
+        width: 278px;
+    }
+   
+}
+@media(min-width:481px) and (max-width:769px){
+    .container{
+        padding:40px;
+        padding-top: 0;
+        width: 70%;
+        max-width:400px;
+    }
+    .container p{
+        line-height: 100%;
+        font-size: 22px;
+        margin-bottom: 45px;
+    }
+    .container form{
+        width: 100%;
+    }
+    .container form input {
+        width:100%;
+    }
+
+}
+@media(min-width:769px) and (max-width:1200px){
+    .container{
+        padding:40px;
+        padding-top: 0;
+        width: 80%;
+        max-width:450px;
+    }
+    .container p{
+        line-height: 100%;
+        font-size: 24px;
+        margin-bottom: 45px;
+    }
+    .container form{
+        width: 100%;
+    }
+    .container form input {
+        width:100%;
+    }
+}

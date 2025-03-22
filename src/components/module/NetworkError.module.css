@@ -39,3 +39,96 @@ justify-content: space-between;
     font-size: 22px;
     color: #28A745;
 }
+
+@media (max-width:480px){
+    .container{
+        padding-top: 33px;
+        width: 100%;
+        max-width: 350px;
+        min-width: 250px;
+        margin: 0 auto;
+        flex-direction: column-reverse;
+        justify-content: unset;
+
+        }
+        .container div{
+            margin: 0;
+        }
+        .container h2{
+            font-size: 24px;
+            line-height: 100%;
+        }
+        .container p{
+            font-size: 16px;
+        }
+        .container img{
+            margin: 0;
+            width:100%;
+            height: auto;
+        }
+        .container div button{
+            align-self: start;
+            width: 180px;
+            height: 50px;
+            font-size: 16px;
+            border-radius: 8px;
+        }
+}
+@media (min-width:481px) and (max-width:1000px){
+    .container{
+        padding-top: 33px;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        flex-direction: column-reverse;
+        justify-content: unset;
+
+        }
+        .container div{
+            margin: 0;
+        }
+        .container h2{
+            font-size: 30px;
+            line-height: 100%;
+        }
+        .container p{
+            font-size: 20px;
+        }
+        .container img{
+            margin: 0;
+            width:100%;
+            height: auto;
+        }
+        .container div button{
+            align-self: start;
+            width: 200px;
+            height: 50px;
+            font-size: 20px;
+            border-radius: 8px;
+        }
+}
+@media (min-width:769px) and (max-width:1000px){
+    .container{
+        padding-bottom: 100px;
+        padding-top: 50px;
+        max-width: 600px;
+    }
+}
+@media (min-width:1001px) and (max-width:1439px){
+    .container{
+        width: 100%;
+        max-width: 1048px;
+        margin: 0 auto;
+    }
+    .container div {
+        margin-right: 0;
+    }
+    .container div h2{
+        font-size: 34px;
+    }
+    .container img{
+        margin: 0;
+        width:60%;
+        height: auto;
+    }
+}

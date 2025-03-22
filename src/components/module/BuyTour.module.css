@@ -80,3 +80,58 @@ background: repeating-linear-gradient(
     font-size: 24px;
     color: #fff;
 }
+
+@media (max-width:768px){
+    .container{
+    width: 84.10%;
+    min-width: 234px;
+    max-width: 400px;
+    margin-top: 0;
+    margin-bottom: 37px;
+    padding: 16px 13px;
+    border:1px solid #0000001A;
+    overflow: hidden;
+    }
+    .title::after{
+    left:-10;
+    width: 120%; /* طول دلخواه */
+    }
+    .container button{
+        width: 100%;
+    }
+}
+
+@media (min-width:768px) and (max-width:1000px){
+    .container{
+    width: 84.10%;
+    max-width:500px;
+    margin-top: 0;
+    margin-bottom: 37px;
+    padding: 16px 13px;
+    border:1px solid #0000001A;
+    overflow: hidden;
+    }
+    .title::after{
+    left:-10;
+    width: 120%; /* طول دلخواه */
+    }
+    .container button{
+        width: 100%;
+    }
+}
+
+@media (min-width:1001px) and (max-width:1439px){
+    .container{
+    width: 28%;
+    margin-top: 36px;
+    border:1px solid #0000001A;
+    overflow: hidden;
+    }
+    .title::after{
+    left:-10;
+    width: 120%; /* طول دلخواه */
+    }
+    .container button{
+        width: 100%;
+    }
+}

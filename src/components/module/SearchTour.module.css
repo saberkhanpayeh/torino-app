@@ -84,7 +84,7 @@
         border:none;
         border-radius:0;
         padding:0;
-        background-color: aqua;
+        /* background-color: aqua; */
     
         display: flex;
         align-items: normal;
@@ -115,7 +115,7 @@
      width: 100%;
     }
     .selectContainer .item:nth-child(1){
-        margin-left: 8px;
+        margin-left: auto;
     }
     
     
@@ -152,7 +152,7 @@
         border:none;
         border-radius:0;
         padding:0;
-        background-color: aqua;
+        /* background-color: aqua; */
     
         display: flex;
         align-items: normal;

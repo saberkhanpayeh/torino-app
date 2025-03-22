@@ -76,4 +76,58 @@
     border: 1px solid red;
   }
 
+  @media(max-width:600px){
+    .container{
+      width:91.79%;
+      max-width: 390px;
+      padding: 0px 34px 40px 34px;
+    }
+    .container h2{
+      margin-bottom: 17px;
+      line-height: 100%;
+      font-size: 22px;
+    }
+    .container .title,.container .phone{
+      line-height: 100%;
+      font-size: 14px;
+    }
+    .otpContainer {
+        margin-top: 21px;
+        gap: 15px;
+      }
+      
+      .otpInput {
+        width: 40px !important;
+        height: 35px !important;
+      }
+  }
+  @media(min-width:601px) and (max-width:1200px){
+    .container{
+      width:70%;
+      max-width:500px;
+      padding: 0px 34px 40px 34px;
+      max-width: 450;
+    }
+
+    .container h2{
+      margin-bottom: 17px;
+      line-height: 100%;
+      font-size: 22px;
+    }
+ 
+    .container .title,.container .phone{
+      line-height: 100%;
+      font-size: 14px;
+    }
+    .otpContainer {
+        margin-top: 21px;
+        gap: 20px;
+      }
+      
+      .otpInput {
+        width: 50px !important;
+        height: 45px !important;
+      }
+  }
+
   

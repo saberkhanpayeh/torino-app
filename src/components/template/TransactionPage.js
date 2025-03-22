@@ -5,7 +5,7 @@ import UserTransaction from "../module/UserTransaction";
 
 function TransactionPage() {
   return (
-    <PageLayout>
+    <PageLayout page="transactions">
       <UserSidebar />
       <UserTransaction/>
     </PageLayout>
