@@ -130,7 +130,9 @@
     flex-grow: 6 !important;
    } 
    /* ///////////////////////////////////////////////////////////// */
-
+   .container a{
+    cursor: pointer;
+   }
    @media(max-width:768px){
     .container{
         width: 100%;

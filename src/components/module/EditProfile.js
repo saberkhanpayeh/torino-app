@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useReducer, useRef, useState } from "react";
+import React, { useEffect, useMemo, useReducer, useRef, useState } from "react";
 import styles from "@/components/module/EditProfile.module.css";
 import { Controller, useForm } from "react-hook-form";
 import { useInvalidateQuery, useProfileData } from "@/services/queries";
@@ -32,21 +32,26 @@ function EditProfile() {
 
   const userProfile = data?.data;
   const bankInfo = userProfile?.payment;
-
-  const userCurrentData = userProfile || {
-    fullName: "",
-    nationalCode: "",
-    gender: "",
-    birtDate: "",
-    email: "",
-  };
-  const bankCurrentData = bankInfo || {
-    shaba_code: "",
-    debitCard_code: "",
-    accountIdentifier: "",
-  };
   //   console.log(userProfile);
-
+  ////
+  const defaultValues = useMemo(() => {
+    return {
+      account: data?.data || { email: "" },
+      personal: data?.data || {
+        fullName: "",
+        nationalCode: "",
+        gender: "",
+        birthDate: "",
+        email: "",
+      },
+      bank: data?.data?.payment || {
+        shaba_code: "",
+        debitCard_code: "",
+        accountIdentifier: "",
+      },
+    };
+  }, [data]);
+  /////
   const {
     register,
     handleSubmit,
@@ -54,12 +59,15 @@ function EditProfile() {
     formState: { errors },
     trigger,
     reset,
-    getValues
+    getValues,
   } = useForm({
-    resolver:!isLoading?yupResolver(getSchema(section)):"",
-    mode:"onChange"
+    resolver: yupResolver(getSchema(section)),
+    // resolver:yupResolver(profileSchema),
+    mode: "onChange",
+    defaultValues
   });
- 
+
+  console.log(errors);
 
   useEffect(() => {
     const section = searchParams.get("section") || "";
@@ -67,14 +75,39 @@ function EditProfile() {
     console.log(section);
   }, [searchParams]);
   useEffect(() => {
-    reset({
-      account: userCurrentData,
-      personal: userCurrentData,
-      bank: bankCurrentData,
-    });
-  }, [userProfile, bankInfo, reset]);
+    // if(!isLoading)
+    // reset({
+    //   account:userProfile || {
+    //     email: "",
+    //   },
+    //   personal:  userProfile || {
+    //     fullName: "",
+    //     nationalCode: "",
+    //     gender: "",
+    //     birthDate: "",
+    //     email: "",
+    //   },
+    //   bank:bankInfo || {
+    //     shaba_code: "",
+    //     debitCard_code: "",
+    //     accountIdentifier: "",
+    //   },
+    // });
+    if(!isLoading&&data){
+      reset(defaultValues);
+    }
+  }, [reset,data,isLoading]);
 
-  const onSubmit =async (data, formType) => {
+  // const defaultValues = async () => {
+  //   if(!isLoading && !data)return{};
+  //   return {
+  //     account: userCurrentData,
+  //     personal: userCurrentData,
+  //     bank: bankCurrentData,
+  //   };
+  // };
+
+  const onSubmit = async (data, formType) => {
     console.log(data);
 
     if (formType === "account") {
@@ -107,12 +140,12 @@ function EditProfile() {
       mutate(newUserProfile, {
         onSuccess: (data) => {
           console.log(data?.data?.message);
-          toast.success("اطلاعات شخصی شما بروزرسانی شد",toastOptions);
+          toast.success("اطلاعات شخصی شما بروزرسانی شد", toastOptions);
           navigateToProfile();
         },
         onError: (error) => {
           console.log(error?.message);
-          toast.error(error?.message,toastOptions);
+          toast.error(error?.message, toastOptions);
         },
       });
     }
@@ -142,7 +175,7 @@ function EditProfile() {
     invalidateQuery(["profile-info"]);
     router.push("/dashboard/profile");
   };
-  if(isLoading)return<p>...loading</p>
+  if (isLoading) return <p>...loading</p>;
   return (
     <div className={styles.container}>
       <div
@@ -155,7 +188,8 @@ function EditProfile() {
         <h3>اطلاعات حساب کاربری</h3>
         <div className={styles.emailForm}>
           <div className={styles.numberPhone}>
-            <p>شماره موبایل</p><span>{userProfile?.mobile}</span>
+            <p>شماره موبایل</p>
+            <span>{userProfile?.mobile}</span>
           </div>
           <form id="accountForm">
             <fieldset>
@@ -200,7 +234,7 @@ function EditProfile() {
                 />
                 {errors?.personal?.fullName && section === "personalInfo" && (
                   <span className={styles.error}>
-                    *{errors?.fullName?.message}
+                    *{errors?.personal?.fullName?.message}
                   </span>
                 )}
               </div>
@@ -211,12 +245,11 @@ function EditProfile() {
                   placeholder="کد ملی"
                   disabled={section !== "personalInfo" && "disable"}
                 />
-                {errors?.personal?.nationalCode &&
-                  section === "personalInfo" && (
-                    <span className={styles.error}>
-                      *{errors?.nationalCode?.message}
-                    </span>
-                  )}
+                {errors?.personal?.nationalCode && section === "personalInfo" && (
+                  <span className={styles.error}>
+                    *{errors?.personal?.nationalCode?.message}
+                  </span>
+                )}
               </div>
 
               <div className={styles.inputContainer}>
@@ -224,15 +257,14 @@ function EditProfile() {
                 <Controller
                   name="personal.birthDate"
                   control={control}
-                  
                   render={({ field: { onChange, value } }) => (
-                    <InputBirthdate onChange={onChange} value={value}/>
+                    <InputBirthdate onChange={onChange} value={value} />
                   )}
                 />
 
                 {errors?.personal?.birthDate && section === "personalInfo" ? (
                   <span className={styles.error}>
-                   {errors?.birthDate?.message} 
+                    {errors?.personal?.birthDate?.message}
                   </span>
                 ) : null}
               </div>
@@ -247,7 +279,7 @@ function EditProfile() {
                 <img src="/svg-files/arrow-down.svg" alt="arrow" />
                 {errors?.personal?.gender && section === "personalInfo" && (
                   <span className={styles.genderError}>
-                    *{errors?.gender?.message}
+                    *{errors?.personal?.gender?.message}
                   </span>
                 )}
               </div>
@@ -317,12 +349,11 @@ function EditProfile() {
                   {...register("bank.accountIdentifier")}
                   disabled={section !== "creaditInfo" && "disable"}
                 />
-                {errors?.bank?.accountIdentifier &&
-                  section === "creaditInfo" && (
-                    <span className={styles.error}>
-                      *{errors?.bank?.accountIdentifier?.message}
-                    </span>
-                  )}
+                {errors?.bank?.accountIdentifier && section === "creaditInfo" && (
+                  <span className={styles.error}>
+                    *{errors?.bank?.accountIdentifier?.message}
+                  </span>
+                )}
               </div>
             </fieldset>
           </form>

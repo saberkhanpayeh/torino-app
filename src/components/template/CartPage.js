@@ -10,7 +10,7 @@ import { useEditProfile } from "@/services/mutations";
 import EmptyCart from "../module/EmptyCart";
 import RotatingLineLoader from "../element/RotatingLineLoader";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { profileSchema } from "@/schema/validation";
+import { getSchema, profileSchema } from "@/schema/validation";
 import styles from"@/components/template/CartPage.module.css"
 function CartPage() {
 
@@ -32,7 +32,7 @@ function CartPage() {
     formState: { errors },
     reset,
   } = useForm({
-    resolver: yupResolver(profileSchema),
+    resolver: yupResolver(getSchema("personalInfo")),
     mode:"all"
   });
   
