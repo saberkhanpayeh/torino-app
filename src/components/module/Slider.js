@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import styles from "@/components/module/Slider.module.css"
-import LineArrowRight from "../icons/LineArrowRight";
+import LineArrowRight from "@/components/icons/LineArrowRight";
 import Image from "next/image";
 const images = [
  {id:1,src:"/images/slider-images/1.png"},
@@ -45,19 +45,19 @@ function Slider() {
     }
 };
 // console.log({prevState,nextState});
-    // useEffect(() => {
-    //   if (!autoPlay) return; 
+    useEffect(() => {
+      if (!autoPlay) return; 
   
-    //   const interval = setInterval(() => {
-    //     if(nextState)
-    //      nextSlide();
-    //     else{
-    //       prevSlide();
-    //     }
-    //   }, 3000); 
+      const interval = setInterval(() => {
+        if(nextState)
+         nextSlide();
+        else{
+          prevSlide();
+        }
+      }, 3000); 
   
-    //   return () => clearInterval(interval); 
-    // }, [slides,prevState,prevState]);
+      return () => clearInterval(interval); 
+    }, [slides,prevState,prevState]);
   
     useEffect(() => {
       const handleResize = () => setWidth(getWidth());
@@ -74,7 +74,7 @@ function Slider() {
       window.addEventListener("resize", handleResize);
       return () => window.removeEventListener("resize", handleResize);
     }, []);
-    console.log(width)
+    // console.log(width)
   return (   
   <div className={styles.sliderContainer}>
     {slides.map((item, index) => (

@@ -1,25 +1,18 @@
 "use client";
-import { sendOtpCode } from "@/services/auth";
-import { otpExpireTimer } from "@/utils/timer";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
-import styles from "@/components/module/SendOtpModal.module.css";
 import Button from "@/components/element/Button";
 import Close from "@/components/icons/Close";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { saveToLocalStorage } from "@/utils/localstorage";
 import { useSendOtp } from "@/services/mutations";
 import { toast } from "react-toastify";
 import { toastOptions } from "@/constant/toast";
 import { p2eFormat } from "@/utils/helper";
 import { mobileSchema } from "@/schema/validation";
+import styles from "@/components/module/SendOtpModal.module.css";
 function SendOtpModal({ setModalState, setPhone }) {
   const { isPending, mutate } = useSendOtp();
-  //   useEffect(() => {
-  //     otpExpireTimer();
-  //   }, []);
   const router = useRouter();
   const {
     register,
@@ -56,7 +49,6 @@ function SendOtpModal({ setModalState, setPhone }) {
     });
   };
   const closeHandler = () => {
-    // localStorage.clear();
     setModalState("");
     router.back();
   };

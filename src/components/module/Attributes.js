@@ -3,13 +3,13 @@ import styels from "@/components/module/Attributes.module.css";
 import Image from "next/image";
 function Attributes() {
   return (
-    // <div className={styels.wrraper}>
       <div className={styels.container}>
         <figure>
           <Image
             src="/images/glass-ticket.png"
             width={121.42}
             height={109.03}
+            alt="ticket-icon"
           />
           <div className={styels.detail}>
             <h4>بصرفه ترین قیمت</h4>
@@ -23,6 +23,7 @@ function Attributes() {
             src="/images/glass-message.png"
             width={109.03}
             height={99.12}
+            alt="glass-icon"
           />
           <div className={styels.detail}>
             <h4>پشتیبانی</h4>
@@ -33,14 +34,13 @@ function Attributes() {
         </figure>
 
         <figure>
-          <Image src="/images/glass-heart.png" width={104.08} height={104.08} />
+          <Image src="/images/glass-heart.png" width={104.08} height={104.08} alt="heart-icon" />
           <div className={styels.detail}>
             <h4>رضایت کاربران</h4>
             <figcaption>رضایت بیش از 10هزار کاربر از تور های ما.</figcaption>
           </div>
         </figure>
       </div>
-    // </div>
   );
 }
 

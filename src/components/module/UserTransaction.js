@@ -1,12 +1,12 @@
 "use client";
+import React from "react";
 import { useTransactionData } from "@/services/queries";
 import { shortenTransactionId } from "@/utils/helper";
-import React from "react";
 import styles from "@/components/module/UserTransaction.module.css";
 function UserTransaction() {
   const { data, isLoading } = useTransactionData();
   const transactions = data?.data || [];
-  console.log(transactions);
+  // console.log(transactions);
   return (
     <div className={styles.tableContainer}>
       {transactions.length === 0 && !isLoading && (

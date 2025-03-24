@@ -4,7 +4,7 @@ const saveToLocalStorage = (data) => {
 };
 const getFromLocalStorage = (key) => {
   const data = JSON.parse(localStorage.getItem("data")) || [];
-  console.log(data);
+  // console.log(data);
   if (data) {
     return data[key];
   } else {

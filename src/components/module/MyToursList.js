@@ -1,15 +1,12 @@
 "use client";
 import React from "react";
-import styles from "@/components/module/MyToursList.module.css";
 import { useMyToursList } from "@/services/queries";
-import SunFog from "../icons/SunFog";
-import Bus from "../icons/Bus";
+import SunFog from "@/components/icons/SunFog";
 import { convertMiladiToJalali, getTourStatus } from "@/utils/convertDate";
 import { shortenTransactionId } from "@/utils/helper";
-import { isError } from "@tanstack/react-query";
-import NetworkError from "./NetworkError";
 import { vehicleType } from "@/constant/transport";
 import { getDestinationCity, getOriginCity } from "@/constant/cities";
+import styles from "@/components/module/MyToursList.module.css";
 function MyToursList() {
   const { data, isLoading,isError } = useMyToursList();
   const tours = data?.data || [];

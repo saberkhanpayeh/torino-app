@@ -3,26 +3,21 @@
     width: calc(100% - 252px);
     margin: 0 auto;
     position: relative;
-    min-height: 620px;
-    padding-top: 74px;
+    min-height: 545px;
 }
 @media (max-width:480px){
     .main{
         width: calc(100% - 62px);
-        padding-top: 65px;
-        min-height: 520px;
     }
    
 }
 @media(min-width:481px) and (max-width:768px){
     .main{
         width: calc(100% - 124px);
-        padding-top: 60px;
     }
 }
 @media(min-width:769px) and (max-width:1200px){
     .main{
         width: calc(100% - 200px);
-        padding-top: 72px;
     }
 }

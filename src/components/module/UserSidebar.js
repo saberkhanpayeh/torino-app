@@ -1,13 +1,9 @@
 "use client";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useMemo, useState } from "react";
-import styles from "@/components/module/UserSidebar.module.css";
 import { useRouter } from "next/navigation";
-import Profile from "../icons/Profile";
-import SunFogBold from "../icons/SunFogBold";
-import ConvertCard from "../icons/ConvertCard";
 import IconGenerator from "../partials/container/IconGenerator";
-import { useProfileData } from "@/services/queries";
+import styles from "@/components/module/UserSidebar.module.css";
 const routes = [
   { id: 1, title: "پروفایل", route: "/dashboard/profile" },
   { id: 2, title: "تور های من", route: "/dashboard/my-tours" },

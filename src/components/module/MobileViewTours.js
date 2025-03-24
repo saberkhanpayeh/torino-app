@@ -1,11 +1,11 @@
 "use client";
 import React, { useState } from "react";
-import styles from "@/components/module/MobileViewTours.module.css";
-import DownArrow from "../icons/mobile-icons/DownArrow";
+import DownArrow from "@/components/icons/mobile-icons/DownArrow";
 import { convertMiladiToJalali, getPeriodTour } from "@/utils/convertDate";
 import { e2pFormat } from "@/utils/helper";
 import Link from "next/link";
 import Image from "next/image";
+import styles from "@/components/module/MobileViewTours.module.css";
 function MobileViewTours({ tours }) {
   const [loadItem, setLoadItem] = useState(4);
   const loadHandler = () => {

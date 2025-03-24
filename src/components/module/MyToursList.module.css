@@ -360,13 +360,13 @@
   justify-content: unset;
 }
 .list .details ul li:nth-child(3) {
-  grid-column: span 2; /* این عنصر کل عرض دو ستون را بگیرد */
-  grid-row: 2; /* در ردیف دوم قرار بگیرد */
+  grid-column: span 2; 
+  grid-row: 2; 
 }
 
 .list .details ul li:nth-child(4) {
-  grid-column: span 2; /* این عنصر کل عرض دو ستون را بگیرد */
-  grid-row: 3; /* در ردیف سوم قرار بگیرد */
+  grid-column: span 2; 
+  grid-row: 3; 
 }
 
 

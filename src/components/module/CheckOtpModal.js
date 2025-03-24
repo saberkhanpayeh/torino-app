@@ -2,20 +2,17 @@
 import React, { useEffect, useState } from "react";
 import OtpInput from "react18-input-otp";
 import { otpExpireTimer } from "@/utils/timer";
-import styles from "@/components/module/CheckOtpModal.module.css";
 import Button from "@/components/element/Button";
 import TimerOtp from "./TimerOtp";
 import BackArrow from "@/components/icons/BackArrow";
-import { checkOtpCode, sendOtpCode } from "@/services/auth";
 import { getFromLocalStorage, saveToLocalStorage } from "@/utils/localstorage";
-import { setCookie } from "@/utils/cookie";
 import { useCheckOtp, useSendOtp } from "@/services/mutations";
 import { useRouter } from "next/navigation";
-import { useInvalidateQuery } from "@/services/queries";
 import { toast } from "react-toastify";
 import { toastOptions } from "@/constant/toast";
 import { p2eFormat } from "@/utils/helper";
 import { isNumericString } from "@/schema/validation";
+import styles from "@/components/module/CheckOtpModal.module.css";
 
 function CheckOtpModal({
   otpCode,
@@ -27,12 +24,10 @@ function CheckOtpModal({
 }) {
   const router = useRouter();
   const [input, setInput] = useState();
-  const [hasError, setHasError] = useState(false);
   const [timer, setTimer] = useState({ minutes: 0, second: 0, stop: false });
   const [resetTimer, setResetTimer] = useState(false);
   const { isPending: checkOtpPending, mutate: mutateCheck } = useCheckOtp();
   const { isPending: sendOtpPending, mutate: mutateSend } = useSendOtp();
-  const invalidateQuery = useInvalidateQuery();
 
   useEffect(() => {
     // setResetTimer(resetTimer=>!resetTimer);
@@ -72,11 +67,6 @@ function CheckOtpModal({
           toast.error(error?.message, toastOptions);
         },
       });
-      // if(response){
-      //   saveToLocalStorage(phone);
-      //   setCookie("accessToken",response?.data?.accessToken,30);
-      //   setCookie("refreshToken",response.data.refreshToken,365);
-      // }
     }
   };
   const resendHandler = async (mobile) => {

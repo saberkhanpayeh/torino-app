@@ -1,17 +1,17 @@
 .header{
-    background-color: aqua;
+    /* background-color: aqua; */
     box-shadow: 0px 1px 4px 0px #00000029;
     /* background-color: aquamarine; */
-    /* background-color: #fff; */
+    background-color: #fff;
     transition: all 0.8s ease-in-out;
 }
-.absolute{
-    position: absolute;
+.static{
+    position: static;
     width: 1440px;
     z-index: 30;
     
 }
-.fixed{
+.sticky{
    position: sticky;
    top: 0;
    width:100% ;
@@ -20,7 +20,7 @@
 .container{
     width: calc(100% - 252px);
     margin: auto;
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -140,7 +140,7 @@ outline: none;
     position: absolute;
     top:0;
     left: 12px;
-    width: 90.24%; /* طول دلخواه */
+    width: 90.24%; 
     height: 1px;
     background: #0000001F;
 }
@@ -176,15 +176,12 @@ font-size: 14px;
 .userMenue li:hover{
     background-color:#F4F4F4;
 }
-/* .loginBtn button.clicked{
-    opacity: 0;
-    transform: scale(1.1);
-} */
+
 @media(max-width:480px){
     .header{
      
     }
-    .absolute{
+    .static{
         width: 100%;  
     }
     .container{
@@ -307,7 +304,7 @@ font-size: 14px;
     .header{
      /* background-color: #fff; */
     }
-    .absolute{
+    .static{
         width: 100%;
         min-width: 481px; 
     }
@@ -418,7 +415,7 @@ font-size: 14px;
     .header{
      
     }
-    .absolute{
+    .static{
       width: 100%; 
     }
     .container{

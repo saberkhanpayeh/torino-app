@@ -164,11 +164,6 @@
         flex-direction: column;
         align-self: unset;
     }
-    /* .title .titleContainer{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    } */
     .top img[id="tour-image"]{
         width: 330px;
         height: 220px;

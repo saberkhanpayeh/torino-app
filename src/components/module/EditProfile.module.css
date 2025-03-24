@@ -217,11 +217,6 @@
     display: none !important;
  } 
 
-/* .personal fieldset select option:hover {
-    background-color:  #28A745;
-    color: #fff;
-}
-    */
 
 .emailForm .inputContainer span{
     display: inline-block;

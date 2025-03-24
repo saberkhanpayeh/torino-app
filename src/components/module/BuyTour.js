@@ -1,12 +1,12 @@
 import { getPeriodTour } from "@/utils/convertDate";
 import React from "react";
-import styles from "@/components/module/BuyTour.module.css";
 import { useCreateOrder, useEditProfile } from "@/services/mutations";
 import { splitByFirstSpace } from "@/utils/helper";
 import { useInvalidateQuery } from "@/services/queries";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { toastOptions } from "@/constant/toast";
+import styles from "@/components/module/BuyTour.module.css";
 function BuyTour({ cartData, watch, createProfile, profileInfo }) {
   const router = useRouter();
   const { mutate: mutateProfile, isPending: profilePending } = useEditProfile();

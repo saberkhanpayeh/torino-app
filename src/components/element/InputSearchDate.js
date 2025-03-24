@@ -1,10 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { DatePicker } from "zaman";
-import styles from "@/components/element/InputSearchDate.module.css";
 import "@/app/globals.css";
 import Close from "../icons/Close";
 import { DateToIso } from "@/utils/convertDate";
+import styles from "@/components/element/InputSearchDate.module.css";
 function InputSearchDate({ setSearchTour }) {
   const [inputDate, setInputDate] = useState("");
   const [showClose, setShowClose] = useState(false);
@@ -86,13 +86,4 @@ function InputSearchDate({ setSearchTour }) {
   );
 }
 
-// {
-//     style: {
-//         padding: "10px",
-//         borderRadius: "5px",
-//         border: "1px solid #ABABAB",
-//         fontSize: "16px",
-//     },
-
-// }
 export default InputSearchDate;

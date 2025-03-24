@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
-import PageLayout from "../partials/container/PageLayout";
-import UserSidebar from "../module/UserSidebar";
-import MyToursList from "../module/MyToursList";
+import PageLayout from "@/components/partials/container/PageLayout";
+import UserSidebar from "@/components/module/UserSidebar";
+import MyToursList from "@/components/module/MyToursList";
 
 function MyToursPage() {
   return (

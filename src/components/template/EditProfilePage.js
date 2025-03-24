@@ -1,7 +1,7 @@
 import React from "react";
-import UserSidebar from "../module/UserSidebar";
-import EditProfile from "../module/EditProfile";
-import PageLayout from "../partials/container/PageLayout";
+import UserSidebar from "@/components/module/UserSidebar";
+import EditProfile from "@/components/module/EditProfile";
+import PageLayout from "@/components/partials/container/PageLayout";
 
 function EditProfilePage() {
   return (

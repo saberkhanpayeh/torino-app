@@ -8,7 +8,7 @@
     position: absolute;
     top:0;
     left: -126px;
-    width: 1440px; /* طول دلخواه */
+    width: 1440px; 
     min-width:auto;
     height: 1px;
     background: #00000033;
@@ -53,13 +53,9 @@
 }
 
 @media (max-width:480px){
-    /* .main{
-        width: calc(100% - 62px);
-        padding-top: 63px;
-    } */
     .container::before{
         left:0;
-        width: 100%; /* طول دلخواه */
+        width: 100%; 
      }
     .container{
         padding-top: 43px;
@@ -105,7 +101,7 @@
 @media(min-width:481px) and (max-width:950px){
     .container::before{
         left:0;
-        width: 100%; /* طول دلخواه */
+        width: 100%; 
      }
     .container{
         padding-top: 53px;

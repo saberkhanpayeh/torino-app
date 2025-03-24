@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import Select from "react-select";
-import Close from "../icons/Close";
+import Close from "@/components/icons/Close";
 import styles from "@/components/element/CustomSelection.module.css";
 function CustomSelection({
   options,
@@ -13,7 +12,6 @@ function CustomSelection({
 }) {
   const [select, setSelect] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-  const [prevSelect, setPrevSelect] = useState(null);
   const [active, setActive] = useState("");
   const listRef = useRef(null);
   // const options = [{ id: 1, label: "x", icon: 1 },
@@ -37,9 +35,7 @@ function CustomSelection({
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (listRef.current && !listRef.current.contains(event.target)) {
-        // setSelect(""); // مقدار قبلی را پاک کن
         setIsOpen(false); // منو را ببند
-        // setActive("");
       }
     };
 

@@ -174,12 +174,6 @@
         width:100%;
         height: 50px;
     }
-    .selectContainer .item:nth-child(1),.selectContainer .item:nth-child(2){
-        
-        
-        /* background-color: antiquewhite; */
-        /* border: none; */
-    }
     .selectContainer .item:last-child{
      /* background-color:#fff; */
      margin-top: 0px;

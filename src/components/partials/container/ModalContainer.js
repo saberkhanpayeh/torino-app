@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
-import styles from "@/components/partials/container/ModalContainer.module.css";
 import { useRouter } from "next/navigation";
+import styles from "@/components/partials/container/ModalContainer.module.css";
 function ModalContainer({ children,setModalState,modalState}) {
    const modalRef=useRef(null); 
    const router=useRouter();

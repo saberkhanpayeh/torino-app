@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import styles from "@/components/module/SearchToursList.module.css";
 import Image from "next/image";
 import { convertMiladiToJalali } from "@/utils/convertDate";
-import Detail from "../icons/Detail";
+import Detail from "@/components/icons/Detail";
 import { useRouter } from "next/navigation";
 import { vehicleType } from "@/constant/transport";
+import styles from "@/components/module/SearchToursList.module.css";
 function SearchToursList({ tours,isOpen,setIsOpen }) {
    const toursMenuRef=useRef(null);
    
@@ -49,7 +49,7 @@ const TourItem = ({ tour }) => {
   }
   return (
     <li className={styles.detail}>
-      <Image src={image} width={100} height={56} alt="tour-picture" />
+      <Image src={image} width={100} height={56} alt="tour-picture" quality={100}/>
         <div className={styles.title}>
           <h3>{title}</h3>
           <p>

@@ -1,26 +1,22 @@
 "use client";
 import React, { useEffect, useMemo, useReducer, useRef, useState } from "react";
-import styles from "@/components/module/EditProfile.module.css";
 import { Controller, useForm } from "react-hook-form";
 import { useInvalidateQuery, useProfileData } from "@/services/queries";
 import { useSearchParams } from "next/navigation";
 import { splitByFirstSpace, validationSchemas } from "@/utils/helper";
 import { useEditProfile } from "@/services/mutations";
-import { Calendar, CalendarProvider, DatePicker } from "zaman";
 import InputBirthdate from "../element/InputBirthdate";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { toastOptions } from "@/constant/toast";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { getSchema, profileSchema } from "@/schema/validation";
-import { DateToIso } from "@/utils/convertDate";
+import styles from "@/components/module/EditProfile.module.css";
 
 function EditProfile() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [section, setSection] = useState("");
-  const [birth, setBirthDate] = useState("");
-  const [birtError, setBirthError] = useState(false);
   const { mutate } = useEditProfile();
   const invalidateQuery = useInvalidateQuery();
   const queryOptions = {
@@ -75,45 +71,18 @@ function EditProfile() {
     console.log(section);
   }, [searchParams]);
   useEffect(() => {
-    // if(!isLoading)
-    // reset({
-    //   account:userProfile || {
-    //     email: "",
-    //   },
-    //   personal:  userProfile || {
-    //     fullName: "",
-    //     nationalCode: "",
-    //     gender: "",
-    //     birthDate: "",
-    //     email: "",
-    //   },
-    //   bank:bankInfo || {
-    //     shaba_code: "",
-    //     debitCard_code: "",
-    //     accountIdentifier: "",
-    //   },
-    // });
     if(!isLoading&&data){
       reset(defaultValues);
     }
   }, [reset,data,isLoading]);
 
-  // const defaultValues = async () => {
-  //   if(!isLoading && !data)return{};
-  //   return {
-  //     account: userCurrentData,
-  //     personal: userCurrentData,
-  //     bank: bankCurrentData,
-  //   };
-  // };
-
   const onSubmit = async (data, formType) => {
-    console.log(data);
+    // console.log(data);
 
     if (formType === "account") {
       const { account } = data;
       const newAccountEmail = { ...userProfile, ...account };
-      console.log(newAccountEmail);
+      // console.log(newAccountEmail);
       mutate(newAccountEmail, {
         onSuccess: (data) => {
           console.log(data?.data?.message);
@@ -127,7 +96,7 @@ function EditProfile() {
       });
     }
     if (formType === "personal") {
-      console.log(data.personal);
+      // console.log(data.personal);
       const { personal } = data;
       const [firstName, lastName] = splitByFirstSpace(personal.fullName);
       const newUserProfile = {
@@ -150,10 +119,10 @@ function EditProfile() {
       });
     }
     if (formType === "bank") {
-      console.log(data.bank);
+      // console.log(data.bank);
       const { bank } = data;
       const newBankInfo = { ...userProfile, payment: bank };
-      console.log(newBankInfo);
+      // console.log(newBankInfo);
       mutate(newBankInfo, {
         onSuccess: (data) => {
           console.log(data?.data?.message);

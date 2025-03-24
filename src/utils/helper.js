@@ -1,4 +1,3 @@
-import { accountSchema, personalFormSchema } from "@/schema/validation";
 
 function splitByFirstSpace(str) {
   const index = str.indexOf(" "); //find index of first space

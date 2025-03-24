@@ -9,12 +9,11 @@ import Calender from "@/components/icons/Calender";
 import Bus from "@/components/icons/Bus";
 import DoubleUser from "@/components/icons/DoubleUser";
 import Security from "@/components/icons/Security";
-import styles from "@/components/module/TourDetails.module.css"
-import Wrapper from "../partials/container/Wrapper";
 import BuyButton from "./BuyButton";
 import Capacity from "./Capacity";
 import { getOriginCity } from "@/constant/cities";
 import { vehicleType } from "@/constant/transport";
+import styles from "@/components/module/TourDetails.module.css"
 function TourDetails({ data }) {
     const {id,origin,startDate,endDate,title,fleetVehicle,price,capacity,image}=data
     const periodTour=getPeriodTour(startDate,endDate);

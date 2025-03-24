@@ -35,7 +35,7 @@ margin-top: 36px;
 position: absolute;
 left:-12px;
 bottom:0;
-width: 307px; /* طول دلخواه */
+width: 307px; 
 height: 1px;
 background: repeating-linear-gradient(
   to right,
@@ -94,7 +94,7 @@ background: repeating-linear-gradient(
     }
     .title::after{
     left:-10;
-    width: 120%; /* طول دلخواه */
+    width: 120%; 
     }
     .container button{
         width: 100%;
@@ -113,7 +113,7 @@ background: repeating-linear-gradient(
     }
     .title::after{
     left:-10;
-    width: 120%; /* طول دلخواه */
+    width: 120%; 
     }
     .container button{
         width: 100%;
@@ -129,7 +129,7 @@ background: repeating-linear-gradient(
     }
     .title::after{
     left:-10;
-    width: 120%; /* طول دلخواه */
+    width: 120%; 
     }
     .container button{
         width: 100%;

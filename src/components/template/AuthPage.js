@@ -1,9 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import SendOtpModal from "../module/SendOtpModal";
-import CheckOtpModal from "../module/CheckOtpModal";
+import SendOtpModal from "@/components/module/SendOtpModal";
+import CheckOtpModal from "@/components/module/CheckOtpModal";
 import { usePathname } from "next/navigation";
-import ModalContainer from "../partials/container/ModalContainer";
+import ModalContainer from "@/components/partials/container/ModalContainer";
 
 function AuthPage() {
   const [modalState, setModalState] = useState("SendOtpModal");
@@ -17,15 +17,6 @@ function AuthPage() {
     }
   }, [pathname]);
   useEffect(() => {
-    // if (modalState) {
-    //   document.body.classList.add("no-scroll");
-    // } else {
-    //   document.body.classList.remove("no-scroll");
-    // }
-  
-    // return () => {
-    //   document.body.classList.remove("no-scroll");
-    // };
       if (modalState) {
         window.scrollTo({ top: 0, behavior: "auto" }); 
       }

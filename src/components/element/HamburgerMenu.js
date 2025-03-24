@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Home from "../icons/mobile-icons/Home";
-import AirplaneSquare from "../icons/mobile-icons/AirplaneSquare";
-import Volume from "../icons/mobile-icons/Volume";
-import Phone from "../icons/mobile-icons/Phone";
-import styles from "@/components/element/HamburgerMenu.module.css";
+import Home from "@/components/icons/mobile-icons/Home";
+import AirplaneSquare from "@/components/icons/mobile-icons/AirplaneSquare";
+import Volume from "@/components/icons/mobile-icons/Volume";
+import Phone from "@/components/icons/mobile-icons/Phone";
 import { usePathname, useRouter } from "next/navigation";
+import styles from "@/components/element/HamburgerMenu.module.css";
 const routes = [
   { id: 1, title: "صفحه اصلی", route: "/", icon: <Home /> },
   { id: 2, title: "خدمات گردشگری", route: "/khadamat", icon: <AirplaneSquare /> },

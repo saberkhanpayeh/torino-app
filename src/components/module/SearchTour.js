@@ -1,13 +1,11 @@
 "use client";
 import React, { useState } from "react";
-import Select from "react-select";
 import styles from "@/components/module/SearchTour.module.css";
-import Close from "../icons/Close";
-import Location from "../icons/Location";
-import CustomSelection from "../element/CustomSelection";
+import Location from "@/components/icons/Location";
+import CustomSelection from "@/components/element/CustomSelection";
+import GlobalSearch from "@/components/icons/GlobalSearch";
+import InputSearchDate from "@/components/element/InputSearchDate";
 import { customDestinationCity, customOriginCity } from "@/constant/cities";
-import GlobalSearch from "../icons/GlobalSearch";
-import InputSearchDate from "../element/InputSearchDate";
 import { tourFilter } from "@/utils/filter";
 import SearchToursList from "./SearchToursList";
 
@@ -21,12 +19,12 @@ function SearchTour({ data }) {
     startDate: "",
     endDate: "",
   });
-  console.log(searchTour);
+  // console.log(searchTour);
   const searchHandler = () => {
     const filter = tourFilter(data, searchTour);
     setFilteredTours(filter);
     setIsOpen(true);
-    console.log(filter);
+    // console.log(filter);
   };
   return (
     <div className={styles.container}>

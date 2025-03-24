@@ -1,14 +1,13 @@
 "use client";
-import React, { use, useEffect, useState } from "react";
-import Wrapper from "../partials/container/Wrapper";
-import BuyTour from "../module/BuyTour";
+import React, { useEffect, useState } from "react";
+import Wrapper from "@/components/partials/container/Wrapper";
+import BuyTour from "@/components/module/BuyTour";
 import { useCartData, useProfileData } from "@/services/queries";
 import { useRouter } from "next/navigation";
-import PersonalForm from "../module/PersonalForm";
+import PersonalForm from "@/components/module/PersonalForm";
 import { useForm, Controller } from "react-hook-form";
-import { useEditProfile } from "@/services/mutations";
-import EmptyCart from "../module/EmptyCart";
-import RotatingLineLoader from "../element/RotatingLineLoader";
+import EmptyCart from "@/components/module/EmptyCart";
+import RotatingLineLoader from "@/components/element/RotatingLineLoader";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { getSchema, profileSchema } from "@/schema/validation";
 import styles from"@/components/template/CartPage.module.css"

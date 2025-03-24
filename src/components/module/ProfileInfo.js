@@ -1,10 +1,10 @@
 "use client";
 import { useProfileData } from "@/services/queries";
 import React, { use, useState } from "react";
-import styles from "@/components/module/ProfileInfo.module.css";
-import Edit from "../icons/Edit";
+import Edit from "@/components/icons/Edit";
+import Line from "@/components/icons/Line";
 import Link from "next/link";
-import Line from "../icons/Line";
+import styles from "@/components/module/ProfileInfo.module.css";
 function ProfileInfo() {
   const queryOptions = {
     refetchOnWindowFocus: false,
@@ -15,8 +15,7 @@ function ProfileInfo() {
     useProfileData(queryOptions);
   const userProfile = data?.data || {};
   const bankInfo = userProfile?.payment || {};
-  //   const email="";
-  console.log(data);
+  // console.log(data);
   const check = (field) => {
     if (field === "Invalid Date") return <Line />;
     return field ? field : <Line />;

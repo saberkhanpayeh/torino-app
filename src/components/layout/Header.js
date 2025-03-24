@@ -1,23 +1,21 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import Profile from "@/components/icons/Profile";
 import SiteLogo from "@/components/element/SiteLogo";
-import styles from "@/components/layout/Header.module.css";
 import { redirect, usePathname, useRouter } from "next/navigation";
 import { getFromLocalStorage } from "@/utils/localstorage";
 import DownArrow from "@/components/icons/DownArrow";
-import ProfileBold from "../icons/ProfileBold";
-import ProfileBlank from "../icons/ProfileBlank";
-import Logout from "../icons/Logout";
+import ProfileBold from "@/components/icons/ProfileBold";
+import ProfileBlank from "@/components/icons/ProfileBlank";
+import Logout from "@/components/icons/Logout";
 import { setCookie } from "@/utils/cookie";
 import { useQueryClient } from "@tanstack/react-query";
-import { ThreeDots } from "react-loader-spinner";
-import Hamburger from "../icons/mobile-icons/Hamburger";
-import Login from "../icons/mobile-icons/Login";
-import ModalContainer from "../partials/container/ModalContainer";
-import HamburgerMenu from "../element/HamburgerMenu";
+import Hamburger from "@/components/icons/mobile-icons/Hamburger";
+import Login from "@/components/icons/mobile-icons/Login";
+import ModalContainer from "@/components/partials/container/ModalContainer";
+import HamburgerMenu from "@/components/element/HamburgerMenu";
+import styles from "@/components/layout/Header.module.css";
 
 function Header() {
   const queryClient = useQueryClient();
@@ -25,7 +23,7 @@ function Header() {
   const [userPhone, setUserPhone] = useState("");
   const [modalState, setModalState] = useState("");
   const [menue, setMenue] = useState(true);
-  const [isFexed,setIsFixed]=useState(false);
+  const [isSticky,setIsSticky]=useState(false);
   const fixedRange=[200,1700];
   const menueRef = useRef(null);
   const pathname = usePathname();
@@ -48,9 +46,9 @@ function Header() {
   useEffect(()=>{
     const handleScroll = () => {
       if (window.scrollY > fixedRange[0] && window.scrollY <fixedRange[1]) {
-        setIsFixed(true);
+        setIsSticky(true);
       } else {
-        setIsFixed(false);
+        setIsSticky(false);
       }
     };
 
@@ -71,7 +69,7 @@ function Header() {
     setModalState("hamburger");
   };
   return (
-    <header className={`${styles.header} ${isFexed ?styles.fixed:styles.absolute}`}>
+    <header className={`${styles.header} ${isSticky ?styles.sticky:styles.static}`}>
       <div className={styles.container}>
         <div className={styles.hamburgerIcon} onClick={hamburgerHandler}>
           <Hamburger />
@@ -127,7 +125,7 @@ function Header() {
             className={styles.userMenue}
             ref={menueRef}
             tabIndex={0}
-            onBlur={() => setMenue((menue) => menue)}
+            onBlur={() => setMenue((menue) =>! menue)}
           >
             <li>
               <span>

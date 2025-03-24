@@ -14,6 +14,7 @@ function NetworkError({ reset }) {
         width={555}
         height={555}
         alt="error-image"
+        priority={true}
       />
     </div>
   );

@@ -3,11 +3,11 @@ import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import { e2pFormat } from "@/utils/helper";
-import styles from "@/components/module/Tours.module.css"
 import MobileViewTours from "./MobileViewTours";
+import styles from "@/components/module/Tours.module.css"
 function Tours({ data }) {
   
-  console.log(data);
+  // console.log(data);
   return (
     <div className={styles.container}>
       <h2>همه تور ها</h2>
@@ -31,7 +31,7 @@ const TourItem = ({ tour }) => {
   // console.log({highFormat,middleFormat,monthName,periodTour});
   return (
     <li className={styles.card}>
-      <Image src={image} width={278.44} height={159} alt="tour-image" />
+      <Image src={image} width={278.44} height={159} alt="tour-image" quality={100}/>
       <div>
         <div className={styles.top}>
           <h3>{title}</h3>
