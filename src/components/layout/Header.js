@@ -29,6 +29,8 @@ function Header() {
   const pathname = usePathname();
   const router = useRouter();
   useEffect(() => {
+    if(pathname==="/")
+      document.title="تورینو | تورگردی متمایز";
     const data = getFromLocalStorage("mobile");
     if (data) {
       setUserPhone(data);

@@ -10,9 +10,9 @@ import EmptyCart from "@/components/module/EmptyCart";
 import RotatingLineLoader from "@/components/element/RotatingLineLoader";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { getSchema, profileSchema } from "@/schema/validation";
-import styles from"@/components/template/CartPage.module.css"
+import styles from "@/components/template/CartPage.module.css";
+import Head from "next/head";
 function CartPage() {
-
   const router = useRouter();
   const [birthDate, setBirthDate] = useState("");
   const { data: profile, isLoading: profileLoading } = useProfileData();
@@ -20,6 +20,9 @@ function CartPage() {
   const [createProfile, setCreateProfile] = useState(false);
   const profileInfo = profile?.data || "";
   const cartData = cart?.data || "";
+  useEffect(()=>{
+    document.title="تورینو - سبد خربد"
+  },[])
   useEffect(() => {
     if (!profileInfo.fullName) setCreateProfile(true);
     else setCreateProfile(false);
@@ -32,35 +35,36 @@ function CartPage() {
     reset,
   } = useForm({
     resolver: yupResolver(getSchema("personalInfo")),
-    mode:"all"
+    mode: "all",
   });
-  
 
   return (
-    <Wrapper page="cart">
-      {profileLoading || cartLoading ? <RotatingLineLoader /> : null}
-      {profileInfo && !profileLoading && (
-        <PersonalForm
-          register={register}
-          reset={reset}
-          control={control}
-          Controller={Controller}
-          profileInfo={profileInfo}
-          setBirthDate={setBirthDate}
-          errors={errors}
-        />
-      )}
-      {cartData && !cartLoading && (
-        <BuyTour
-          cartData={cartData}
-          watch={watch}
-          birthDate={birthDate}
-          createProfile={createProfile}
-          profileInfo={profileInfo}
-        />
-      )}
-      {!cartData && !cartLoading && <EmptyCart />}
-    </Wrapper>
+    <>
+      <Wrapper page="cart">
+        {profileLoading || cartLoading ? <RotatingLineLoader /> : null}
+        {profileInfo && !profileLoading && (
+          <PersonalForm
+            register={register}
+            reset={reset}
+            control={control}
+            Controller={Controller}
+            profileInfo={profileInfo}
+            setBirthDate={setBirthDate}
+            errors={errors}
+          />
+        )}
+        {cartData && !cartLoading && (
+          <BuyTour
+            cartData={cartData}
+            watch={watch}
+            birthDate={birthDate}
+            createProfile={createProfile}
+            profileInfo={profileInfo}
+          />
+        )}
+        {!cartData && !cartLoading && <EmptyCart />}
+      </Wrapper>
+    </>
   );
 }
 

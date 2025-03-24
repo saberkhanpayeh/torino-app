@@ -1,7 +1,20 @@
+"use client"
 import AuthProvider from "@/components/partials/provider/AuthProvider";
-import React, { Suspense } from "react";
+import { usePathname } from "next/navigation";
+import React, { Suspense, useEffect } from "react";
 
 function DashboardLayout({ children }) {
+  const pathname=usePathname()
+  useEffect(()=>{
+    let title="";
+    switch(pathname){
+      case "/dashboard/profile":title="داشبورد - پروفایل";break;
+      case "/dashboard/my-tours":title="داشبورد - تور های من";break;
+      case"/dashboard/transactions":title="داشبورد - تراکنش ها";break;
+      default : title="تورینو | تورگردی متمایز";
+    }
+    document.title=title;
+  },[pathname])
   return (
     <div>
       {/* <Suspense fallback={<p>...suspensLoading</p>}> */}
