@@ -57,6 +57,14 @@ function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   },[])
+
+  const loginHandler=()=>{
+    const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+       router.push("/login",{scroll:false});
+  }
   const logoutHandler = () => {
     localStorage.clear();
     setCookie("accessToken", "", 0);
@@ -109,14 +117,14 @@ function Header() {
         ) : (
           <>
             <div className={styles.loginBtn}>
-              <button onClick={() => router.push("/login")}>
+              <button onClick={loginHandler}>
                 <Profile />
                 <span>ورود | ثبت نام</span>
               </button>
             </div>
             <span
               className={styles.mobileLogin}
-              onClick={() => router.push("/login")}
+              onClick={loginHandler}
             >
               <Login />
             </span>

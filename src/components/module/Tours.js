@@ -12,7 +12,7 @@ function Tours({ data }) {
     <div className={styles.container}>
       <h2>همه تور ها</h2>
       <ul className={styles.cards}>
-        {data.map((tour) => (
+        {data?.map((tour) => (
           <TourItem key={tour.id} tour={tour} />
         ))}
       </ul>
@@ -28,9 +28,11 @@ const TourItem = ({ tour }) => {
   const { highFormat, middleFormat, monthName } =
     convertMiladiToJalali(startDate);
   const periodTour = getPeriodTour(startDate, endDate);
+  console.log({image});
   // console.log({highFormat,middleFormat,monthName,periodTour});
   return (
     <li className={styles.card}>
+
       <Image src={image} width={278.44} height={159} alt="tour-image" quality={100}/>
       <div>
         <div className={styles.top}>

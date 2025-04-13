@@ -11,10 +11,11 @@ body {
   margin: auto;
   font-family:var(--font-yekan-bakh);
   font-weight: 400;
+  
 
 }
 .no-scroll {
-  overflow: hidden;
+  
   height: 100vh;
 }
 

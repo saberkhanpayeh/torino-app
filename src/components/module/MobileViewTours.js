@@ -14,11 +14,11 @@ function MobileViewTours({ tours }) {
   return (
     <div className={styles.mobileContainer}>
       <ul className={styles.cards}>
-        {tours.slice(0, loadItem).map((tour) => (
+        {tours?.slice(0, loadItem).map((tour) => (
           <TourItem key={tour.id} tour={tour} />
         ))}
       </ul>
-      {loadItem < tours.length && (
+      {loadItem < tours?.length && (
         <button onClick={loadHandler}>
           مشاهده بیشتر
          <DownArrow/>
