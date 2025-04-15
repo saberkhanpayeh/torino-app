@@ -51,6 +51,10 @@
 .navbar ul li a:hover{
     color:#28A745;
 }
+.navbar ul li .active{
+    color:#28A745;
+}
+
 .loginBtn {
 /* display: none; */
 }

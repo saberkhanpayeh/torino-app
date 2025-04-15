@@ -91,10 +91,10 @@ function Header() {
           <nav>
             <ul>
               <li>
-                <Link href="">صفحه اصلی</Link>
+                <Link href="/" className={pathname === '/' ? styles.active : null}>صفحه اصلی</Link>
               </li>
               <li>
-                <Link href="">خدمات گردشگری</Link>
+                <Link href="/services"  className={pathname === '/services' ? styles.active : null}>خدمات گردشگری</Link>
               </li>
               <li>
                 <Link href="">درباره ما</Link>

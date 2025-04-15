@@ -7,7 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import styles from "@/components/element/HamburgerMenu.module.css";
 const routes = [
   { id: 1, title: "صفحه اصلی", route: "/", icon: <Home /> },
-  { id: 2, title: "خدمات گردشگری", route: "/khadamat", icon: <AirplaneSquare /> },
+  { id: 2, title: "خدمات گردشگری", route: "/services", icon: <AirplaneSquare /> },
   { id: 3, title: "درباره ما", route: "", icon: <Volume /> },
   { id: 4, title: "تماس باما", route: "", icon: <Phone /> },
 ];
