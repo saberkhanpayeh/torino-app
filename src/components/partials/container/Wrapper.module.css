@@ -2,12 +2,22 @@
     position: absolute;
     background-color: #f3f3f3;
     width: 1440px;
+    height: 100%;
     max-height: -webkit-fill-available;
     left: -126px;
     display: flex;
     justify-content: center;
 }
-
+/* .contactWrapper{
+    position: absolute;
+    background-color: #f3f3f3;
+    max-height: -webkit-fill-available;
+    left: -126px;
+    width: calc(100vw - 96px);
+    height: 100%;
+    display: flex;
+    justify-content: center; 
+} */
 @media (max-width:1000px){
     .cartWrapper{
         position: static;

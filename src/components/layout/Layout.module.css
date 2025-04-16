@@ -3,7 +3,7 @@
     width: calc(100% - 252px);
     margin: 0 auto;
     position: relative;
-    min-height: 545px;
+    min-height: calc(100vh - 74px);
 }
 @media (max-width:480px){
     .main{

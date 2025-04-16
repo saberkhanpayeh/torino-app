@@ -100,7 +100,7 @@ function Header() {
                 <Link href="">درباره ما</Link>
               </li>
               <li>
-                <Link href="">تماس باما</Link>
+                <Link href="/contact-us"  className={pathname === '/contact-us' ? styles.active : null}>تماس باما</Link>
               </li>
             </ul>
           </nav>
