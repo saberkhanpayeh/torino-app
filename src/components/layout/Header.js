@@ -97,7 +97,7 @@ function Header() {
                 <Link href="/services"  className={pathname === '/services' ? styles.active : null}>خدمات گردشگری</Link>
               </li>
               <li>
-                <Link href="">درباره ما</Link>
+                <Link href="/about-us" className={pathname === '/about-us' ? styles.active : null}>درباره ما</Link>
               </li>
               <li>
                 <Link href="/contact-us"  className={pathname === '/contact-us' ? styles.active : null}>تماس باما</Link>

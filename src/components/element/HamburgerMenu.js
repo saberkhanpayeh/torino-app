@@ -8,8 +8,8 @@ import styles from "@/components/element/HamburgerMenu.module.css";
 const routes = [
   { id: 1, title: "صفحه اصلی", route: "/", icon: <Home /> },
   { id: 2, title: "خدمات گردشگری", route: "/services", icon: <AirplaneSquare /> },
-  { id: 3, title: "درباره ما", route: "", icon: <Volume /> },
-  { id: 4, title: "تماس باما", route: "", icon: <Phone /> },
+  { id: 3, title: "درباره ما", route: "/about-us", icon: <Volume /> },
+  { id: 4, title: "تماس باما", route: "/contact-us", icon: <Phone /> },
 ];
 function HamburgerMenu() {
   const [selected, setSelected] = useState("");

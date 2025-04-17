@@ -1,6 +1,6 @@
 .container{
     padding-top: 30px;
-    margin-bottom: 100px;
+    padding-bottom: 100px;
     /* background-color: antiquewhite; */
     display: flex;
     flex-direction: column;
@@ -73,6 +73,7 @@
     display: grid;
     grid-template-columns: repeat(4,1fr);
     column-gap: 40px;
+    row-gap: 40px;
 
   
 }
@@ -113,4 +114,160 @@ align-items: center;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.6rem;
+}
+.cards li button{
+    display: none;
+    font-family: var(--font-vazirmatn-numbers);
+    font-weight: 400;
+    font-size: 13px;
+    color: #00000080;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    padding-right: 0;
+    background:none;
+    border: none;
+    direction: ltr;
+}
+.downIcon svg{
+    width:  12px !important;
+    height: 12px !important;
+}
+
+@media (max-width:768px){
+    .container{
+        padding-bottom: 50px;
+    }
+    .image{
+        width: 100%;
+    }
+    .image img{
+        width: 100%;
+        height: 200px;
+    
+    }
+    .title{
+        width: 62%;
+    }
+    .overly h2{
+        font-size: 24px;
+    }
+    .overly p{
+        font-size: 16px;
+        margin-top: 10px;
+        width: fit-content;
+    }
+    .cards {
+        column-gap: 20px;
+        grid-template-columns: repeat(2,1fr);
+      
+    }
+    .cards li{
+    padding: 15px 10px;
+        border: 1px solid #0000001F;
+        box-shadow: 0px 0px 2px 0px #00000040;
+    }
+    .cards .icon{
+        border: 3px solid #28A745;
+        width: 50px;
+        height: 50px;
+    }
+    .cards li svg{
+        width:35px;
+        height:35px;
+    }
+    .cards li div h3{
+        font-size: 16px;
+    }
+    .cards li div p{
+        font-size: 14px;
+    }
+    .cards li button{
+        display: flex;
+    }
+    .close{
+        display:block !important;
+        text-align: center;
+        padding: 8px;
+        background-color: #28A745 !important;
+        border-radius: 4px;
+        width: 50%;
+        color:white !important;
+        padding: 0 !important;
+        height: 30px;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+    .downIcon svg{
+        width:  12px !important;
+        height: 12px !important;
+    }
+}
+@media (min-width:481px) and (max-width:768px){
+    .container{
+        padding-bottom: 50px;
+    }
+   
+    .image img{
+        width: 100%;
+        height: calc(90vw / 2.6);
+    
+    }
+    .title{
+        width: 62%;
+    }
+    .overly h2{
+        font-size: 28px;
+    }
+    .overly p{
+        font-size: 20px;
+    }
+
+    .cards {
+        max-width: 520px;
+      
+    }
+
+    .cards .icon{
+        width: 60px;
+        height: 60px;
+    }
+    .cards li svg{
+        width:40px;
+        height:40px;
+    }
+    .cards li div h3{
+        font-size: 18px;
+    }
+    .cards li div p{
+        font-size: 14px;
+    }
+}
+@media (min-width:769px) and (max-width:1200px){
+    .image{
+        width: 100%;
+        max-width: 800px;
+    }
+    .image img{
+        width: 100%;
+        max-width: 800px;
+    
+    }
+    .title{
+        width: 50%;
+    }
+    .overly h2{
+        font-size: 30px;
+    }
+    .overly p{
+        width: fit-content;
+        font-size: 22px;
+        margin-top: 10px;
+    }
+    .cards li div h3{
+        font-size: 16px;
+    }
+    .cards li div p{
+        font-size: 12px;
+    }
 }

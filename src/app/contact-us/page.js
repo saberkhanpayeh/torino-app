@@ -1,8 +1,8 @@
 import ContactUsPage from "@/components/template/ContactUsPage";
 import React from "react";
 
-function ContactUs() {
-  return <ContactUsPage/>;
+function Contact() {
+  return <ContactUsPage />;
 }
 
-export default ContactUs;
+export default Contact;
