@@ -1,0 +1,194 @@
+.container{
+ background-color: antiquewhite;
+ position: relative;
+ padding-top: 115px;
+ padding-bottom: 50px;
+}
+.banner{
+    position: absolute;
+    top: 0;
+    left: -126px;
+    z-index: 10;
+    background-color: #28A745;
+    width: 100vw;
+    max-width: 1440px;
+    height: 200px;
+    z-index: -1;
+}
+.title{
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    border: 1px solid #00000033;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title h1{
+    font-size: 36px;
+    font-weight: 600;
+
+}
+.title p{
+    font-size: 22px;
+    color: #282828B2;
+}
+.description{
+    margin-top: 30px;
+}
+.description h2{
+    font-size: 30px;
+    font-weight: 600;
+}
+.description p{
+    font-family: var(--font-vazirmatn-numbers);
+    font-size: 18px;
+    margin-top: 20px;
+}
+.description p:nth-child(2){
+
+}
+.description p:last-child{
+    text-align:justify;
+}
+
+.values{
+    margin-top: 20px;
+}
+.values h2{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.list{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    
+    column-gap: 40px;
+    row-gap: 30px;
+
+}
+.list li {
+    padding: 15px 10px;
+    border: 1px solid #0000001F;
+    box-shadow: 0px 0px 2px 0px #00000040;
+}
+.list li div {
+    margin-bottom: 10px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.list li div span{
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #28A745;
+    border-radius: 50%;
+}
+.list li div h3{
+    font-weight: 600;
+    font-size: 20px;
+}
+.list li p{
+    text-align: justify;
+    font-family: var(--font-vazirmatn-numbers);
+    font-size: 16px;
+
+}
+
+@media (max-width:480px){
+    .banner{
+        left: -32px;
+        right: -32px;
+        height: 100px;
+    }
+    .container{
+        padding-top: 45px;
+       }
+       .title{
+           padding: 20px 0;
+       }
+       .title h1{
+           font-size: 28px;
+       
+       }
+       .title p{
+           font-size: 16px;
+       }
+       .description h2{
+           font-size: 24px;
+       }
+       .description p{
+           font-size: 14px;
+       }
+
+       .values h2{
+           font-size: 24px;
+       }
+       
+       .list{
+           grid-template-columns: repeat(1,1fr);
+           row-gap: 25px;
+
+       
+       }
+       .list li div h3{
+           font-size: 16px;
+       }
+       .list li p{
+           font-size: 14px;
+       
+       }
+}
+@media(min-width:481px) and (max-width:768px){
+    .banner{
+        left: -64px;
+        right: -64px;
+        height: 150px;
+    }
+    .container{
+        padding-top: 75px;
+       }
+       .title{
+           padding: 40px 20px;
+       }
+       .title h1{
+           font-size: 32px;
+       
+       }
+       .title p{
+           font-size: 18px;
+       }
+       .description h2{
+           font-size: 26px;
+       }
+       .description p{
+           font-size: 16px;
+       }
+       .values h2{
+           font-size: 26px;
+       }
+       
+       .list{
+           grid-template-columns: repeat(2,1fr);
+           row-gap: 30px;
+           column-gap: 20px;
+
+       
+       }
+       .list li div h3{
+           font-size: 18px;
+       }
+       .list li p{
+           font-size: 16px;
+       
+       }
+}
+@media(min-width:769px) and (max-width:1439px){
+    .banner{
+        left: -96px;
+        right: -96px;
+    }
+}
