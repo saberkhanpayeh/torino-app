@@ -28,9 +28,9 @@ function Capacity({ tourId }) {
       {!isLoading ? (
         <>
           {tourData.availableSeats > 0 ? (
-            <sapn className={styles.available}>
+            <span className={styles.available}>
               {tourData.availableSeats} جایگاه خالی
-            </sapn>
+            </span>
           ) : (
             <span className={styles.notAvailable}>اتمام ظرفیت!</span>
           )}

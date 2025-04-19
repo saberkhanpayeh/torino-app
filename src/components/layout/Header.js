@@ -16,6 +16,7 @@ import Login from "@/components/icons/mobile-icons/Login";
 import ModalContainer from "@/components/partials/container/ModalContainer";
 import HamburgerMenu from "@/components/element/HamburgerMenu";
 import styles from "@/components/layout/Header.module.css";
+import CartAlert from "../element/cartAlert";
 
 function Header() {
   const queryClient = useQueryClient();
@@ -108,11 +109,12 @@ function Header() {
         {isLogin ? (
           <div
             className={styles.userInfo}
-            onClick={() => setMenue((menue) => !menue)}
           >
-            <span><Profile /></span>
+            <CartAlert/>
+            <div className={styles.menue}onClick={() => setMenue((menue) => !menue)}>
             <p>{userPhone}</p>
             <DownArrow />
+            </div>
           </div>
         ) : (
           <>

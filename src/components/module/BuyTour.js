@@ -2,7 +2,7 @@ import { getPeriodTour } from "@/utils/convertDate";
 import React from "react";
 import { useCreateOrder, useEditProfile } from "@/services/mutations";
 import { splitByFirstSpace } from "@/utils/helper";
-import { useInvalidateQuery } from "@/services/queries";
+import { forceRefetch, useForceRefetch, useInvalidateQuery } from "@/services/queries";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { toastOptions } from "@/constant/toast";
@@ -12,6 +12,7 @@ function BuyTour({ cartData, watch, createProfile, profileInfo }) {
   const { mutate: mutateProfile, isPending: profilePending } = useEditProfile();
   const { mutate: mutateOrder, isPending: orderPending } = useCreateOrder();
   const invalidateQueries = useInvalidateQuery();
+  const refetchQuery=useForceRefetch();
   const {
     id,
     origin,
@@ -76,6 +77,10 @@ function BuyTour({ cartData, watch, createProfile, profileInfo }) {
     mutateOrder(data, {
       onSuccess: (data) => {
         console.log(data?.data?.message);
+        invalidateQueries(["basket-item"]);
+        invalidateQueries(["profile-info"]);
+        // refetchQuery(["basket-item"]);
+        // refetchQuery(["profile-info"]);
         //show toast order has successfully
         //push to transactions
         toast.success("تور مورد نظر با موفقیت برای شما رزرو شد", {
@@ -83,8 +88,6 @@ function BuyTour({ cartData, watch, createProfile, profileInfo }) {
           autoClose: 4000,
         });
         setTimeout(()=>{
-          invalidateQueries(["basket-item"]);
-          invalidateQueries(["profile-info"]);
           router.push("/dashboard/transactions");
         },1000)
  

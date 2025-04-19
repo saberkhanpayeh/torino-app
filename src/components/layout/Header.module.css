@@ -100,7 +100,16 @@
     align-items: center;
     gap: 4px;
 }
-.userInfo p{
+.userInfo .menue{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+.menue svg{
+cursor: pointer;
+}
+.menue p{
     font-family: var(--font-vazirmatn-numbers);
     font-weight: 500;
     font-size: 18px;

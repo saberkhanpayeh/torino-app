@@ -13,12 +13,23 @@ const useProfileData = (queryOptions = null) => {
 };
 
 const useCartData = (queryOptions = null) => {
-  const sendData = () => {
-    return api.get("basket");
+  const sendData = async() => {
+    try {
+      const response = await api.get('basket');
+      return response;
+    } catch (error) {
+      // console.log("error: ",error);
+      if (error.message==="سبد خرید شما خالی است") {
+        
+        //this code when run that the basket is Empty
+        return null;  
+      }
+    }
   };
   return useQuery({
     queryKey: ["basket-item"],
     queryFn: sendData,
+    queryOptions
   });
 };
 
@@ -44,15 +55,28 @@ const useTourDetailsData=(id,queryOptions=null)=>{
 const useInvalidateQuery = () => {
   const queryClient = useQueryClient();
 
-  const invalidateQuery = (queryKey) => {
+  const invalidateQuery = (queryKey,options={}) => {
     if (!queryKey) {
       console.error("Query key is required to invalidate the query.");
       return;
     }
-    queryClient.invalidateQueries(queryKey);
+    queryClient.invalidateQueries(queryKey,options);
   };
 
   return invalidateQuery;
+};
+const useForceRefetch = () => {
+  const queryClient = useQueryClient();
+
+  const refetchQuery = (queryKey) => {
+    if (!queryKey) {
+      console.error("Query key is required to invalidate the query.");
+      return;
+    }
+    queryClient.refetchQueries(queryKey);
+  };
+
+  return refetchQuery;
 };
 
 export {
@@ -61,5 +85,6 @@ export {
   useCartData,
   useTransactionData,
   useMyToursList,
-  useTourDetailsData
+  useTourDetailsData,
+  useForceRefetch
 };
