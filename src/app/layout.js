@@ -17,6 +17,8 @@ export const metadata = {
   author:"Mohammad Saber Khanpayeh",
   description: "تورینو ارائه‌دهنده خدمات رزرو تورهای مسافرتی داخلی و خارجی به‌صورت آنلاین، با پشتیبانی ۲۴ ساعته و پیشنهادهای ویژه سفر.",
   keywords: "رزرو تور آنلاین، خرید اینترنتی تور، تورهای داخلی و خارجی، سفرهای تفریحی، بهترین تورهای گردشگری، رزرو هتل و اقامتگاه، برنامه سفر، گردشگری بین‌المللی، تور یک روزه، مقاصد گردشگری محبوب",
+  themeColor: "#28A745",
+  manifest: "/manifest.json",
   icons: {
     icon: "/favicon/icon.ico",
     shortcut: "/favicon/icon.png",
@@ -38,7 +40,7 @@ export default function RootLayout({ children,auth }) {
         <Layout>{children}{auth??null}
           <ToastContainer/>
         </Layout>
-        <ReactQueryDevtools/>
+        {/* <ReactQueryDevtools/> */}
         </ReactQueryProvider>
       </body>
     </html>

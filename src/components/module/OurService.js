@@ -13,6 +13,7 @@ function OurService() {
           width={780}
           height={300}
           alt="service-image"
+          priority
         />
         <div className={styles.overly}>
           <div className={styles.title}>
@@ -24,7 +25,7 @@ function OurService() {
 
       <ul className={styles.cards}>
         {services?.map((service) => (
-          <OurServiceItem id={service.id} data={service} />
+          <OurServiceItem key={service.id} data={service} />
         ))}
       </ul>
     </div>
