@@ -3,10 +3,17 @@ import React from "react";
 import { useTransactionData } from "@/services/queries";
 import { shortenTransactionId } from "@/utils/helper";
 import styles from "@/components/module/UserTransaction.module.css";
+import RotatingLineLoader from "../element/RotatingLineLoader";
 function UserTransaction() {
   const { data, isLoading } = useTransactionData();
   const transactions = data?.data || [];
   // console.log(transactions);
+  if (!data && isLoading)
+    return (
+      <div className={styles.tableContainer}>
+        <RotatingLineLoader />
+      </div>
+    );
   return (
     <div className={styles.tableContainer}>
       {transactions.length === 0 && !isLoading && (
@@ -38,7 +45,10 @@ function UserTransaction() {
                 </td>
                 <td>{item.amount}</td>
                 <td>ثبت نام در تور گردشگری</td>
-                <td><span className={styles.textId}>سفارش </span>{shortenTransactionId(item.id)}</td>
+                <td>
+                  <span className={styles.textId}>سفارش </span>
+                  {shortenTransactionId(item.id)}
+                </td>
               </tr>
             ))}
           </tbody>

@@ -7,19 +7,28 @@ import { shortenTransactionId } from "@/utils/helper";
 import { vehicleType } from "@/constant/transport";
 import { getDestinationCity, getOriginCity } from "@/constant/cities";
 import styles from "@/components/module/MyToursList.module.css";
+import RotatingLineLoader from "../element/RotatingLineLoader";
 function MyToursList() {
-  const { data, isLoading,isError } = useMyToursList();
+  const { data, isLoading, isError } = useMyToursList();
   const tours = data?.data || [];
   // if(isError)return<NetworkError/>
+  if (!data && isLoading) {
+    return (
+      <div className={styles.list}>
+        <RotatingLineLoader />
+      </div>
+    );
+  }
   return (
     <div className={styles.list}>
-      {
-        tours?.length===0 && !isLoading ? <div className={styles.notFound}><p>سابقه ای برای تور های شما یافت نشد!</p></div>:null
-      }
-      { tours?.length > 0 && !isLoading ? tours.map((tour) => (
-        <ToursItem tour={tour} key={tour.id} />
-      )):null}
-      
+      {tours?.length === 0 && !isLoading ? (
+        <div className={styles.notFound}>
+          <p>سابقه ای برای تور های شما یافت نشد!</p>
+        </div>
+      ) : null}
+      {tours?.length > 0 && !isLoading
+        ? tours.map((tour) => <ToursItem tour={tour} key={tour.id} />)
+        : null}
     </div>
   );
 }
@@ -38,9 +47,9 @@ function ToursItem({ tour }) {
   } = tour;
   const { highFormat: goneDate } = convertMiladiToJalali(startDate);
   const { highFormat: returnDate } = convertMiladiToJalali(endDate);
-  const vehicle=vehicleType(fleetVehicle)
-  const originCity=getOriginCity(origin.name);
-  const destinationCity=getDestinationCity(destination.name);
+  const vehicle = vehicleType(fleetVehicle);
+  const originCity = getOriginCity(origin.name);
+  const destinationCity = getDestinationCity(destination.name);
   //console.log(getTourStatus(endDate));
 
   return (
@@ -51,7 +60,11 @@ function ToursItem({ tour }) {
             <SunFog />
             <p className={styles.text1}>{title}</p>
           </li>
-          <li className={`${styles.vehicle} ${fleetVehicle==="airplane" && styles.airplane}`}>
+          <li
+            className={`${styles.vehicle} ${
+              fleetVehicle === "airplane" && styles.airplane
+            }`}
+          >
             {vehicle.icon}
             <p className={styles.text1}>سفر با {vehicle.label}</p>
           </li>

@@ -14,6 +14,7 @@ import Capacity from "./Capacity";
 import { getOriginCity } from "@/constant/cities";
 import { vehicleType } from "@/constant/transport";
 import styles from "@/components/module/TourDetails.module.css"
+import Breadcrumbs from "../element/Breadcrumbs";
 function TourDetails({ data }) {
     const {id,origin,startDate,endDate,title,fleetVehicle,price,capacity,image}=data
     const periodTour=getPeriodTour(startDate,endDate);
@@ -23,6 +24,8 @@ function TourDetails({ data }) {
     const originCity=getOriginCity(origin.name);
     const vehicle=vehicleType(fleetVehicle);
   return (
+   <div className={styles.wrap}>
+    <Breadcrumbs data={{tourName:title,page:"tour-details"}}/>
     <div className={styles.container}>
       <div className={styles.top}>
         <Image  id="tour-image" src={image} width={397} height={265} alt="tour-image" priority={true}/>
@@ -70,6 +73,7 @@ function TourDetails({ data }) {
           </p>
 
           </div>
+    </div>
     </div>
   );
 }

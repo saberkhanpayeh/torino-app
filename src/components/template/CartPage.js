@@ -12,6 +12,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { getSchema, profileSchema } from "@/schema/validation";
 import styles from "@/components/template/CartPage.module.css";
 import Head from "next/head";
+import Breadcrumbs from "../element/Breadcrumbs";
 function CartPage() {
   const router = useRouter();
   const [birthDate, setBirthDate] = useState("");
@@ -20,9 +21,9 @@ function CartPage() {
   const [createProfile, setCreateProfile] = useState(false);
   const profileInfo = profile?.data || "";
   const cartData = cart?.data || "";
-  useEffect(()=>{
-    document.title="تورینو - سبد خربد"
-  },[])
+  useEffect(() => {
+    document.title = "تورینو - سبد خربد";
+  }, []);
   useEffect(() => {
     if (!profileInfo.fullName) setCreateProfile(true);
     else setCreateProfile(false);
@@ -42,25 +43,34 @@ function CartPage() {
     <>
       <Wrapper page="cart">
         {profileLoading || cartLoading ? <RotatingLineLoader /> : null}
-        {profileInfo && !profileLoading && (
-          <PersonalForm
-            register={register}
-            reset={reset}
-            control={control}
-            Controller={Controller}
-            profileInfo={profileInfo}
-            setBirthDate={setBirthDate}
-            errors={errors}
-          />
-        )}
-        {cartData && !cartLoading && (
-          <BuyTour
-            cartData={cartData}
-            watch={watch}
-            birthDate={birthDate}
-            createProfile={createProfile}
-            profileInfo={profileInfo}
-          />
+        {profileInfo && !profileLoading && cartData && !cartLoading && (
+          <div className={styles.container}>
+            {cartData && !cartLoading && (
+              <Breadcrumbs data={{ page: "cart", tourName: cartData?.title }} />
+            )}
+            <div className={styles.main}>
+              {profileInfo && !profileLoading && (
+                <PersonalForm
+                  register={register}
+                  reset={reset}
+                  control={control}
+                  Controller={Controller}
+                  profileInfo={profileInfo}
+                  setBirthDate={setBirthDate}
+                  errors={errors}
+                />
+              )}
+              {cartData && !cartLoading && (
+                <BuyTour
+                  cartData={cartData}
+                  watch={watch}
+                  birthDate={birthDate}
+                  createProfile={createProfile}
+                  profileInfo={profileInfo}
+                />
+              )}
+            </div>
+          </div>
         )}
         {!cartData && !cartLoading && <EmptyCart />}
       </Wrapper>

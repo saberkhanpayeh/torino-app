@@ -2,7 +2,7 @@
 import React, { useEffect, useMemo, useReducer, useRef, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useInvalidateQuery, useProfileData } from "@/services/queries";
-import { useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { splitByFirstSpace, validationSchemas } from "@/utils/helper";
 import { useEditProfile } from "@/services/mutations";
 import InputBirthdate from "../element/InputBirthdate";

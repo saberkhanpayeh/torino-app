@@ -9,7 +9,7 @@ function Tours({ data }) {
   
   // console.log(data);
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="main-tours">
       <h2>همه تور ها</h2>
       <ul className={styles.cards}>
         {data?.map((tour) => (

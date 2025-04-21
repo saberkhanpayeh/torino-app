@@ -11,7 +11,7 @@ function CartAlert() {
     refetchOnWindowFocus: true,
     staleTime: 0,
   });
-  console.log(data)
+  // console.log(data)
 const tourData=data?.data||"";
 const clickHandler=()=>{
     //router.push("cart?order&tourId=b2c3d4e5-f678-90ab-cdef-234567890abc")
@@ -31,7 +31,7 @@ const clickHandler=()=>{
       </span>
     );
   return (
-    <button className={styles.btn} aria-label="Chat on WhatsApp" onClick={clickHandler}>
+    <button className={styles.btn}  onClick={clickHandler}>
       <div className={styles.notif}>
         <div className={styles.inner}>
           <span className={styles.ping}></span>

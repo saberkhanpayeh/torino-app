@@ -1,3 +1,7 @@
+.wrap{
+    display: flex;
+    flex-direction: column
+}
 .container{
     height: fit-content;
     margin-top: 36px;
@@ -535,5 +539,11 @@
 @media (min-width:1201) and (max-width:1439px){
     .footer li{
         padding: 0 21px 10px 23px ;
+    }
+}
+
+@media (min-width:481px) and (max-width:769px) {
+    .wrap{
+        width: 100%;
     }
 }
