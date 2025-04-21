@@ -3,7 +3,7 @@ import styles from "@/components/module/WhyTorino.module.css";
 import Slider from "./Slider";
 function WhyTorino() {
   return (
-    <div className={styles.continer}>
+    <div className={styles.continer} id="why-torino">
       <article className={styles.detail}>
         <div className={styles.title}>
           <span className={styles.icon}>؟</span>

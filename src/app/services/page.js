@@ -1,10 +1,11 @@
-import ServicesPage from '@/components/template/ServicesPage'
-import React from 'react'
+import ServicesPage from "@/components/template/ServicesPage";
+import React from "react";
 
+export const metadata= {
+  title: "خدمات ما",
+};
 function Services() {
-  return (
-    <ServicesPage/>
-  )
+  return <ServicesPage />;
 }
 
-export default Services
+export default Services;

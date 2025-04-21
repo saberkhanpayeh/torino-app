@@ -11,9 +11,9 @@ function Footer() {
         <article className={styles.torino}>
           <h3>تورینو</h3>
           <ul>
-            <li><Link href="/">درباره ما</Link></li>
-            <li><Link href="/">تماس با ما</Link></li>
-            <li><Link href="/">چرا تورینو</Link></li>
+            <li><Link href="/about-us">درباره ما</Link></li>
+            <li><Link href="/contact-us">تماس با ما</Link></li>
+            <li><Link href="/#why-torino">چرا تورینو</Link></li>
             <li><Link href="/">بیمه مسافرتی</Link></li>
           </ul>
         </article>
