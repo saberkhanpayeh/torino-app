@@ -84,7 +84,7 @@
   @media(min-width:481px) and (max-width:768px){
     .sliderContainer {
       width: 76.4%;
-      height: calc(284px + 50vh);
+      height: calc(284px + 30vh);
       margin-right: 0;
       max-height: 580px;
     }

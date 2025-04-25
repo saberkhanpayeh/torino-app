@@ -26,7 +26,7 @@ function CheckOtpModal({
   const [input, setInput] = useState();
   const [timer, setTimer] = useState({ minutes: 0, second: 0, stop: false });
   const [resetTimer, setResetTimer] = useState(false);
-  const { isPending: checkOtpPending, mutate: mutateCheck } = useCheckOtp();
+  const { isPending: checkOtpPending, mutate: mutateCheck,isLoading } = useCheckOtp();
   const { isPending: sendOtpPending, mutate: mutateSend } = useSendOtp();
 
   useEffect(() => {
@@ -120,8 +120,8 @@ function CheckOtpModal({
         />
         <TimerOtp timer={timer} />
         {!timer.stop ? (
-          <Button onClick={loginHandler}>
-            {checkOtpPending ? "...ورود" : "ورود به تورینو"}
+          <Button onClick={loginHandler} disabled={isLoading}>
+            {isLoading ? "ورود..." : "ورود به تورینو"}
           </Button>
         ) : (
           <Button onClick={() => resendHandler(phone)}>ارسال مجدد کد</Button>

@@ -28,7 +28,7 @@ const TourItem = ({ tour }) => {
   const { highFormat, middleFormat, monthName } =
     convertMiladiToJalali(startDate);
   const periodTour = getPeriodTour(startDate, endDate);
-  console.log({image});
+  // console.log({image});
   // console.log({highFormat,middleFormat,monthName,periodTour});
   return (
     <li className={styles.card}>

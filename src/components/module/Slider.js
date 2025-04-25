@@ -60,7 +60,7 @@ function Slider() {
     const handleResize = () => {
       const newWidth = getWidth();
       if (newWidth <= 480) {
-        setPivot(35);
+        setPivot(40);
       } else if (newWidth > 480 && newWidth <= 768) {
         setPivot(55);
       } else {

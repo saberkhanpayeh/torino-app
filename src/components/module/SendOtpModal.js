@@ -12,7 +12,7 @@ import { p2eFormat } from "@/utils/helper";
 import { mobileSchema } from "@/schema/validation";
 import styles from "@/components/module/SendOtpModal.module.css";
 function SendOtpModal({ setModalState, setPhone }) {
-  const { isPending, mutate } = useSendOtp();
+  const { isPending,isLoading, mutate } = useSendOtp();
   const router = useRouter();
   const {
     register,
@@ -62,8 +62,8 @@ function SendOtpModal({ setModalState, setPhone }) {
           <label htmlFor="mobile">شماره موبایل خود را وارد کنید</label>
           <input {...register("mobile")} placeholder="0933***3319" />
           {errors?.mobile && <span className={styles.error}>*{errors?.mobile.message}</span>}
-          <Button type="submit" disabled={isSubmitting}>
-            {isSubmitting ? "در حال ارسال کد..." : "ارسال کد تایید"}
+          <Button type="submit" disabled={isLoading}>
+            {isLoading ? "در حال ارسال کد..." : "ارسال کد تایید"}
           </Button>
         </form>
       </div>
